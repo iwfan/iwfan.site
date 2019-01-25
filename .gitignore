@@ -1,3 +1,9 @@
+# Build directory
+public/
+
+# Gatsby cache
+.cache/
+
 # Logs
 logs
 *.log
