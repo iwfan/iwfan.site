@@ -1,8 +1,16 @@
-import Happy2019 from '@svg/happy_2019.svg';
+import styled from '@emotion/styled';
+import Banner from 'components/Banner';
+import Header from 'components/Header';
 import * as React from 'react';
+
+const Wrapper = styled.div`
+  width: 900px;
+  margin: 0 auto;
+`;
+
 export default () => (
-  <div>
-    <h1>首页</h1>
-    <img src={Happy2019} alt="" />
-  </div>
+  <Wrapper>
+    <Header />
+    <Banner />
+  </Wrapper>
 );
