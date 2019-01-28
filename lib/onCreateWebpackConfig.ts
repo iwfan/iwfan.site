@@ -1,5 +1,5 @@
 const path = require('path');
-const resolve: (dir: string) => string = dir => path.join(__dirname, dir);
+const resolve: (dir: string) => string = dir => path.join(__dirname, '..', dir);
 const onCreateWebpackConfig = (
   // @ts-ignore
   { stage, actions, plugins, getConfig, rules },
@@ -7,7 +7,6 @@ const onCreateWebpackConfig = (
   { rule: ruleProps = {} },
 ) => {
   const isDevelop = stage === `develop` || stage === `develop-html`;
-
   const webpackConfig = {
     resolve: {
       alias: {

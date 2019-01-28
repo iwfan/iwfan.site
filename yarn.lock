@@ -4665,6 +4665,14 @@ gatsby-link@^2.0.9:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
+gatsby-plugin-catch-links@^2.0.9:
+  version "2.0.9"
+  resolved "http://registry.npm.taobao.org/gatsby-plugin-catch-links/download/gatsby-plugin-catch-links-2.0.9.tgz#1fd5bf02a7f997f7b36c4e0c28b689f0c3d92726"
+  integrity sha1-H9W/Aqf5l/ezbE4MKLaJ8MPZJyY=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    escape-string-regexp "^1.0.5"
+
 gatsby-plugin-emotion@^4.0.1:
   version "4.0.1"
   resolved "http://registry.npm.taobao.org/gatsby-plugin-emotion/download/gatsby-plugin-emotion-4.0.1.tgz#ff0072b640ce9b4902fc6e08add310e1cdf3cb51"
@@ -4687,6 +4695,13 @@ gatsby-plugin-page-creator@^2.0.5:
     micromatch "^3.1.10"
     parse-filepath "^1.0.1"
     slash "^1.0.0"
+
+gatsby-plugin-react-helmet@^3.0.5:
+  version "3.0.5"
+  resolved "http://registry.npm.taobao.org/gatsby-plugin-react-helmet/download/gatsby-plugin-react-helmet-3.0.5.tgz#eaeca7c83c6c273d31454598949dd0d3b4ff5f31"
+  integrity sha1-6uynyDxsJz0xRUWYlJ3Q07T/XzE=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 gatsby-plugin-typescript@^2.0.3:
   version "2.0.3"
