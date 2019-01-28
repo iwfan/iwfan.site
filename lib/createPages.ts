@@ -6,7 +6,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
 
   const allMarkdown = await graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
         edges {
           node {
             fields {
@@ -17,6 +17,9 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
       }
     }
   `);
+  if (allMarkdown.errors) {
+    throw new Error(allMarkdown.errors);
+  }
   // @ts-ignore
   allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
     const { slug } = edge.node.fields;
@@ -26,7 +29,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
 
     // type safe `createPage` call
     createPage({
-      component: resolve(__dirname, '../src/templates/index.tsx'),
+      component: resolve(__dirname, '../src/templates/blog-post.tsx'),
       context: {
         slug,
       },
@@ -34,3 +37,5 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
     });
   });
 };
+
+module.exports = createPages;
