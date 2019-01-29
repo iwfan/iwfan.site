@@ -18,13 +18,17 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
-    "gatsby": "^2.0.97",
+    "gatsby": "^2.0.103",
+    "gatsby-image": "^2.0.29",
     "gatsby-plugin-catch-links": "^2.0.9",
     "gatsby-plugin-emotion": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-sharp": "^2.0.18",
     "gatsby-plugin-typescript": "^2.0.3",
     "gatsby-source-filesystem": "^2.0.17",
     "gatsby-transformer-remark": "^2.2.0",
+    "gatsby-transformer-sharp": "^2.1.12",
+    "polished": "^2.3.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0"
