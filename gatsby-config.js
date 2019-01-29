@@ -41,6 +41,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `static`,
+        path: `${__dirname}/static/`,
+        ignore: [`**/\.*`],
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: { plugins: [] },
     },
