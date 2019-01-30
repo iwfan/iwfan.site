@@ -8,8 +8,8 @@ const GlobalStyle = css`
     font-size: 12px;
   }
   *,
-  *:before,
-  *:after {
+  *::before,
+  *::after {
     box-sizing: inherit;
   }
   body {
@@ -23,6 +23,21 @@ const GlobalStyle = css`
     font-style: normal;
     text-rendering: optimizeLegibility;
     background: #fff;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
+  ::selection {
+    background-color: #38d39f;
+    color: #3f3d56;
   }
 `;
 

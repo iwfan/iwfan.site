@@ -26,7 +26,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
             fields {
               slug
             }
-            excerpt(format: HTML, pruneLength: 200, truncate: true)
+            # excerpt(format: HTML, pruneLength: 200, truncate: true)
             tableOfContents
             headings {
               value
