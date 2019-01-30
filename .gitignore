@@ -4,6 +4,9 @@ public/
 # Gatsby cache
 .cache/
 
+# Content directory
+content/
+
 # Logs
 logs
 *.log

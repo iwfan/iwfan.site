@@ -9,15 +9,7 @@ const Banner = () => (
       text-align: center;
     `}
   >
-    <img
-      css={css`
-        height: 100%;
-        line-height: 0;
-        margin: 0 auto;
-      `}
-      src={Happy2019}
-      alt="happy 2019"
-    />
+    <Happy2019 />
   </div>
 );
 
