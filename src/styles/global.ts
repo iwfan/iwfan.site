@@ -22,11 +22,24 @@ const GlobalStyle = css`
     font-weight: 400;
     font-style: normal;
     text-rendering: optimizeLegibility;
-    background: #fff;
+    background: #f5f8fc;
   }
-  ul {
+  figure,
+  figcaption,
+  p,
+  ul,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 0;
     padding: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   .icon {
     width: 1em;

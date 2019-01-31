@@ -5,7 +5,7 @@ public/
 .cache/
 
 # Content directory
-content/
+/content/
 
 # Logs
 logs

@@ -1,3 +1,12 @@
+interface IErrorLocationData {
+  line: number;
+  column: number;
+}
+interface IErrorData {
+  message: string;
+  locaionis: IErrorLocationData[];
+  paths: Array<string | number>;
+}
 interface IAuthorData {
   name?: string;
   bio?: string;
