@@ -57,7 +57,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
 
     // type safe `createPage` call
     createPage({
-      component: resolve(__dirname, '../src/templates/blog-post.tsx'),
+      component: resolve(__dirname, '../templates/blog-post.tsx'),
       context: {
         slug,
       },

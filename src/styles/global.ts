@@ -15,14 +15,11 @@ const GlobalStyle = css`
   body {
     overflow-x: hidden;
     overflow-y: scroll;
-    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    line-height: 2;
-    font-weight: 400;
-    font-style: normal;
+    font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
+      Helvetica Neue, Arial, sans-serif;
     text-rendering: optimizeLegibility;
-    background: #f5f8fc;
+    /* background: #f5f8fc; */
+    /* background-color: #eff0f6; */
   }
   figure,
   figcaption,
@@ -51,6 +48,12 @@ const GlobalStyle = css`
   ::selection {
     background-color: #38d39f;
     color: #3f3d56;
+  }
+  .container {
+    width: 100%;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 

@@ -1,8 +1,14 @@
 import { graphql, Link, StaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import * as React from 'react';
 import styles from './styles';
 
 interface IHeaderQueryData {
+  logo: {
+    childImageSharp: {
+      fixed: any;
+    };
+  };
   site: {
     siteMetadata: {
       title: string;
@@ -14,6 +20,13 @@ interface IHeaderQueryData {
 
 const query = graphql`
   query HeaderQuery {
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fixed(width: 50, height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     site {
       siteMetadata {
         title
@@ -31,6 +44,7 @@ const Header: React.SFC<any> = () => (
   <StaticQuery query={query}>
     {(data: IHeaderQueryData) => {
       const {
+        logo,
         site: {
           siteMetadata: { title, menus },
           pathPrefix: path,
@@ -41,11 +55,12 @@ const Header: React.SFC<any> = () => (
         <header css={styles}>
           <div className="brand">
             <a href={path ? path : '/'}>
-              <div className="brand__logo">
-                <svg className="icon" aria-hidden="true">
-                  <use xlinkHref="#icon-ibeidong_com_lu" />
-                </svg>
-              </div>
+              <Img
+                className="brand__logo"
+                fixed={logo.childImageSharp.fixed}
+                alt={title}
+                title={title}
+              />
               <div className="brand__title">
                 <h1 className="brand__title--primary">{title}</h1>
                 <h2 className="brand__title--secondary">- Zi莱卷的Blog</h2>

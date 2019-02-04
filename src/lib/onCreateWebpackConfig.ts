@@ -10,9 +10,8 @@ const onCreateWebpackConfig = (
   const webpackConfig = {
     resolve: {
       alias: {
-        '@': resolve('src'),
-        '@svg': resolve('static/svg'),
-        components: resolve('src/components'),
+        '@': resolve('./'),
+        '@svg': resolve('../static/svg'),
       },
     },
   };

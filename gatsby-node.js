@@ -3,6 +3,6 @@
 require('source-map-support').install();
 require('ts-node').register();
 
-exports.onCreateWebpackConfig = require('./lib/onCreateWebpackConfig');
-exports.onCreateNode = require('./lib/onCreateNode');
-exports.createPages = require('./lib/createPages');
+exports.onCreateWebpackConfig = require('./src/lib/onCreateWebpackConfig');
+exports.onCreateNode = require('./src/lib/onCreateNode');
+exports.createPages = require('./src/lib/createPages');

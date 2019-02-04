@@ -40,6 +40,14 @@ module.exports = {
         ignore: [`**/\.*`],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `static`,
+        path: `${__dirname}/static/`,
+        ignore: [`**/\.*`],
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
