@@ -46,7 +46,7 @@ const query = graphql`
           fields {
             slug
           }
-          excerpt(format: HTML, pruneLength: 200, truncate: true)
+          excerpt(format: PLAIN, pruneLength: 200, truncate: true)
           timeToRead
           wordCount {
             paragraphs
@@ -90,7 +90,7 @@ const renderContentList = (data: IAricleListData) => {
     // },
   } = data;
   return (
-    <main css={styles}>
+    <main>
       {/* {renderErrors(errors)} */}
       {totalCount > 0 && renderArticleList(list)}
     </main>

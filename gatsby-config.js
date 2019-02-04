@@ -28,7 +28,8 @@ module.exports = {
   pathPrefix: '/',
   plugins: [
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-emotion`,
+    // `gatsby-plugin-emotion`,
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-react-svg`,

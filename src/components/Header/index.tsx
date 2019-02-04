@@ -1,7 +1,6 @@
 import { graphql, Link, StaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 import * as React from 'react';
-import styles from './styles';
+import { MainTitle, SiteBrand, SiteLogo, StylesContainer, SubTitle, TitleWrap } from './styles';
 
 interface IHeaderQueryData {
   logo: {
@@ -52,32 +51,27 @@ const Header: React.SFC<any> = () => (
       } = data;
       console.log(title, path, menus);
       return (
-        <header css={styles}>
-          <div className="brand">
-            <a href={path ? path : '/'}>
-              <Img
-                className="brand__logo"
-                fixed={logo.childImageSharp.fixed}
-                alt={title}
-                title={title}
-              />
-              <div className="brand__title">
-                <h1 className="brand__title--primary">{title}</h1>
-                <h2 className="brand__title--secondary">- Zi莱卷的Blog</h2>
-              </div>
-            </a>
-          </div>
-          <nav className="nav">
-            <ul className="nav__container">
-              {menus.map(item => (
-                <li key={item.path} className="nav__item">
-                  <Link to={item.path} activeClassName={'nav__item--active'}>
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        <header>
+          <StylesContainer>
+            <SiteBrand href={path ? path : '/'} title={title}>
+              <SiteLogo fixed={logo.childImageSharp.fixed} alt={title} title={title} />
+              <TitleWrap>
+                <MainTitle>{title}</MainTitle>
+                <SubTitle>Zi莱卷的Blog</SubTitle>
+              </TitleWrap>
+            </SiteBrand>
+            {/* <nav className="nav">
+              <ul className="nav__container">
+                {menus.map(item => (
+                  <li key={item.path} className="nav__item">
+                    <Link to={item.path} activeClassName={'nav__item--active'}>
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav> */}
+          </StylesContainer>
         </header>
       );
     }}

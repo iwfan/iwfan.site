@@ -1,33 +1,23 @@
 import Content from '@/components/Content';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
-import Container from '@/elements/Container';
-import globalStyle from '@/styles/global';
-import { css } from '@emotion/core';
-import { Global } from '@emotion/core';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
+import Container from '@/styles/elements/Container';
+import GlobalStyle from '@/styles/elements/GlobalStyle';
 const IndexPage: React.SFC<IGatsbyProps> = () => (
   <React.Fragment>
-    <Global styles={globalStyle} />
+    <GlobalStyle />
+    <Header />
     <Container>
-      <Header />
-      {/* <Banner /> */}
-      <div
-        css={css`
-          display: flex;
-          margin-top: 20px;
-        `}
-      >
-        <Sidebar />
-        <Content />
-      </div>
-      {/*}      <ArticleList />
+      {/* <Sidebar /> */}
+      {/* <Content /> */}
+    </Container>
+    {/*}      <ArticleList />
       <ArticleNavBar />
       <Footer /> */}
-    </Container>
   </React.Fragment>
 );
 
