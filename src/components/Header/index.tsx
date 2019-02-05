@@ -1,6 +1,18 @@
 import { graphql, Link, StaticQuery } from 'gatsby';
 import * as React from 'react';
-import { MainTitle, SiteBrand, SiteLogo, StylesContainer, SubTitle, TitleWrap } from './styles';
+import {
+  HeaderInner,
+  MainTitle,
+  NavContainer,
+  NavItem,
+  SiteBrand,
+  SiteLogo,
+  SiteNav,
+  StylesContainer,
+  SubTitle,
+  TitleWrap,
+  Wrapper,
+} from './styles';
 
 interface IHeaderQueryData {
   logo: {
@@ -51,28 +63,30 @@ const Header: React.SFC<any> = () => (
       } = data;
       console.log(title, path, menus);
       return (
-        <header>
-          <StylesContainer>
-            <SiteBrand href={path ? path : '/'} title={title}>
-              <SiteLogo fixed={logo.childImageSharp.fixed} alt={title} title={title} />
-              <TitleWrap>
-                <MainTitle>{title}</MainTitle>
-                <SubTitle>Zi莱卷的Blog</SubTitle>
-              </TitleWrap>
-            </SiteBrand>
-            {/* <nav className="nav">
-              <ul className="nav__container">
-                {menus.map(item => (
-                  <li key={item.path} className="nav__item">
-                    <Link to={item.path} activeClassName={'nav__item--active'}>
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav> */}
-          </StylesContainer>
-        </header>
+        <Wrapper fixed>
+          <HeaderInner>
+            <StylesContainer>
+              <SiteBrand href={path ? path : '/'} title={title}>
+                <SiteLogo fixed={logo.childImageSharp.fixed} alt={title} title={title} />
+                <TitleWrap>
+                  <MainTitle>{title}</MainTitle>
+                  <SubTitle>Zi莱卷的Blog</SubTitle>
+                </TitleWrap>
+              </SiteBrand>
+              <SiteNav>
+                <NavContainer>
+                  {menus.map(item => (
+                    <NavItem key={item.path} className="nav__item">
+                      <Link to={item.path} activeClassName={'nav__item--active'}>
+                        {item.title}
+                      </Link>
+                    </NavItem>
+                  ))}
+                </NavContainer>
+              </SiteNav>
+            </StylesContainer>
+          </HeaderInner>
+        </Wrapper>
       );
     }}
   </StaticQuery>

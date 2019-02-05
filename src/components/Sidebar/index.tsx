@@ -2,7 +2,7 @@ import Happy2019 from '@svg/undraw_happy_2019.svg';
 import * as React from 'react';
 import styles from './styles';
 const Sidebar: React.SFC<any> = () => (
-  <aside css={styles}>
+  <aside>
     <div className="sidebar-container">
       <figure>
         <div className="img-wrapper">

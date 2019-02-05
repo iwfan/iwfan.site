@@ -19,6 +19,7 @@ export default createGlobalStyle`
     text-rendering: optimizeLegibility;
     /* background: #f5f8fc; */
     /* background-color: #eff0f6; */
+    /* background-color: #f4f5f5; */
     color: #333;
   }
   figure,

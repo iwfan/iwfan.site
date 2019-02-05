@@ -5,16 +5,17 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Container from '@/styles/elements/Container';
 import GlobalStyle from '@/styles/elements/GlobalStyle';
-const IndexPage: React.SFC<IGatsbyProps> = () => (
+import { StylesContainer } from './styles';
+const IndexPage: React.SFC<IGatsbyProps> = (props: any) => (
   <React.Fragment>
     <GlobalStyle />
+    <Helmet title={props.data.site.siteMetadata.title} />
     <Header />
-    <Container>
-      {/* <Sidebar /> */}
-      {/* <Content /> */}
-    </Container>
+    <StylesContainer as="main">
+      <Content />
+      <Sidebar />
+    </StylesContainer>
     {/*}      <ArticleList />
       <ArticleNavBar />
       <Footer /> */}
