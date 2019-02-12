@@ -7,13 +7,14 @@ import { Helmet } from 'react-helmet';
 
 import GlobalStyle from '@/styles/elements/GlobalStyle';
 import { StylesContainer } from './styles';
-const IndexPage: React.SFC<IGatsbyProps> = (props: any) => (
+const IndexPage: React.FC<IGatsbyProps> = (props: any) => (
   <React.Fragment>
     <GlobalStyle />
     <Helmet title={props.data.site.siteMetadata.title} />
     <Header />
-    <StylesContainer as="main">
+    <StylesContainer>
       <Content />
+      {/*<Separate />*/}
       <Sidebar />
     </StylesContainer>
     {/*}      <ArticleList />

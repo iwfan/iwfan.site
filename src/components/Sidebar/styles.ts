@@ -1,38 +1,46 @@
-import { css } from '@emotion/core';
+import Card from '@/styles/elements/Card';
+import { px2rem } from '@/styles/helper';
+import styled from 'styled-components';
+export const SideWrap = styled.aside`
+  flex: 0 0 240px;
+  margin-left: ${px2rem(20)};
+`;
 
-const styles = css`
-  width: 300px;
-  flex: 0 0 300px;
-  padding: 0px 20px;
-  /* .sidebar-container {
-    position: fixed;
-    top: 80px;
-  } */
-  figure {
-    .img-wrapper {
-      height: 190px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #ecf0f1;
-    }
-    svg {
-      width: 100%;
-      height: 100%;
-    }
+export const SideInner = styled(Card)`
+  ${(props: { fixed: boolean }) =>
+    props.fixed &&
+    `
+  position: fixed;
+  width: 240px;
+  `}
+`;
 
-    figcaption {
-      h1 {
-        color: #424647;
-        margin: 15px 0;
-        font-size: 16px;
-        font-weight: 600;
-      }
-      p {
-        font-size: 13px;
-        text-align: center;
-        color: #999;
-      }
-    }
+export const ImgWrap = styled.figure``;
+export const ImgDesc = styled.figcaption`
+  border-top: 1px solid #f6f6f6;
+  margin-top: ${px2rem(10)};
+  padding: 10px ${px2rem(20)};
+
+  h1 {
+    font-size: ${px2rem(16)};
+    color: #333;
+  }
+  p {
+    margin: 10px 0;
+    font-size: ${px2rem(13)};
+    text-align: center;
+    color: #888;
+    line-height: 2;
   }
 `;
 
-export default styles;
+export const SideNav = styled.nav`
+  padding: 0 ${px2rem(20)};
+  ul {
+    list-style: none;
+  }
+
+  li {
+    height: 30px;
+  }
+`;

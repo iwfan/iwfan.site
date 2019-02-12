@@ -11,7 +11,6 @@ const onCreateWebpackConfig = (
     resolve: {
       alias: {
         '@': resolve('./'),
-        '@svg': resolve('../static/svg'),
       },
     },
   };

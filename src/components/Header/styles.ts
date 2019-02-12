@@ -26,7 +26,8 @@ export const Wrapper = styled.header`
     ${HeaderInner} {
       position: fixed;
       top: 0;
-      box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid #f1f1f1;
       ${StylesContainer} {
         border: none;
       }
@@ -63,7 +64,6 @@ export const SubTitle = styled.i`
   margin-bottom: 0.5em;
   text-indent: -1em;
   font-size: ${px2rem(12)};
-  /* font-style: italic; */
   color: #666;
   ::before {
     content: '\\2014';
@@ -89,6 +89,11 @@ export const NavItem = styled.li`
     &.nav__item--active {
       color: #38d39f;
       border-bottom: 2px solid #38d39f;
+    }
+  }
+  &:last-child {
+    a {
+      margin-right: 0;
     }
   }
 `;

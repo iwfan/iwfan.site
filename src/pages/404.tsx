@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import LostSVG from '@svg/undraw_lost_bqr2.svg';
 interface ISiteInfo {
   site: any;
 }
@@ -8,7 +7,7 @@ interface ISiteInfo {
 const LostPage: React.SFC<ISiteInfo> = () => (
   <div>
     <h1>404</h1>
-    <img src={LostSVG} alt="" />
+    <p>You are lost</p>
   </div>
 );
 

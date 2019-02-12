@@ -17,9 +17,7 @@ export default createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
       Helvetica Neue, Arial, sans-serif;
     text-rendering: optimizeLegibility;
-    /* background: #f5f8fc; */
-    /* background-color: #eff0f6; */
-    /* background-color: #f4f5f5; */
+    background-color: #f4f5f5;
     color: #333;
   }
   figure,

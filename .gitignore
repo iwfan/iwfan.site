@@ -4,6 +4,9 @@ public/
 # Gatsby cache
 .cache/
 
+#
+.idea/
+
 # Content directory
 /content/
 

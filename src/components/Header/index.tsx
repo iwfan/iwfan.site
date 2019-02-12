@@ -51,7 +51,7 @@ const query = graphql`
   }
 `;
 
-const Header: React.SFC<any> = () => (
+const Header: React.FC<any> = () => (
   <StaticQuery query={query}>
     {(data: IHeaderQueryData) => {
       const {
@@ -61,7 +61,6 @@ const Header: React.SFC<any> = () => (
           pathPrefix: path,
         },
       } = data;
-      console.log(title, path, menus);
       return (
         <Wrapper fixed>
           <HeaderInner>

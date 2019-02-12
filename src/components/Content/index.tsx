@@ -1,6 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby';
 import * as React from 'react';
-import styles from './styles';
+import ContentWrap from './styles';
 interface IMDNodeData {
   id: string;
   excerpt: string;
@@ -59,6 +59,7 @@ const query = graphql`
   }
 `;
 
+// @ts-ignore
 const renderErrors = (errors: IErrorData[]) =>
   errors && errors.length ? (
     <div className="error-message">
@@ -70,7 +71,7 @@ const renderErrors = (errors: IErrorData[]) =>
 
 const renderArticleList = (list: Array<{ node: IMDNodeData }>) =>
   list.map(({ node: item }) => (
-    <article key={item.id}>
+    <section key={item.id}>
       <h1>
         <a href={item.fields.slug}>{item.frontmatter.title}</a>
       </h1>
@@ -78,7 +79,7 @@ const renderArticleList = (list: Array<{ node: IMDNodeData }>) =>
       <footer>
         <p>small text here</p>
       </footer>
-    </article>
+    </section>
   ));
 
 const renderContentList = (data: IAricleListData) => {
@@ -90,12 +91,12 @@ const renderContentList = (data: IAricleListData) => {
     // },
   } = data;
   return (
-    <main>
+    <ContentWrap>
       {/* {renderErrors(errors)} */}
       {totalCount > 0 && renderArticleList(list)}
-    </main>
+    </ContentWrap>
   );
 };
 
-const Content: React.SFC<any> = () => <StaticQuery query={query}>{renderContentList}</StaticQuery>;
+const Content: React.FC<any> = () => <StaticQuery query={query}>{renderContentList}</StaticQuery>;
 export default Content;

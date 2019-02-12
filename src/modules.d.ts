@@ -8,7 +8,7 @@ declare module 'typography-theme-github' {
 
 declare module '*.svg' {
   import * as React from 'react';
-  export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
+  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
   const src: string;
   export default ReactComponent;
 }
