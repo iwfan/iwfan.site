@@ -3,7 +3,7 @@ declare module 'typography-theme-github' {
     baseFontSize?: string;
   };
   const options: Options;
-  export = options;
+  export default options;
 }
 
 declare module '*.svg' {

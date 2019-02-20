@@ -3,6 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import * as React from 'react';
 import { ImgDesc, ImgWrap, SideInner, SideNav, SideWrap } from './styles';
+
 const query = graphql`
   query SidebarQuery {
     welcome: file(relativePath: { eq: "images/undraw_happy_2019_jq3f.png" }) {
@@ -24,19 +25,19 @@ const query = graphql`
       pathPrefix
     }
     allMarkdownRemark(      
-      filter: { fileAbsolutePath: { regex: "/(content\/posts)\/.*\\.mdx?$/" } }
+      filter: { fileAbsolutePath: { regex: "/(articles)\/.*\\.mdx?$/" } }
     ) {
       totalCount
-		    edges {
-		      node {
+        edges {
+          node {
             timeToRead
             wordCount {
               paragraphs
               sentences
               words
             }
-		      }
-		    }
+          }
+        }
       }
   }
 `;

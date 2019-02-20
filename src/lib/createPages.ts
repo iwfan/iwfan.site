@@ -9,7 +9,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
       allMarkdownRemark(
         skip: 0
         limit: 2000
-        filter: { fileAbsolutePath: { regex: "/(content\\\\/posts)\\\\/.*\\\\.mdx?$/" } }
+        filter: { fileAbsolutePath: { regex: "/(articles)\\/.*\\.mdx?$/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         totalCount

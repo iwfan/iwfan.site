@@ -1,36 +1,14 @@
 import { graphql, StaticQuery } from 'gatsby';
 import * as React from 'react';
-import ContentWrap from './styles';
-interface IMDNodeData {
-  id: string;
-  excerpt: string;
-  timeToRead: number;
-  frontmatter: {
-    title: string;
-    date: string;
-    tags: string[] | null;
-    categories: string[] | null;
-  };
-  fields: {
-    slug: string;
-  };
-}
-interface IAricleListData {
-  // errors: IErrorData[];
-  // data: {
-  allMarkdownRemark: {
-    totalCount: number;
-    edges: Array<{ node: IMDNodeData }>;
-  };
-  // };
-}
+import ArticlePreview from './ArticlePreview';
+import { ContentWrap } from './styles';
 
 const query = graphql`
   {
     allMarkdownRemark(
       skip: 0
       limit: 2000
-      filter: { fileAbsolutePath: { regex: "/(content\\/posts)\\/.*\\.mdx?$/" } }
+      filter: { fileAbsolutePath: { regex: "/(articles)\\/.*\\.mdx?$/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
@@ -46,7 +24,7 @@ const query = graphql`
           fields {
             slug
           }
-          excerpt(format: PLAIN, pruneLength: 200, truncate: true)
+          excerpt
           timeToRead
           wordCount {
             paragraphs
@@ -59,44 +37,19 @@ const query = graphql`
   }
 `;
 
-// @ts-ignore
-const renderErrors = (errors: IErrorData[]) =>
-  errors && errors.length ? (
-    <div className="error-message">
-      {errors.map((error, index) => (
-        <h3 key={index}>{error.message}</h3>
-      ))}
-    </div>
-  ) : null;
-
-const renderArticleList = (list: Array<{ node: IMDNodeData }>) =>
-  list.map(({ node: item }) => (
-    <section key={item.id}>
-      <h1>
-        <a href={item.fields.slug}>{item.frontmatter.title}</a>
-      </h1>
-      <p dangerouslySetInnerHTML={{ __html: item.excerpt }} />
-      <footer>
-        <p>small text here</p>
-      </footer>
-    </section>
-  ));
-
-const renderContentList = (data: IAricleListData) => {
-  console.log(data);
-  const {
-    // errors,
-    // data: {
-    allMarkdownRemark: { totalCount, edges: list },
-    // },
-  } = data;
-  return (
-    <ContentWrap>
-      {/* {renderErrors(errors)} */}
-      {totalCount > 0 && renderArticleList(list)}
-    </ContentWrap>
-  );
-};
-
-const Content: React.FC<any> = () => <StaticQuery query={query}>{renderContentList}</StaticQuery>;
+const Content: React.FC<any> = () => (
+  <StaticQuery query={query}>
+    {(data: IAricleListData) => {
+      console.log(data);
+      const {
+        allMarkdownRemark: { edges: list },
+      } = data;
+      return (
+        <ContentWrap>
+          {list && list.length > 0 && list.map(({ node: item }) => <ArticlePreview {...item} />)}
+        </ContentWrap>
+      );
+    }}
+  </StaticQuery>
+);
 export default Content;
