@@ -9,6 +9,7 @@
   "scripts": {
     "start": "gatsby develop --host=0.0.0.0 --port=1125",
     "build": "gatsby build",
+    "deploy": "gh-pages -d public",
     "serve": "gatsby serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,16 +17,35 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "gatsby": "^2.0.97",
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.0.103",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-catch-links": "^2.0.9",
+    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-react-svg": "^2.0.0-beta1",
+    "gatsby-plugin-sharp": "^2.0.19",
+    "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-plugin-typescript": "^2.0.3",
+    "gatsby-source-filesystem": "^2.0.17",
+    "gatsby-transformer-remark": "^2.2.0",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "gh-pages": "^2.0.1",
+    "github-markdown-css": "^3.0.1",
+    "polished": "^2.3.3",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.1.3"
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
     "@types/react": "^16.7.20",
     "@types/react-dom": "^16.0.11",
+    "@types/react-helmet": "^5.0.8",
+    "@types/styled-components": "^4.1.8",
     "prettier": "^1.16.1",
+    "source-map-support": "^0.5.10",
+    "ts-node": "^8.0.1",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-plugin-prettier": "^2.0.1",

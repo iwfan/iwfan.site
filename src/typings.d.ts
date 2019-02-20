@@ -1,14 +1,45 @@
-declare module 'typography-theme-github' {
-  type Options = {
-    baseFontSize?: string;
+interface IErrorLocationData {
+  line: number;
+  column: number;
+}
+interface IErrorData {
+  message: string;
+  locaionis: IErrorLocationData[];
+  paths: Array<string | number>;
+}
+interface IAuthorData {
+  name?: string;
+  bio?: string;
+  avatar?: string;
+  email?: string;
+}
+interface IMenuData {
+  title: string;
+  path: string;
+}
+interface ISiteMetadata {
+  title?: string;
+  logo?: string;
+  description?: string;
+  keywords?: string[];
+  author?: IAuthorData;
+  menus?: IMenuData[];
+}
+interface ISiteMetaQuery {
+  site: {
+    siteMetadata: ISiteMetadata;
+    buildTime?: string;
   };
-  const options: Options;
-  export = options;
 }
 
-declare module '*.svg' {
-  import * as React from 'react';
-  export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
-  const src: string;
-  export default src;
+interface IGatsbyProps {
+  data: ISiteMetaQuery;
+  children?: any;
+  location: Location;
+  path: string;
+  uri: string;
+  pageContext: any;
+  pageResources: any;
+  pathContext: any;
+  navigate(to: string, options: object): void;
 }

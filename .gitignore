@@ -4,6 +4,13 @@ public/
 # Gatsby cache
 .cache/
 
+#
+.idea/
+
+# Content directory
+articles/*
+!articles/.gitkeep
+
 # Logs
 logs
 *.log
@@ -65,3 +72,4 @@ typings/
 
 # next.js build output
 .next
+
