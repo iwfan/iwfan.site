@@ -77,7 +77,7 @@ class Sidebar extends React.PureComponent<any, any> {
     return (
       <StaticQuery query={query}>
         {(data: any) => {
-          console.log(data);
+          // console.log(data);
           const articleTags = new Set<string>();
           const articleCategories = new Set<string>();
           let totalWords = 0;

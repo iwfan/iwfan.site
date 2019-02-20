@@ -25,7 +25,7 @@ module.exports = {
       },
     ],
   },
-  pathPrefix: '/',
+  // pathPrefix: '/',
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,

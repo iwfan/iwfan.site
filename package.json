@@ -9,6 +9,7 @@
   "scripts": {
     "start": "gatsby develop --host=0.0.0.0 --port=1125",
     "build": "gatsby build",
+    "deploy": "gh-pages -d public",
     "serve": "gatsby serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +29,8 @@
     "gatsby-source-filesystem": "^2.0.17",
     "gatsby-transformer-remark": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.13",
+    "gh-pages": "^2.0.1",
+    "github-markdown-css": "^3.0.1",
     "polished": "^2.3.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

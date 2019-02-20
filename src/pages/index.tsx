@@ -7,7 +7,7 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import GlobalStyle from '@/styles/elements/GlobalStyle';
-import { StylesContainer } from './styles';
+import { StylesContainer } from '../styles/styles';
 const IndexPage: React.FC<IGatsbyProps> = (props: any) => (
   <React.Fragment>
     <GlobalStyle />

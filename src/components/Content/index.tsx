@@ -40,7 +40,7 @@ const query = graphql`
 const Content: React.FC<any> = () => (
   <StaticQuery query={query}>
     {(data: IAricleListData) => {
-      console.log(data);
+      // console.log(data);
       const {
         allMarkdownRemark: { edges: list },
       } = data;
