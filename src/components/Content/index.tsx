@@ -8,7 +8,7 @@ const query = graphql`
     allMarkdownRemark(
       skip: 0
       limit: 2000
-      filter: { fileAbsolutePath: { regex: "/(articles)\\/.*\\.mdx?$/" } }
+      filter: { fileAbsolutePath: { regex: "/(articles)/.*\\.mdx?$/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
@@ -46,7 +46,9 @@ const Content: React.FC<any> = () => (
       } = data;
       return (
         <ContentWrap>
-          {list && list.length > 0 && list.map(({ node: item }) => <ArticlePreview {...item} />)}
+          {list &&
+            list.length > 0 &&
+            list.map(({ node: item }) => <ArticlePreview {...item} key={item.fields.slug} />)}
         </ContentWrap>
       );
     }}

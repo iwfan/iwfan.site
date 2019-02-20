@@ -15,6 +15,7 @@ export const ArticleWrap = styled.section`
 `;
 
 export const ArticleTitle = styled.h1`
+  cursor: pointer;
   color: #424647;
   font-size: ${px2rem(18)};
   :hover {
@@ -27,4 +28,19 @@ export const ArticleExcerpt = styled.p`
   line-height: 1.5;
   margin: 10px 0;
   text-indent: 2em;
+`;
+
+export const ArticleMetaInfo = styled.footer`
+  a,
+  time {
+    color: #888;
+  }
+`;
+
+export const ArticleMetaDivision = styled.span`
+  color: #999;
+  ::after {
+    margin: 0 1em;
+    content: '\00A6';
+  }
 `;

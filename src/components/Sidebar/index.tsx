@@ -25,11 +25,16 @@ const query = graphql`
       pathPrefix
     }
     allMarkdownRemark(      
-      filter: { fileAbsolutePath: { regex: "/(articles)\/.*\\.mdx?$/" } }
+      filter: { fileAbsolutePath: { regex: "/(articles)/.*\\.mdx?$/" } }
     ) {
       totalCount
         edges {
           node {
+            frontmatter {
+              title
+              tags
+              categories
+            }
             timeToRead
             wordCount {
               paragraphs
@@ -72,6 +77,37 @@ class Sidebar extends React.PureComponent<any, any> {
     return (
       <StaticQuery query={query}>
         {(data: any) => {
+          console.log(data);
+          const articleTags = new Set<string>();
+          const articleCategories = new Set<string>();
+          let totalWords = 0;
+          let totalReadTime = 0;
+
+          data.allMarkdownRemark.edges.forEach((item: any) => {
+            const { timeToRead, wordCount } = item.node;
+            const { categories, tags } = item.node.frontmatter;
+            totalWords += wordCount.words;
+            totalReadTime += timeToRead;
+            if (categories !== null) {
+              if (Array.isArray(categories)) {
+                categories.forEach((cate: any) => {
+                  articleCategories.add(cate);
+                });
+              } else {
+                articleCategories.add(categories);
+              }
+            }
+            if (tags !== null) {
+              if (Array.isArray(tags)) {
+                tags.forEach((tag: any) => {
+                  articleTags.add(tag);
+                });
+              } else {
+                articleTags.add(tags);
+              }
+            }
+          });
+
           return (
             <SideWrap>
               <SideInner ref={this.ref} fixed={this.state.fixed}>
@@ -93,23 +129,24 @@ class Sidebar extends React.PureComponent<any, any> {
                     </li>
                     <li>
                       <strong>分类 </strong>
-                      {999999}
+                      {articleCategories.size}
                       <sup>{'+'}</sup>
                     </li>
                     <li>
                       <strong>标签 </strong>
-                      {999999}
+                      {articleTags.size}
                       <sup>{'+'}</sup>
                     </li>
                     <li>
                       <strong>字数 </strong>
-                      {999999}
+                      {totalWords}
                       <sup>{'+'}</sup>{' '}
                     </li>
                     <li>
                       <strong>阅读时长 </strong>
-                      {999999}
+                      {totalReadTime}
                       <sup>{'+'}</sup>
+                      分钟
                     </li>
                     <li>
                       <strong>站点运行于 </strong>

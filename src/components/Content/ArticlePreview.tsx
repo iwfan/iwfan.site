@@ -1,5 +1,12 @@
+import { Link } from 'gatsby';
 import * as React from 'react';
-import { ArticleExcerpt, ArticleTitle, ArticleWrap } from './styles';
+import {
+  ArticleExcerpt,
+  ArticleMetaDivision,
+  ArticleMetaInfo,
+  ArticleTitle,
+  ArticleWrap,
+} from './styles';
 
 const ArticlePreview: React.FC<IMDNodeData> = (props: IMDNodeData) => {
   const {
@@ -9,13 +16,27 @@ const ArticlePreview: React.FC<IMDNodeData> = (props: IMDNodeData) => {
   } = props;
   return (
     <ArticleWrap>
-      <a href={slug}>
+      <Link to={slug}>
         <ArticleTitle>{title || slug}</ArticleTitle>
-        <ArticleExcerpt>{excerpt}</ArticleExcerpt>
-        <footer>
-          <a href="">{tags}</a> | <a href="">{categories}</a> | <time>{date}</time>
-        </footer>
-      </a>
+      </Link>
+      <ArticleExcerpt>{excerpt}</ArticleExcerpt>
+      <ArticleMetaInfo>
+        {categories && (
+          <React.Fragment>
+            分类：
+            <Link to={'/'}>{categories.toString()}</Link>
+            <ArticleMetaDivision />
+          </React.Fragment>
+        )}
+        {tags && (
+          <React.Fragment>
+            标签：
+            <Link to={'/'}>{tags.toString()}</Link>
+            <ArticleMetaDivision />
+          </React.Fragment>
+        )}
+        <time>{date}</time>
+      </ArticleMetaInfo>
     </ArticleWrap>
   );
 };

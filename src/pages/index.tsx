@@ -1,4 +1,5 @@
 import Content from '@/components/Content';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import { graphql } from 'gatsby';
@@ -14,12 +15,11 @@ const IndexPage: React.FC<IGatsbyProps> = (props: any) => (
     <Header />
     <StylesContainer>
       <Content />
-      {/*<Separate />*/}
       <Sidebar />
     </StylesContainer>
     {/*}      <ArticleList />
-      <ArticleNavBar />
-      <Footer /> */}
+      <ArticleNavBar />*/}
+    <Footer />
   </React.Fragment>
 );
 

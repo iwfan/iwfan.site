@@ -5,7 +5,7 @@ const onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     // const slug = createFilePath({ node, getNode, basePath: `pages` });
     const { relativePath } = getNode(node.parent);
-    const slug = `/${relativePath.replace('.md', '')}/`;
+    const slug = `posts/${relativePath.replace('.md', '')}/`;
     createNodeField({
       name: `slug`,
       node,
