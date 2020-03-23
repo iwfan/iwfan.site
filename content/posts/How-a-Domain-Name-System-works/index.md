@@ -7,13 +7,6 @@ tags:
   - networking
 date: 2017-06-29 23:33:39
 updated: 2019-06-29 23:33:39
-thumbnail: /images/article_image/what-is-dns.png
-toc: true
-widgets:
-  - type: recent_posts
-    position: right
-  - type: toc
-    position: right
 ---
 
 在浩瀚的网络世界中是以 `IP（Internet Protocol）` 地址来标识每台设备的网络位置的。当你使用各种聊天工具给家人和朋友发送信息时，计算机是通过对方的 IP 地址定位到对方的网络位置，从而将信息发送给对方。但是当我们直接与其他服务器通信时，例如我们访问 github 网站时，根本不需要知道 github 服务器的 IP 地址，我们只需要知道 github 的域名就可以与它通信了。这是为什么呢？因为人的记忆力十分有限，人们难以记忆毫无意义的数字，相反更容易记忆有特定含义的字符串。试想如果每次与服务器通信都需要知道对方的 IP 地址，这将是多么困难的一件事。为了解决人脑记忆力差的难题，为了拥有更好的网络体验，1983 年 Paul 发明了 DNS。
@@ -28,7 +21,7 @@ DNS 全称 **Domain Name System**，中文名叫作**域名解析系统**。它�
 
 在了解 DNS 工作原理之前，先来了解一下与之紧密相关的域名。域名就是与 IP 对应的有意义的字符串，按照人类的思维习惯域名被设计成金字塔形的多层级结构。
 
-![域名层级结构](/images/article_image/domain-name-level.png)
+![域名层级结构](./domain-name-level.png)
 
 如上图所示，`.(ROOT)`表示根域名, 实际上每个域名尾部都含有一个`.`,这个点就表示根域名。只不过根域名对所有域名来说都是一样的,所以在平时使用的时候，就将它忽略了。在根域名的下一层级是称之为 `TLD（Top-Level-Domain）` 的顶级域名，顶级域名由 [ICANN](https://www.icann.org/) 这个组织控制。ICANN 规定了哪些字符可以被用于顶级域名。例如一般性质的 `.com`、 `.org` 域名和领域性质的 `.cn`、 `.jp` 等。截止 2019 年 7 月，TLP 的数量为 1530，可以参考这份 [List of Top-Level Domains](https://www.icann.org/resources/pages/tlds-2012-02-25-en)。
 
@@ -52,7 +45,7 @@ FYI: [DNS Record types](https://simpledns.com/help/dns-record-types)
 
 DNS 到底是如何将 Domain Name 解析成为 IP 地址的呢？我们以解析 `www.wangfan.site` 为例，当我们在浏览器的地址栏中输入 `www.wangfan.site` 时，浏览器会调用操作系统级的 API 去查询该域名对应的 IP 地址。在操作系统接收到请求后：
 
-![DNS 解析流程](/images/article_image/DNS-resolution-process.png)
+![DNS 解析流程](./DNS-resolution-process.png)
 
 1. 操作系统首先查找本机的 DNS 配置信息，也就是我们常说的 host 文件。如果在 host 文件中发现了对应的配置信息，则解析成功，此次查询结束。
 2. 如果 host 中没有配置对应的 IP 地址，那么操作系统就会将查询操作转发到 Resolver Server（域名解析服务器）。域名解析服务器的 IP 地址有可能是本机提前配置好的，例如 Google 的`8.8.8.8`或者 CloudFlare 的 `1.1.1.1`。也有可能是根据 [DHCP 机制](https://zh.wikipedia.org/wiki/动态主机设置协议) 动态分配的 ISP（Internet Service Provider）的 IP 地址。

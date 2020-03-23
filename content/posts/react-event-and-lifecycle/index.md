@@ -6,12 +6,6 @@ tags:
   - React
 date: 2018-10-20 14:16:15
 keywords: React
-toc: true
-widgets:
-  - type: recent_posts
-    position: right
-  - type: toc
-    position: right
 ---
 
 又踩到了一个坑，思考如下代码：
@@ -57,7 +51,7 @@ ReactDOM.render(<InputForm />, document.querySelector('#root'));
 <!--more-->
 
 这个例子来自官方文档，由于 React 官方推荐使用函数的方式来异步的修改 state。所以我将官方例子中的 setState 的参数改为了函数。结果得到了以下错误(官方文档，最为致命)：
-![image](/images/article_image/react-event-reused-error.png)
+![image](./react-event-reused-error.png)
 错误的原因是说合成事件出于性能的考虑被重用了。所以接下来踩踩 React 事件系统这个坑。
 
 # React 的事件系统
@@ -88,7 +82,7 @@ React 的合成事件是存放在事件池中共享的。查看如下示例：
 
 # 生命周期
 
-![lifecycle](/images/article_image/react-new-lifecycle.png)
+![lifecycle](./react-new-lifecycle.png)
 [原图地址](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 新版的生命周期图
