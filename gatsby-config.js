@@ -1,58 +1,65 @@
 module.exports = {
   siteMetadata: {
-    title: '清白之年',
-    logo: 'svg/deer.svg',
-    description: '此时的庸忙 诺诺慌张<br/> 可否已成你的日常',
-    keywords: ['清白之年', 'Zi莱卷', '博客', 'blog', 'iwfan'],
+    title: `清白之年`,
+    description: `此时的庸忙 诺诺慌张<br/> 可否已成你的日常`,
+    keywords: [`清白之年`, `Zi莱卷`, `博客`, `blog`, `iwfan`],
     author: {
-      name: 'Zi莱卷',
-      bio: '',
-      avatar: './static/svg/deer.svg',
-      email: 'i.wangfancn@gmail.com',
+      name: `Zi莱卷`,
+      bio: ``,
+      email: `i.wangfancn@gmail.com`,
     },
-    menus: [
-      {
-        title: 'Home',
-        path: '/',
-      },
-      {
-        title: 'About',
-        path: '/about/',
-      },
-      {
-        title: '404',
-        path: '/404/',
-      },
-    ],
+    social: {
+      twitter: ``,
+      github: `iwfan`,
+    },
+    siteUrl: `https://wangfan.site/`,
   },
-  // pathPrefix: '/',
   plugins: [
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-react-svg`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `articles`,
-        path: `${__dirname}/articles/`,
-        ignore: [`**/\.*`],
+        path: `${__dirname}/content`,
+        name: `posts`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `static`,
-        path: `${__dirname}/static/`,
-        ignore: [`**/\.*`],
-      },
-    },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
-      options: { plugins: [] },
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-115797852-1`,
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
     },
   ],
 };

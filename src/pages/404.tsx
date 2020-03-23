@@ -1,14 +1,29 @@
-import * as React from 'react';
+import React from 'react';
+import { graphql } from 'gatsby';
 
-interface ISiteInfo {
-  site: any;
-}
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-const LostPage: React.SFC<ISiteInfo> = () => (
-  <div>
-    <h1>404</h1>
-    <p>You are lost</p>
-  </div>
-);
+const NotFoundPage: React.FC<any> = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata.title;
 
-export default LostPage;
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="404: Not Found" />
+      <h1>Not Found</h1>
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    </Layout>
+  );
+};
+
+export default NotFoundPage;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

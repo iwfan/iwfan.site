@@ -1,35 +1,53 @@
-import Content from '@/components/Content';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import Sidebar from '@/components/Sidebar';
-import { graphql } from 'gatsby';
-import * as React from 'react';
-import { Helmet } from 'react-helmet';
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import SEO from '../components/seo';
+import Layout from '../components/layout';
+import Article from '../components/article';
 
-import GlobalStyle from '@/styles/elements/GlobalStyle';
-import { StylesContainer } from '../styles/styles';
-const IndexPage: React.FC<IGatsbyProps> = (props: any) => (
-  <React.Fragment>
-    <GlobalStyle />
-    <Helmet title={props.data.site.siteMetadata.title} />
-    <Header />
-    <StylesContainer>
-      <Content />
-      <Sidebar />
-    </StylesContainer>
-    {/*}      <ArticleList />
-      <ArticleNavBar />*/}
-    <Footer />
-  </React.Fragment>
-);
+const Blog: React.FC<any> = (props) => {
+  const { data, location } = props;
+  const title = data.site.siteMetadata.title;
+  const posts: any[] = data.allMarkdownRemark.edges;
 
-export default IndexPage;
+  return (
+    <>
+      <SEO title={title}></SEO>
+      <Layout location={location} title={title}>
+        {posts.map(({ node }) => (
+          <Article node={node} key={node.fields.slug} />
+        ))}
+      </Layout>
+    </>
+  );
+};
 
-export const query = graphql`
-  query IndexQuery {
+export default Blog;
+
+export const pageQuery = graphql`
+  query {
     site {
       siteMetadata {
         title
+      }
+    }
+    allMarkdownRemark(
+      skip: 0
+      limit: 10
+      filter: { fileAbsolutePath: { regex: "/(posts)/.*\\.mdx?$/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt(format: HTML, pruneLength: 100, truncate: true)
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY", locale: "zh-cn")
+            # date(fromNow: true, locale: "zh-cn")
+            title
+          }
+        }
       }
     }
   }

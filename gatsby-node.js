@@ -1,8 +1,5 @@
-'use strict';
+require(`ts-node`).register();
 
-require('source-map-support').install();
-require('ts-node').register();
-
-exports.onCreateWebpackConfig = require('./src/lib/onCreateWebpackConfig');
-exports.onCreateNode = require('./src/lib/onCreateNode');
-exports.createPages = require('./src/lib/createPages');
+exports.onCreateWebpackConfig = require(`./src/lib/onCreateWebpackConfig`);
+exports.onCreateNode = require(`./src/lib/onCreateNode`);
+exports.createPages = require(`./src/lib/createPages`);
