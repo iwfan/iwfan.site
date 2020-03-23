@@ -2,7 +2,7 @@ import React from 'react';
 import { rhythm } from '../utils/typography';
 import { Link } from 'gatsby';
 
-const Article: React.FC<any> = ({ node }) => {
+const ArticlePreview: React.FC<any> = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug;
   return (
     <article>
@@ -12,7 +12,8 @@ const Article: React.FC<any> = ({ node }) => {
             {title}
           </Link>
         </h3>
-        <small>{node.frontmatter.date}</small>
+        <small>🗓{node.frontmatter.date}</small>
+        <small style={{ margin: `0 ${rhythm(1 / 2)}` }}>☕️{node.timeToRead}分钟</small>
       </header>
       <section
         style={{
@@ -21,7 +22,7 @@ const Article: React.FC<any> = ({ node }) => {
       >
         <p
           dangerouslySetInnerHTML={{
-            __html: node.excerpt || node.frontmatter.description,
+            __html: node.excerpt,
           }}
         />
       </section>
@@ -40,4 +41,4 @@ const Article: React.FC<any> = ({ node }) => {
   );
 };
 
-export default Article;
+export default ArticlePreview;

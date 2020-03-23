@@ -12,7 +12,7 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
 
   return (
     <>
-      <SEO title={post.frontmatter.title} desc={post.excerpt} />
+      <SEO title={post.frontmatter.title} desc={post.excerpt} type="article" />
       <Layout location={location} title={siteTitle}>
         <article>
           <header>

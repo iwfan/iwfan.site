@@ -12,7 +12,7 @@ module.exports = {
       twitter: ``,
       github: `iwfan`,
     },
-    siteUrl: `https://wangfan.site/`,
+    siteUrl: `https://wangfan.site`,
   },
   plugins: [
     `gatsby-plugin-typescript`,

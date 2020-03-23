@@ -1,13 +1,13 @@
-interface IPageInput {
+interface PageInput {
   path: string;
   component: string;
   layout?: string;
   context?: any;
 }
 
-interface IBoundActionCreators {
-  createPage: (page: IPageInput) => void;
-  deletePage: (page: IPageInput) => void;
+interface BoundActionCreators {
+  createPage: (page: PageInput) => void;
+  deletePage: (page: PageInput) => void;
   createRedirect: (opts: {
     fromPath: string;
     isPermanent?: boolean;
@@ -18,5 +18,6 @@ interface IBoundActionCreators {
 
 export type GatsbyCreatePages = (fns: {
   graphql: any;
-  boundActionCreators: IBoundActionCreators;
+  actions: BoundActionCreators;
+  reporter: any;
 }) => void;

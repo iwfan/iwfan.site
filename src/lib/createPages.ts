@@ -15,14 +15,13 @@ interface QueryPostsResult {
   };
 }
 
-const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions;
 
   const result: QueryPostsResult = await graphql(`
     {
       allMarkdownRemark(
-        skip: 0
-        limit: 2000
+        limit: 1000
         filter: { fileAbsolutePath: { regex: "/(posts)/.*\\\\.mdx?$/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -30,29 +29,8 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
         edges {
           node {
             id
-            frontmatter {
-              title
-              # date(formatString: "DD MMMM YYYY")
-              date(fromNow: true, locale: "zh-cn")
-              # tags
-              # categories
-            }
             fields {
               slug
-            }
-            excerpt(format: HTML, pruneLength: 200, truncate: true)
-            tableOfContents
-            headings {
-              value
-              depth
-            }
-            html
-            rawMarkdownBody
-            timeToRead
-            wordCount {
-              paragraphs
-              sentences
-              words
             }
           }
         }
@@ -61,17 +39,16 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
   `);
 
   if (result.errors) {
-    throw new Error(result.errors);
+    reporter.panicOnBuild(`Error while running GraphQL query.`);
+    return;
   }
 
   const { edges: posts, totalCount } = result.data.allMarkdownRemark;
-
   posts.forEach((post, index) => {
     const { slug } = post.node.fields;
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
-    // type safe `createPage` call
     createPage({
       component: resolve(__dirname, `../templates/blog-post.tsx`),
       context: {
@@ -80,6 +57,22 @@ const createPages: GatsbyCreatePages = async ({ graphql, boundActionCreators }) 
         next,
       },
       path: slug,
+    });
+  });
+
+  const postsPerPage = 10;
+  const numPages = Math.ceil(totalCount / postsPerPage);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: `/pages/${i + 1}`,
+      component: resolve(__dirname, `../templates/blog-list.tsx`),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        totalPage: numPages,
+        currentPage: i,
+      },
     });
   });
 };

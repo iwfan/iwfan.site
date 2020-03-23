@@ -6,8 +6,8 @@ interface SEO {
   lang?: string;
   title: string;
   desc?: string;
-  meta?: Array<{ name: string; content: string }>;
   keywords?: string[];
+  type?: string;
 }
 
 const query = graphql`
@@ -18,9 +18,6 @@ const query = graphql`
         description
         keywords
         siteUrl
-        social {
-          twitter
-        }
       }
     }
   }
@@ -30,11 +27,11 @@ const query = graphql`
 const EMPTY_ARRAY: any[] = [];
 
 const SEO: React.FC<SEO> = ({
-  lang = `en`,
+  lang = `zh-cn`,
   title,
   desc,
   keywords = EMPTY_ARRAY,
-  meta = EMPTY_ARRAY,
+  type = `website`,
 }) => {
   const {
     site: {
@@ -56,33 +53,20 @@ const SEO: React.FC<SEO> = ({
       }}
       title={title}
       titleTemplate={`%s | ${siteTitle}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          name: `keywords`,
-          content: keywords?.concat(siteKeywords),
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:url`,
-          content: siteUrl,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    >
+      <meta name="description" content={metaDescription} />
+      <meta name="keywords" content={keywords?.concat(siteKeywords).join(`,`)} />
+      <meta name="image" content={`${siteUrl}/favicon.ico`} />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={`${siteUrl}/favicon.ico`} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={`${siteUrl}/favicon.ico`} />
+    </Helmet>
   );
 };
 
