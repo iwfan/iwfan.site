@@ -1,5 +1,6 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://wangfan.site`,
     title: `清白之年`,
     description: `此时的庸忙 诺诺慌张<br/> 可否已成你的日常`,
     keywords: [`清白之年`, `Zi莱卷`, `博客`, `blog`, `iwfan`],
@@ -12,7 +13,6 @@ module.exports = {
       twitter: ``,
       github: `iwfan`,
     },
-    siteUrl: `https://wangfan.site`,
   },
   plugins: [
     `gatsby-plugin-typescript`,

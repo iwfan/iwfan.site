@@ -3,19 +3,28 @@ import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article_preview';
+import { rhythm } from '../utils/typography';
 
 const BlogList: React.FC<any> = (props) => {
-  console.log(props);
   const { data, location } = props;
   const title = data.site.siteMetadata.title;
   const posts: any[] = data.allMarkdownRemark.edges;
-
   return (
     <>
       <SEO title={title}></SEO>
       <Layout location={location} title={title}>
-        {posts.map(({ node }) => (
-          <ArticlePreview node={node} key={node.fields.slug} />
+        {posts.map(({ node: post }) => (
+          <React.Fragment key={post.id}>
+            <ArticlePreview node={post} />
+            <hr
+              style={{
+                width: rhythm(1.5),
+                height: `2px`,
+                backgroundColor: `#18191b`,
+                margin: `${rhythm(3)} auto`,
+              }}
+            />
+          </React.Fragment>
         ))}
       </Layout>
     </>
@@ -51,13 +60,6 @@ export const pageQuery = graphql`
             slug
           }
           excerpt(format: HTML, pruneLength: 100, truncate: true)
-          tableOfContents
-          headings {
-            value
-            depth
-          }
-          html
-          # rawMarkdownBody
           timeToRead
           # wordCount {
           #  paragraphs

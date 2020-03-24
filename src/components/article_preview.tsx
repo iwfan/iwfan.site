@@ -6,7 +6,7 @@ const ArticlePreview: React.FC<any> = ({ node }) => {
   const title = node.frontmatter.title || node.fields.slug;
   return (
     <article>
-      <header>
+      <header style={{ textAlign: `center` }}>
         <h3>
           <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
             {title}
@@ -19,22 +19,8 @@ const ArticlePreview: React.FC<any> = ({ node }) => {
         style={{
           marginTop: rhythm(1 / 2),
         }}
-      >
-        <p
-          dangerouslySetInnerHTML={{
-            __html: node.excerpt,
-          }}
-        />
-      </section>
-      <small>
-        <Link to={node.fields.slug}>阅读全文</Link>
-      </small>
-      <hr
-        style={{
-          width: rhythm(1.5),
-          height: `2px`,
-          backgroundColor: `#18191b`,
-          margin: `${rhythm(1)} 0 ${rhythm(2)}`,
+        dangerouslySetInnerHTML={{
+          __html: node.excerpt,
         }}
       />
     </article>

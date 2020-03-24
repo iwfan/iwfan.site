@@ -9,7 +9,6 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
-
   return (
     <>
       <SEO title={post.frontmatter.title} desc={post.excerpt} type="article" />
@@ -24,7 +23,8 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
             >
               {post.frontmatter.title}
             </h1>
-            <small>{post.frontmatter.date}</small>
+            <small>🗓{post.frontmatter.date}</small>
+            <small style={{ margin: `0 ${rhythm(1 / 2)}` }}>☕️{post.timeToRead}分钟</small>
           </header>
           <section
             style={{ marginTop: rhythm(1) }}
@@ -58,6 +58,12 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY", locale: "zh-cn")
       }
+      tableOfContents
+      headings {
+        value
+        depth
+      }
+      timeToRead
     }
   }
 `;

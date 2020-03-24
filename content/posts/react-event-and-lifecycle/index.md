@@ -62,7 +62,7 @@ React 根据 W3C 的标准，创造出了属于 React 的 SyntheticEvent，当�
 
 从上可知，React 中通过 JSX 绑定的事件监听函数，一定比原生 JS 绑定的事件监听函数触发的慢。我们来验证一下这个结果。
 
-<script async src="//jsfiddle.net/iwfan/gn6pezvx/embed/"></script>
+<iframe width="100%" height="300" src="//jsfiddle.net/iwfan/gn6pezvx/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 > vanilla 代表的是原生 JS 绑定的事件监听
 

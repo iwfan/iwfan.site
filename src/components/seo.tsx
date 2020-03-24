@@ -51,8 +51,7 @@ const SEO: React.FC<SEO> = ({
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${siteTitle}`}
+      title={Object.is(title, siteTitle) ? siteTitle : `${title} | ${siteTitle}`}
     >
       <meta name="description" content={metaDescription} />
       <meta name="keywords" content={keywords?.concat(siteKeywords).join(`,`)} />

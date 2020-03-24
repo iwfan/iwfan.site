@@ -5,15 +5,16 @@ import Image from 'gatsby-image';
 
 const query = graphql`
   query SiteMetaQuery {
-    avatar: file(absolutePath: { regex: "/logo.png/" }) {
+    avatar: file(absolutePath: { regex: "/logo_with_brand.png/" }) {
       childImageSharp {
-        fixed(width: 60, height: 60) {
+        fixed(width: 120, height: 120) {
           ...GatsbyImageSharpFixed
         }
       }
     }
     site {
       siteMetadata {
+        title
         author {
           name
           bio
@@ -26,7 +27,7 @@ const query = graphql`
 const Header: FC<{ location: { pathname: string } }> = ({ location }) => {
   const { pathname } = location;
   const data = useStaticQuery(query);
-  const { author, social } = data.site.siteMetadata;
+  const { author, title } = data.site.siteMetadata;
 
   return (
     <header
@@ -51,7 +52,7 @@ const Header: FC<{ location: { pathname: string } }> = ({ location }) => {
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
-            minWidth: 60,
+            minWidth: 120,
           }}
         />
       </Link>
