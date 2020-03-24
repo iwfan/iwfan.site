@@ -11,16 +11,16 @@ keywords: React
 又踩到了一个坑，思考如下代码：
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 class InputForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: "",
     };
   }
-  onInputChange = evt => {
+  onInputChange = (evt) => {
     this.setState((prev, props) => {
       // 可以正常运行吗？
       const {
@@ -45,10 +45,8 @@ class InputForm extends React.Component {
   }
 }
 
-ReactDOM.render(<InputForm />, document.querySelector('#root'));
+ReactDOM.render(<InputForm />, document.querySelector("#root"));
 ```
-
-<!--more-->
 
 这个例子来自官方文档，由于 React 官方推荐使用函数的方式来异步的修改 state。所以我将官方例子中的 setState 的参数改为了函数。结果得到了以下错误(官方文档，最为致命)：
 ![image](./react-event-reused-error.png)

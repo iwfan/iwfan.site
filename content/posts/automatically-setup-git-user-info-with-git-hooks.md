@@ -1,20 +1,13 @@
 ---
 title: 使用 git hooks (post-checkout) 配置 git 用户信息
-thumbnail: /images/article_image/git_hooks_example.png
 tags:
   - null
 categories:
   - git
-toc: true
-widgets:
-  - type: recent_posts
-    position: right
-  - type: toc
-    position: right
 date: 2019-10-31 15:47:48
 ---
 
-最近遇到了需要对不同 git 仓库配置不同的 git 用户信息的问题。如果你向客户的代码仓库提交代码时，使用的是自己默认设置（`global`）的个人邮箱的话，一来可能客户的代码仓库会拒绝你通过个人邮箱上传的提交，二来这会显得不太专业。所以我想有没有一种方式可以在 git clone 项目之后，自动提醒我输入对应的用户信息。Google 一番之后，发现 git 有个 `post-checkout` 的钩子可以支持这样的功能。<!--more-->
+最近遇到了需要对不同 git 仓库配置不同的 git 用户信息的问题。如果你向客户的代码仓库提交代码时，使用的是自己默认设置（`global`）的个人邮箱的话，一来可能客户的代码仓库会拒绝你通过个人邮箱上传的提交，二来这会显得不太专业。所以我想有没有一种方式可以在 git clone 项目之后，自动提醒我输入对应的用户信息。Google 一番之后，发现 git 有个 `post-checkout` 的钩子可以支持这样的功能。
 
 > **更新:** 在同事的帮助下发现了这个链接，[https://stackoverflow.com/a/46239540](https://stackoverflow.com/a/46239540)。
 > git 在 2.13 版本中增加了 conditional config includes。可以对特定的目录使用不同的配置。这种方式可以完美解决配置用户信息的问题。

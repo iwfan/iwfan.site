@@ -6,7 +6,8 @@ import ArticlePreview from '../components/article_preview';
 import { rhythm } from '../utils/typography';
 
 const BlogList: React.FC<any> = (props) => {
-  const { data, location } = props;
+  const { data, location, pageContext = {} } = props;
+  const { limit = 10, skip = 0, totalPage = 2, currentPage = 0 } = pageContext;
   const title = data.site.siteMetadata.title;
   const posts: any[] = data.allMarkdownRemark.edges;
   return (

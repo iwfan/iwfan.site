@@ -3,12 +3,6 @@ title: 一些有用的开发技巧
 categories:
   - JavaScript
 date: 2018-08-27 15:17:01
-toc: true
-widgets:
-  - type: recent_posts
-    position: right
-  - type: toc
-    position: right
 ---
 
 # 不通过 new 关键字使用构造函数
@@ -27,7 +21,7 @@ User.prototype.say = function __say__() {
 正常情况下，通过 new 关键字使用该构造函数:
 
 ```javascript
-var user = new User('John');
+var user = new User("John");
 console.log(user);
 ```
 
@@ -35,14 +29,12 @@ console.log(user);
 
 ```javascript
 // 非严格模式
-var user = User('John');
+var user = User("John");
 console.log(window.name); // 'John'
 
 // 严格模式下禁止将 undefined 替换为全局变量
 // 所以在严格模式下 调用 User会报错
 ```
-
-<!--more-->
 
 - 第一种解决方案， 强制使用 new 关键字。
     修改构造函数的内容,这种方案的缺点是不好处理可变参数的情况。
@@ -73,7 +65,7 @@ console.log(window.name); // 'John'
   ```javascript
   Object.create =
     Object.create ||
-    function(proto) {
+    function (proto) {
       function TempConstructor() {}
       TempConstructor.prototype = proto;
       return new TempConstructor();
@@ -111,9 +103,9 @@ Dog.prototype.jump = function __jump__() {}
 ```javascript
 function Constructor() {}
 Object.assign(Constructor.prototype, {
-  data: 'foo',
-  setData: function() {
-    this.data = 'bar';
+  data: "foo",
+  setData: function () {
+    this.data = "bar";
   },
 });
 
@@ -135,10 +127,10 @@ console.log(Constructor.prototype.data);
 ```javascript
 function Constructor() {}
 Object.assign(Constructor.prototype, {
-  data: 'foo',
-  setProtoData: function() {
+  data: "foo",
+  setProtoData: function () {
     var proto = Object.getPrototypeOf(this);
-    proto.data = 'bar';
+    proto.data = "bar";
   },
 });
 
@@ -151,16 +143,16 @@ console.log(Constructor.prototype.data); // bar
 
 ```javascript
 var dict1 = {
-  key1: 'value1',
-  key2: 'value2',
+  key1: "value1",
+  key2: "value2",
 };
 
 // 如果字典的原型不小心被污染
-var proto = Object.assign(Object.getPrototypeOf(dict1), { foo: 'bar' });
+var proto = Object.assign(Object.getPrototypeOf(dict1), { foo: "bar" });
 Object.setPrototypeOf(dict1, proto);
 
 // 那么在取值的时候就会产生影响
-console.log(dict1['foo']); // bar
+console.log(dict1["foo"]); // bar
 for (var key in dict1) {
   console.log(key); //  'key1', 'key2', 'foo'
 }
@@ -171,11 +163,11 @@ for (var key in dict1) {
 ```javascript
 var dict2 = Object.create(null);
 Object.assign(dict2, {
-  key1: 'value1',
-  key2: 'value2',
+  key1: "value1",
+  key2: "value2",
 });
 
-var proto = Object.assign(Object.getPrototypeOf(dict2), { foo: 'bar' });
+var proto = Object.assign(Object.getPrototypeOf(dict2), { foo: "bar" });
 Object.setPrototypeOf(dict1, proto);
 // 会报错
 ```
@@ -224,7 +216,7 @@ function addReloadFunction(target, methodName, func) {
     if (arguments.length === func.length) {
       return func.apply(target, arguments);
     } else {
-      if (typeof beforeProp === 'function') {
+      if (typeof beforeProp === "function") {
         return beforeProp.apply(target, arguments);
       }
     }
@@ -232,14 +224,14 @@ function addReloadFunction(target, methodName, func) {
 }
 
 var obj = {};
-addReloadFunction(obj, 'reload', function() {
-  console.log('zero arg');
+addReloadFunction(obj, "reload", function () {
+  console.log("zero arg");
 });
-addReloadFunction(obj, 'reload', function(a) {
-  console.log('one arg');
+addReloadFunction(obj, "reload", function (a) {
+  console.log("one arg");
 });
-addReloadFunction(obj, 'reload', function(a, b) {
-  console.log('two args');
+addReloadFunction(obj, "reload", function (a, b) {
+  console.log("two args");
 });
 
 obj.reload(); // zero arg
@@ -252,7 +244,7 @@ obj.reload(1, 2); // two args
 这里要介绍一个特殊的 HTML 元素`Template`。
 
 ```javascript
-var template = document.createElement('template');
+var template = document.createElement("template");
 template.innerHTML = strHtmlTpl;
 container.appendChild(template.content);
 ```

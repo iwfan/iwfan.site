@@ -7,19 +7,11 @@ tags:
   - React
 date: 2018-10-27 23:12:22
 keywords: React
-toc: true
-widgets:
-  - type: recent_posts
-    position: right
-  - type: toc
-    position: right
 ---
 
 这是一篇不完整译文，删减了一些我认为与 React 关系不大的内容，例如如何在 vscode 中自定义 Snippet。 或者众所周知的内容， 例如使用 React DevTools。
 
 原文链接：[https://blog.bitsrc.io/how-to-write-better-code-in-react-best-practices-b8ca87d462b0](https://blog.bitsrc.io/how-to-write-better-code-in-react-best-practices-b8ca87d462b0)
-
-<!--more-->
 
 # 使用代码检查工具(linter)
 
