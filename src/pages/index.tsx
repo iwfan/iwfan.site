@@ -12,7 +12,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 10
+      limit: 1000
       filter: { fileAbsolutePath: { regex: "/(posts)/.*\\.mdx?$/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
