@@ -48,7 +48,8 @@ const Header: FC<{ location: { pathname: string } }> = ({ location }) => {
       >
         <Image
           fixed={data.avatar.childImageSharp.fixed}
-          alt={author.name}
+          alt={title}
+          title={title}
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,

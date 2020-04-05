@@ -44,7 +44,6 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       skip: $skip
       limit: $limit
-      filter: { fileAbsolutePath: { regex: "/(posts)/.*\\.mdx?$/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
