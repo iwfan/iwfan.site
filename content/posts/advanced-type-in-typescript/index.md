@@ -29,7 +29,7 @@ type Image = Element & Media;
 
 交叉类型就像集合中的并集，将其他集合中的元素全都合并到一处。
 
-![并集](content/posts/advanced-type-in-typescript/union.png)
+![并集](./union.png)
 
 但使用交叉类型时，需要注意属性的类型不能有冲突，否则合并后就会成为 never 类型。
 
@@ -63,7 +63,7 @@ type Media = Audio | Video;
 
 联合类型对应到集合中的概念就是交集。所以在类型联合之后，如果不收窄为更具体的类型的话，那么该联合类型只会具有之前类型的公共属性。
 
-![交集](content/posts/advanced-type-in-typescript/intersection.png)
+![交集](./intersection.png)
 
 ## 可识别的联合类型
 
