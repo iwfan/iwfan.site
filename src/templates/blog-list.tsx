@@ -51,7 +51,7 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY", locale: "zh-cn")
+            date(formatString: "YYYY-MM-DD")
             fromNowData: date(fromNow: true, locale: "zh-cn")
             # tags
             # categories

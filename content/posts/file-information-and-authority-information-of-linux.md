@@ -1,7 +1,5 @@
 ---
 title: Linux 的文件信息与权限信息
-categories:
-  - linux
 tags:
   - linux
 date: 2018-09-15 21:08:52

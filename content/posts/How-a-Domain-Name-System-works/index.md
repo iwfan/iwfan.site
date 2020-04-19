@@ -1,10 +1,8 @@
 ---
 title: DNS工作原理
-categories:
-  - networking
-  - DNS
 tags:
   - networking
+  - DNS
 date: 2017-06-29 23:33:39
 updated: 2019-06-29 23:33:39
 ---

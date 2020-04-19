@@ -1,6 +1,6 @@
 ---
 title: 一些有用的开发技巧
-categories:
+tags:
   - JavaScript
 date: 2018-08-27 15:17:01
 ---

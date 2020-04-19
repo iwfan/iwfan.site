@@ -1,7 +1,5 @@
 ---
 title: Docker初探
-categories:
-  - Docker
 tags:
   - Docker
 date: 2018-06-03 19:45:58

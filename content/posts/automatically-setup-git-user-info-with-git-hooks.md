@@ -1,8 +1,6 @@
 ---
 title: 使用 git hooks (post-checkout) 配置 git 用户信息
 tags:
-  - null
-categories:
   - git
 date: 2019-10-31 15:47:48
 ---

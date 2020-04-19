@@ -1,11 +1,8 @@
 ---
 title: React的事件系统与生命周期
-categories:
-  - React
 tags:
   - React
 date: 2018-10-20 14:16:15
-keywords: React
 ---
 
 又踩到了一个坑，思考如下代码：

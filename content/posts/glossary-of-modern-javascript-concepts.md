@@ -1,8 +1,5 @@
 ---
 title: 现代 JavaScript 概念汇总
-categories:
-  - Translation
-  - JavaScript
 tags:
   - JavaScript
 date: 2018-09-15 21:08:52

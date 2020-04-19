@@ -1,7 +1,5 @@
 ---
 title: 关于JavaScript的对象原型
-categories:
-  - JavaScript
 tags:
   - prototype
 date: 2018-11-12 15:49:45

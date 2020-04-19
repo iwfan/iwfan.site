@@ -1,8 +1,5 @@
 ---
 title: 如何编写更好的React代码
-categories:
-  - 翻译整理
-  - React
 tags:
   - React
 date: 2018-10-27 23:12:22

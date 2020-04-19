@@ -9,7 +9,8 @@
     "build": "gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "new": "ts-node ./scripts/new-post.ts"
   },
   "repository": "git@github.com:iwfan/wangfan.site.git",
   "author": "iwfan <i.wangfancn@gmail.com>",

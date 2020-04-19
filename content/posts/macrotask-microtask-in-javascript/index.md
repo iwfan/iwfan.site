@@ -1,8 +1,7 @@
 ---
 title: 理解JS中的宏任务与微任务
-categories:
-  - JavaScript
 tags:
+  - JavaScript
   - EventLoop
 date: 2018-05-14 16:03:21
 ---

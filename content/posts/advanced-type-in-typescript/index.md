@@ -1,6 +1,6 @@
 ---
 title: TypeScript 中的高级类型
-categories:
+tags:
   - TypeScript
 date: 2020-03-31 22:18:02
 ---

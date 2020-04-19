@@ -1,6 +1,6 @@
 ---
 title: TypeScript 类型检查机制
-categories:
+tags:
   - TypeScript
 date: 2020-03-30 22:18:01
 ---

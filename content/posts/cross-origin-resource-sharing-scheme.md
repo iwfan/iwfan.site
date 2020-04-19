@@ -1,6 +1,6 @@
 ---
 title: CORS与JSONP
-categories:
+tags:
   - JavaScript
 date: 2018-09-09 12:01:26
 ---

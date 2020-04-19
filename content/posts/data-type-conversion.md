@@ -1,8 +1,5 @@
 ---
 title: JavaScript从基础到弃坑 - 数据类型转换
-categories:
-  - JavaScript
-  - TypeConversion
 tags:
   - JavaScript
   - TypeConversion

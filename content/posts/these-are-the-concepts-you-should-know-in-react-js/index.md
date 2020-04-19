@@ -1,8 +1,5 @@
 ---
 title: 你应该知道的React概念
-categories:
-  - 翻译整理
-  - React
 tags:
   - React
 date: 2018-11-17 13:45:35
