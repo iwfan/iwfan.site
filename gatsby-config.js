@@ -24,6 +24,14 @@ module.exports = {
         ignore: process.env.NODE_ENV === `production` && [`**/draft`],
       },
     },
+    // {
+    //   resolve: `gatsby-source-notionso`,
+    //   options: {
+    //     name: `Blog`,
+    //     rootPageUrl: ``,
+    //     debug: true,
+    //   },
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
