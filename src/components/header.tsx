@@ -5,7 +5,7 @@ import Image from 'gatsby-image';
 
 const query = graphql`
   query SiteMetaQuery {
-    avatar: file(absolutePath: { regex: "/download.png/" }) {
+    avatar: file(absolutePath: { regex: "/logo.png/" }) {
       childImageSharp {
         fixed(width: 120, height: 120) {
           ...GatsbyImageSharpFixed

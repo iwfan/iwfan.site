@@ -1,16 +1,18 @@
 import { resolve } from 'path';
 import { GatsbyCreatePages } from './types';
 
+interface PostEdgeData {
+  node: { id: string; slug: string; pathname: string };
+  previous: { id: string; slug: string; title: string; pathname: string };
+  next: { id: string; slug: string; title: string; pathname: string };
+}
+
 interface QueryPostsResult {
-  errors?: any;
+  errors?: Error;
   data: {
-    allMarkdownRemark: {
+    allPost: {
       totalCount: number;
-      edges: Array<{
-        node: {
-          fields: any;
-        };
-      }>;
+      edges: PostEdgeData[];
     };
   };
 }
@@ -20,18 +22,23 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
 
   const result: QueryPostsResult = await graphql(`
     {
-      allMarkdownRemark(
-        limit: 1000
-        # filter: { fileAbsolutePath: { regex: "/(posts)/.*\\\\.mdx?$/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      allPost(filter: { published: { eq: true } }, sort: { fields: created_time, order: DESC }) {
         totalCount
         edges {
           node {
             id
-            fields {
-              slug
-            }
+            slug
+            pathname
+          }
+          previous {
+            title
+            pathname
+            slug
+          }
+          next {
+            title
+            published
+            slug
           }
         }
       }
@@ -43,11 +50,13 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
     return;
   }
 
-  const { edges: posts, totalCount } = result.data.allMarkdownRemark;
-  posts.forEach((post, index) => {
-    const { slug } = post.node.fields;
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  const { edges: posts } = result.data.allPost;
+  posts.forEach((post) => {
+    const {
+      node: { slug, pathname },
+      previous,
+      next,
+    } = post;
 
     createPage({
       component: resolve(__dirname, `../templates/blog-post.tsx`),
@@ -56,25 +65,25 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
         previous,
         next,
       },
-      path: slug,
+      path: pathname ?? slug,
     });
   });
 
-  const postsPerPage = 10;
-  const numPages = Math.ceil(totalCount / postsPerPage);
-
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: `/pages/${i + 1}`,
-      component: resolve(__dirname, `../templates/blog-list.tsx`),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        totalPage: numPages,
-        currentPage: i,
-      },
-    });
-  });
+  // const postsPerPage = 10;
+  // const numPages = Math.ceil(totalCount / postsPerPage);
+  //
+  // Array.from({ length: numPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: `/pages/${i + 1}`,
+  //     component: resolve(__dirname, `../templates/blog-list.tsx`),
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       totalPage: numPages,
+  //       currentPage: i,
+  //     },
+  //   });
+  // });
 };
 
 module.exports = createPages;

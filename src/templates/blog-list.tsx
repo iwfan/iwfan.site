@@ -34,7 +34,7 @@ const BlogList: React.FC<any> = (props) => {
 
 export default BlogList;
 
-export const pageQuery = graphql`
+const pageQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {

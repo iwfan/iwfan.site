@@ -19,19 +19,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content`,
-        name: `posts`,
-        ignore: process.env.NODE_ENV === `production` && [`**/draft`],
+        path: `${__dirname}/src/assets`,
+        name: `assets`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-notionso`,
-    //   options: {
-    //     name: `Blog`,
-    //     rootPageUrl: ``,
-    //     debug: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-notion-database`,
+      options: {
+        sourceConfig: [
+          {
+            name: `post`,
+            table: `https://www.notion.so/iwfan/dd1bcba24e514f9889c8af9301363d5f?v=b99b15bc41a64df785a07ca4a4650e47`,
+            cacheType: `html`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

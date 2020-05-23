@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { rhythm, scale } from '../utils/typography';
+import { rhythm } from '../utils/typography';
 
 const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata.title;
+  console.log(data, pageContext);
+  const { post } = data;
   const { previous, next } = pageContext;
+  const siteTitle = data.site.siteMetadata.title;
   return (
     <>
-      <SEO title={post.frontmatter.title} desc={post.excerpt} type="article" />
+      <SEO title={post.title} desc={post.tags} type="article" />
       <Layout location={location} title={siteTitle}>
         <article>
           <header>
@@ -21,10 +21,9 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
                 borderBottom: `none`,
               }}
             >
-              {post.frontmatter.title}
+              {post.title}
             </h1>
-            <small>🗓{post.frontmatter.date}</small>
-            <small style={{ margin: `0 ${rhythm(1 / 2)}` }}>☕️{post.timeToRead}分钟</small>
+            <small>🗓{post.created_time}</small>
           </header>
           <section
             style={{ marginTop: rhythm(1) }}
@@ -50,20 +49,14 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    post(slug: { eq: $slug }) {
       id
-      excerpt(pruneLength: 160)
+      created_time
+      title
+      tags
+      slug
+      pathname
       html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY", locale: "zh-cn")
-      }
-      tableOfContents
-      headings {
-        value
-        depth
-      }
-      timeToRead
     }
   }
 `;

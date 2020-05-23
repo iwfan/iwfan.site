@@ -1,36 +1,54 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import BlogList from '../templates/blog-list';
+import SEO from '../components/seo';
+import Layout from '../components/layout';
+import ArticlePreview from '../components/article_preview';
+import { rhythm } from '../utils/typography';
 
-export default BlogList;
+const IndexPage = (props: any) => {
+  const { title } = props.data.site.siteMetadata;
+  const posts = props.data.allPost.nodes;
+  const { location } = props;
+  console.log(props);
+  return (
+    <>
+      <SEO title={title} />
+      <Layout location={location} title={title}>
+        {posts.map((post: any) => (
+          <React.Fragment key={post.id}>
+            <ArticlePreview {...post} />
+            <hr
+              style={{
+                width: rhythm(1.5),
+                height: `2px`,
+                backgroundColor: `#18191b`,
+                margin: `${rhythm(3)} auto`,
+              }}
+            />
+          </React.Fragment>
+        ))}
+      </Layout>
+    </>
+  );
+};
 
-export const pageQuery = graphql`
-  query {
+export default IndexPage;
+
+export const query = graphql`
+  query MyQuery {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(limit: 1000, sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          id
-          excerpt(format: HTML, pruneLength: 100, truncate: true)
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "YYYY-MM-DD")
-            # date(fromNow: true, locale: "zh-cn")
-            title
-          }
-          timeToRead
-          wordCount {
-            paragraphs
-            sentences
-            words
-          }
-        }
+    allPost(filter: { published: { eq: true } }, sort: { fields: created_time, order: DESC }) {
+      nodes {
+        id
+        created_time
+        title
+        tags
+        slug
+        pathname
       }
     }
   }
