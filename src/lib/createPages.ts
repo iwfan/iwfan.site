@@ -2,9 +2,9 @@ import { resolve } from 'path';
 import { GatsbyCreatePages } from './types';
 
 interface PostEdgeData {
-  node: { id: string; slug: string; pathname: string };
-  previous: { id: string; slug: string; title: string; pathname: string };
-  next: { id: string; slug: string; title: string; pathname: string };
+  node: { id: string; slug: string };
+  previous: { id: string; slug: string; title: string };
+  next: { id: string; slug: string; title: string };
 }
 
 interface QueryPostsResult {
@@ -28,11 +28,9 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
           node {
             id
             slug
-            pathname
           }
           previous {
             title
-            pathname
             slug
           }
           next {
@@ -53,7 +51,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
   const { edges: posts } = result.data.allPost;
   posts.forEach((post) => {
     const {
-      node: { slug, pathname },
+      node: { slug },
       previous,
       next,
     } = post;
@@ -65,7 +63,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
         previous,
         next,
       },
-      path: pathname ?? slug,
+      path: slug,
     });
   });
 

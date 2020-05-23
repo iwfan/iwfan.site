@@ -55,7 +55,6 @@ export const pageQuery = graphql`
       title
       tags
       slug
-      pathname
       html
     }
   }

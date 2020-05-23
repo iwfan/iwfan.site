@@ -2,12 +2,12 @@ import React from 'react';
 import { rhythm } from '../utils/typography';
 import { Link } from 'gatsby';
 
-const ArticlePreview: React.FC<any> = ({ id, created_time, title, tags, slug, pathname, html }) => {
+const ArticlePreview: React.FC<any> = ({ id, created_time, title, tags, slug, html }) => {
   return (
     <article>
       <header style={{ textAlign: `center` }}>
         <h3>
-          <Link style={{ boxShadow: `none` }} to={pathname ?? slug}>
+          <Link style={{ boxShadow: `none` }} to={slug}>
             {title}
           </Link>
         </h3>

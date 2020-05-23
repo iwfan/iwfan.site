@@ -48,7 +48,6 @@ export const query = graphql`
         title
         tags
         slug
-        pathname
       }
     }
   }
