@@ -6,11 +6,11 @@
   "scripts": {
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "build": "gatsby build",
+    "build": "yarn run prebuild && gatsby build",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "postinstall": "echo $CI;if test \"$CI\" = \"true\" ; then sh ./pre_build.sh ; fi "
+    "prebuild": "if test \"$CI\" = \"true\" ; then sh ./pre_build.sh ; fi "
   },
   "repository": "git@github.com:iwfan/wangfan.site.git",
   "author": "iwfan <i.wangfancn@gmail.com>",
