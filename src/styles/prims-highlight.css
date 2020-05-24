@@ -34,7 +34,6 @@
 .token.selector,
 .token.doctype {
   color: rgb(199, 146, 234);
-  font-style: 'italic';
 }
 
 .token.class-name {
@@ -66,4 +65,13 @@
 
 .notion-selectable.notion-code-block .line-numbers.notion-code-block > div {
   color: #ffffff !important;
+}
+
+.notion-selectable.notion-code-block [role="button"] {
+  color: #ffa7c4 !important;
+  opacity: .6;
+}
+
+.notion-selectable.notion-code-block [role="button"] svg {
+  fill: #ffa7c4 !important;
 }

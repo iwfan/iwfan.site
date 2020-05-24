@@ -1,8 +1,9 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { rhythm } from '../utils/typography';
+import { format } from '../utils/datetime_formatter';
 
 const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
   console.log(data, pageContext);
@@ -15,24 +16,27 @@ const BlogPostTemplate: React.FC<any> = ({ data, pageContext, location }) => {
       <Layout location={location} title={siteTitle}>
         <article>
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                borderBottom: `none`,
-              }}
-            >
-              {post.title}
-            </h1>
-            <small>🗓{post.created_time}</small>
+            <h1>{post.title}</h1>
+            <time>
+              <small>@{format(post.created_time)}</small>
+            </time>
+            <small style={{ whiteSpace: `nowrap` }}>
+              {post.tags?.map((tag: string) => (
+                <Link
+                  to={`/`}
+                  style={{
+                    marginLeft: rhythm(0.3),
+                    color: `var(--bodyGreyFontColor)`,
+                  }}
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </small>
           </header>
           <section
             style={{ marginTop: rhythm(1) }}
             dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
           />
         </article>
       </Layout>

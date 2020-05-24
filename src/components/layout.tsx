@@ -1,69 +1,30 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
-import { rhythm, scale } from '../utils/typography';
+import { rhythm } from '../utils/typography';
 import Header from './header';
 
-const Layout: React.FC<any> = ({ location, title, children }) => {
-  const rootPath = `/`;
-  let header;
-
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    );
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    );
-  }
+const Layout: React.FC<any> = ({ location, children }) => {
   return (
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: rhythm(24),
+        maxWidth: rhythm(location.pathname === `/` ? 30 : 26),
         padding: rhythm(3 / 4),
+        overflow: `hidden`,
       }}
     >
       <Header location={location} />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <footer style={{ marginTop: rhythm(2), textAlign: `center` }}>
+        <small>
+          © {new Date().getFullYear()}
+          {` `}
+          <a href="https://github.com/iwfan/">Zi莱卷</a>
+          {` Powered by `}
+          <a href="https://notion.so">Notion</a>
+          {` & `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </small>
       </footer>
     </div>
   );

@@ -1,29 +1,59 @@
 import Typography from 'typography';
-import theme from 'typography-theme-github';
 
-theme.overrideThemeStyles = () => {
-  return {
-    h1: {
-      fontSize: `1.5rem`,
+const theme = {
+  title: `Fork GitHub`,
+  baseFontSize: `16px`,
+  baseLineHeight: 1.625,
+  headerFontFamily: [
+    `-apple-system`,
+    `BlinkMacSystemFont`,
+    `Segoe UI`,
+    `Roboto`,
+    `Helvetica`,
+    `Arial`,
+    `sans-serif`,
+    `Apple Color Emoji`,
+    `Segoe UI Emoji`,
+    `Segoe UI Symbol`,
+  ],
+  bodyFontFamily: [
+    `-apple-system`,
+    `BlinkMacSystemFont`,
+    `Segoe UI`,
+    `Roboto`,
+    `Helvetica`,
+    `Arial`,
+    `sans-serif`,
+    `Apple Color Emoji`,
+    `Segoe UI Emoji`,
+    `Segoe UI Symbol`,
+  ],
+  scaleRatio: 2,
+  bodyColor: `var(--bodyFontColor)`,
+  headerWeight: 600,
+  bodyWeight: `normal`,
+  boldWeight: 600,
+  // Github has all block elements use 1/2 rhythm not a full rhythm.
+  blockMarginBottom: 1 / 2,
+  overrideStyles: ({ rhythm }) => ({
+    'ol,ul': {
+      marginLeft: rhythm(1.25),
     },
-    h2: {
-      fontSize: `1.3rem`,
-      borderBottom: `none`,
+    'li>ol,li>ul': {
+      marginLeft: rhythm(1.25),
     },
-    'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a': {
-      color: `#18191b`,
+    a: {
+      color: `var(--bodyFontColor)`,
+      textDecoration: `none`,
     },
-    blockquote: {
-      fontSize: `0.9em`,
-      border: `1px solid hsla(0, 0%, 0%, 0.2)`,
-      borderRadius: `0.75em`,
-      padding: `1.25em`,
-      background: `rgba(255, 229, 100, 0.2)`,
+    'a:hover,a:active': {
+      textDecoration: `underline`,
     },
-  };
+    small: {
+      color: `var(--bodyGreyFontColor)`,
+    },
+  }),
 };
-
-delete theme.googleFonts;
 
 const typography = new Typography(theme);
 

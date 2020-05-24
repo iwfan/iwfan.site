@@ -1,32 +1,57 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import ArticlePreview from '../components/article_preview';
+import { format } from '../utils/datetime_formatter';
 import { rhythm } from '../utils/typography';
 
 const IndexPage = (props: any) => {
   const { title } = props.data.site.siteMetadata;
   const posts = props.data.allPost.nodes;
   const { location } = props;
-  console.log(props);
   return (
     <>
       <SEO title={title} />
       <Layout location={location} title={title}>
-        {posts.map((post: any) => (
-          <React.Fragment key={post.id}>
-            <ArticlePreview {...post} />
-            <hr
+        <ul
+          style={{
+            margin: 0,
+            padding: 0,
+            listStyle: `none`,
+          }}
+        >
+          {posts.map((post: any) => (
+            <li
+              key={post.slug}
               style={{
-                width: rhythm(1.5),
-                height: `2px`,
-                backgroundColor: `#18191b`,
-                margin: `${rhythm(3)} auto`,
+                display: `flex`,
+                justifyContent: `space-between`,
+                alignItems: `center`,
+                marginBottom: rhythm(0.5),
               }}
-            />
-          </React.Fragment>
-        ))}
+            >
+              <p style={{ margin: 0 }}>
+                <time style={{ marginRight: rhythm(1) }}>
+                  <small>{format(post.created_time)}</small>
+                </time>
+                <Link to={post.slug}>{post.title}</Link>
+              </p>
+              <small style={{ whiteSpace: `nowrap` }}>
+                {post.tags?.map((tag: string) => (
+                  <Link
+                    to={`/`}
+                    style={{
+                      marginLeft: rhythm(0.3),
+                      color: `var(--bodyGreyFontColor)`,
+                    }}
+                  >
+                    #{tag}
+                  </Link>
+                ))}
+              </small>
+            </li>
+          ))}
+        </ul>
       </Layout>
     </>
   );

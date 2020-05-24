@@ -1,8 +1,7 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import ArticlePreview from '../components/article_preview';
 import { rhythm } from '../utils/typography';
 
 const BlogList: React.FC<any> = (props) => {
@@ -12,11 +11,10 @@ const BlogList: React.FC<any> = (props) => {
   const posts: any[] = data.allMarkdownRemark.edges;
   return (
     <>
-      <SEO title={title}></SEO>
+      <SEO title={title} />
       <Layout location={location} title={title}>
         {posts.map(({ node: post }) => (
           <React.Fragment key={post.id}>
-            <ArticlePreview node={post} />
             <hr
               style={{
                 width: rhythm(1.5),
