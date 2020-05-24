@@ -17,13 +17,24 @@ const Layout: React.FC<any> = ({ location, children }) => {
       <main>{children}</main>
       <footer style={{ marginTop: rhythm(2), textAlign: `center` }}>
         <small>
-          © {new Date().getFullYear()}
-          {` `}
-          <a href="https://github.com/iwfan/">Zi莱卷</a>
+          <abbr title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.">
+            CC BY-NC 4.0
+          </abbr>
+          {` © `}
+          {new Date().getFullYear()}
+          <a href="https://github.com/iwfan/">
+            {` Zi`}
+            <ruby>
+              莱 <rp>(</rp><rt>lái</rt><rp>)</rp>
+            </ruby>
+            {`卷`}
+          </a>
           {` Powered by `}
           <a href="https://notion.so">Notion</a>
           {` & `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
+          {` & `}
+          <a href="https://vercel.com/">Vercel (formerly ZEIT)</a>
         </small>
       </footer>
     </div>
