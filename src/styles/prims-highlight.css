@@ -75,3 +75,7 @@
 .notion-selectable.notion-code-block [role="button"] svg {
   fill: #ffa7c4 !important;
 }
+
+.notion-selectable.notion-header-block {
+  color: inherit !important;
+}
