@@ -34,12 +34,13 @@ const IndexPage = (props: any) => {
                 <time style={{ marginRight: rhythm(1) }}>
                   <small>{format(post.created_time)}</small>
                 </time>
-                <Link to={post.slug}>{post.title}</Link>
+                <Link to={`posts/${post.slug}`}>{post.title}</Link>
               </p>
               <small style={{ whiteSpace: `nowrap` }}>
                 {post.tags?.map((tag: string) => (
                   <Link
                     to={`/`}
+                    key={tag}
                     style={{
                       marginLeft: rhythm(0.3),
                       color: `var(--bodyGreyFontColor)`,

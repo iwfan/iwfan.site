@@ -63,7 +63,7 @@ const createPages: GatsbyCreatePages = async ({ graphql, actions, reporter }) =>
         previous,
         next,
       },
-      path: slug,
+      path: `posts/${slug}`,
     });
   });
 
