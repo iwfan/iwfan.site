@@ -2,6 +2,7 @@ echo "yarn add chrome-aws-lambda"
 yarn add chrome-aws-lambda@~3.1.1
 # yarn add puppeteer-core@~3.1.0
 sed -i '/type/d' ./node_modules/gatsby-source-notion-database/package.json
+sed -i '/type/d' ./node_modules/notabase/package.json
 echo "before \n\n"
 sed -i "/catch (error)/a console.warn(error);" ./node_modules/gatsby-source-notion-database/src/genApiData.js
 head -n 10 ./node_modules/gatsby-source-notion-database/src/getPageHtml.js
