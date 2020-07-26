@@ -1,15 +1,8 @@
-# Build directory
-public/
-
 # Gatsby cache
 .cache/
 
 #
 .idea/
-
-# Content directory
-articles/*
-!articles/.gitkeep
 
 # Logs
 logs
