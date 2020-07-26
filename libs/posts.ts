@@ -1,86 +1,85 @@
 import fs from 'fs'
 import path from 'path'
+import glob from 'glob'
+import { promisify } from 'util'
 import matter from 'gray-matter'
 import remark from 'remark'
+import { format, parseISO } from 'date-fns'
+import zh_CN from 'date-fns/locale/zh-CN'
 import html from 'remark-html'
+import { posts_dir } from '../blog.config'
+import { MarkdownRawData } from '../types'
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const rootDir = path.join(process.cwd(), posts_dir)
+const readFiles = promisify(glob)
 
-export function getSortedPostsData() {
-  // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory)
-  const allPostsData = fileNames.map(fileName => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '')
+// TODO: refine this huge cache
+const cachedPosts: { [slug: string]: MarkdownRawData } = {}
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
+export const getSortedPostsData = async () => {
+  const fileNames = await readFiles('**/*.md', { cwd: rootDir })
 
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents)
+  const allPostsData: Array<MarkdownRawData> = fileNames
+    .map((fileName) => {
+      // Remove ".md" from file name to get id
+      const id = fileName.replace(/\.md$/, '')
 
-    // Combine the data with the id
-    return {
-      id,
-      ...matterResult.data
-    }
-  })
-  // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    // @ts-ignore
-    if (a.date < b.date) {
-      return 1
-    } else {
-      return -1
-    }
-  })
-}
+      // Read markdown file as string
+      const fullPath = path.join(rootDir, fileName)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory)
-
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
-  return fileNames.map(fileName => {
-    return {
-      params: {
-        slug: fileName.replace(/\.md$/, '')
+      // Use gray-matter to parse the post metadata section
+      const { data, content = '' } = matter(fileContents)
+      // Combine the data with the id
+      return {
+        title: data?.title ?? '',
+        slug: data.slug,
+        date: data.date,
+        tags: data?.tags ?? [],
+        thumbnail: data?.thumbnail ?? '',
+        content
       }
-    }
-  })
+    })
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .map((item) => ({
+      ...item,
+      date: format(item.date, 'yyyy-MM-dd HH:mm:ss', {
+        locale: zh_CN
+      })
+    }))
+
+  // use memory cache
+  allPostsData.forEach(post => {
+    cachedPosts[post.slug] = post;
+  });
+
+  return allPostsData
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(postsDirectory, `${id}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
+export const getAllPostSlugs = async () => {
+  const posts = await getSortedPostsData()
+  return posts.map((post) => ({ params: { ...post } }))
+}
 
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
+export async function getPostData(slug: string) {
 
+  if (Object.keys(cachedPosts).length === 0) {
+    await getSortedPostsData();
+  }
+
+  const cachedPost = cachedPosts[slug]
+  console.log(cachedPost)
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
-  // @ts-ignore
+    // @ts-ignore
     .use(html)
-    .process(matterResult.content)
+    .process(cachedPost.content)
+
   const contentHtml = processedContent.toString()
 
   // Combine the data with the id and contentHtml
   return {
-    id,
-    contentHtml,
-    ...matterResult.data
+    ...cachedPost,
+    content: contentHtml
   }
 }

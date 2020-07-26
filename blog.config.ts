@@ -1,4 +1,3 @@
-
 export const site_title = `反差`
 
 export const site_logo = `/logo_with_padding.png`
@@ -13,4 +12,4 @@ export const author_email = `i.wangfancn@gmail.com`
 
 export const github_name = `iwfan`
 
-export const post_dir = `source/_posts`
+export const posts_dir = `/source/_posts`
