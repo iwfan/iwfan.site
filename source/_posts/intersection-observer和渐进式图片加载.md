@@ -7,8 +7,6 @@ tags:
 thumbnail: null
 ---
 
-# 浏览器级别的图像延迟加载
-
 Chrome 76 对 img 元素增加了一个 `loading` 属性, 这让浏览器有了内置的图像延迟加载的功能。
 
 ![](./assets/web-native-lazt-load-image-demo.gif)
@@ -92,15 +90,15 @@ IntersectionObserver 提供了一种监听目标元素与祖先元素或是文�
 
 ```javascript
 const options = {
-  root: document.querySelector("#scrollArea"),
-  rootMargin: "0px",
+  root: document.querySelector('#scrollArea'),
+  rootMargin: '0px',
   threshold: 1.0,
-};
+}
 
-const observer = new IntersectionObserver(callback, options);
+const observer = new IntersectionObserver(callback, options)
 
-const target = document.querySelector("#listItem");
-observer.observe(target);
+const target = document.querySelector('#listItem')
+observer.observe(target)
 ```
 
 如上述代码示例， `IntersectionObserver` 构造函数接收的第一个参数就是事件监听的回掉函数，第二个参数是一个配置项：
@@ -168,40 +166,40 @@ observer.observe(target);
 function lazyLoadImage() {
   const onVisible = (entries, observer) => {
     entries.forEach((entry) => {
-      const { target, isIntersecting } = entry;
+      const { target, isIntersecting } = entry
       if (isIntersecting) {
         // 判断图片在可见范围内
-        const isLoading = target.classList.contains("loading");
+        const isLoading = target.classList.contains('loading')
 
         if (!isLoading) {
           // 减少重复加载
-          target.classList.add("loading");
-          const src = target.dataset.src;
+          target.classList.add('loading')
+          const src = target.dataset.src
 
-          const buffer = new Image(); // 构建 Image 对象，发起资源获取的请求
+          const buffer = new Image() // 构建 Image 对象，发起资源获取的请求
           buffer.onload = () => {
-            target.src = src;
-          };
-          buffer.src = src;
+            target.src = src
+          }
+          buffer.src = src
         }
       }
-    });
-  };
+    })
+  }
 
   const observer = new IntersectionObserver(onVisible, {
-    root: document.querySelector("main"),
-    rootMargin: "0px 0px 100px 0px",
+    root: document.querySelector('main'),
+    rootMargin: '0px 0px 100px 0px',
     threshold: 0,
-  });
+  })
 
-  const imageList = document.querySelectorAll("img.lazy");
+  const imageList = document.querySelectorAll('img.lazy')
   imageList.forEach((img) => {
-    observer.observe(img);
-  });
+    observer.observe(img)
+  })
 }
 
 // if (!('loading' in HTMLImageElement.prototype)) {
-lazyLoadImage();
+lazyLoadImage()
 // }
 ```
 

@@ -15,6 +15,11 @@ const Post: NextPage<Props> = ({ postData }: any) => (
     <br/>
     {postData.date}
     <br/>
+
+    {postData.next?.title}
+    <br/>
+    {postData.prev?.title}
+    <br/>
     <div dangerouslySetInnerHTML={{ __html: postData.content }} />
   </div>
 );
