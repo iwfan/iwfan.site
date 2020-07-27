@@ -68,7 +68,6 @@ export async function getPostData(slug: string) {
   }
 
   const cachedPost = cachedPosts[slug]
-  console.log(cachedPost)
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     // @ts-ignore

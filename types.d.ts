@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    dataLayer: any;
+  }
+}
+
 export interface MarkdownFrontMatter {
   title?: string;
   slug: string;
@@ -6,4 +12,4 @@ export interface MarkdownFrontMatter {
   thumbnail?: string;
 }
 
-export type MarkdownRawData = MarkdownFrontMatter & { content: string }
+export type MarkdownRawData = MarkdownFrontMatter & { content: string };
