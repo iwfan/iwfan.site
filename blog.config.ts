@@ -4,7 +4,7 @@ export const site_logo = `/logo_with_padding.png`
 
 export const site_desc = `此时的庸忙、诺诺慌张, 可否已成你的日常。`
 
-export const site_url = `//wangfan.site`
+export const site_url = `https://wangfan.site`
 
 export const author_name = `Zi莱卷`
 

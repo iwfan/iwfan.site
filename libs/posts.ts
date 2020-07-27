@@ -16,7 +16,7 @@ const readFiles = promisify(glob)
 
 const cachedPosts = new NodeCache({ useClones: false })
 
-export const getSortedPostsData = async () => {
+export const getSortedPostsData = async (useCache: boolean = true) => {
   const fileNames = await readFiles('**/*.md', { cwd: rootDir })
 
   const allPostsData: Array<MarkdownRawData> = fileNames
@@ -46,16 +46,18 @@ export const getSortedPostsData = async () => {
     }))
 
   // use memory cache
-  allPostsData.forEach((post, index) => {
-    const prev = allPostsData[index - 1]
-    const next = allPostsData[index + 1]
+  if (useCache) {
+    allPostsData.forEach((post, index) => {
+      const prev = allPostsData[index - 1]
+      const next = allPostsData[index + 1]
 
-    cachedPosts.set(post.slug, {
-      ...post,
-      prev: prev?.slug ?? null,
-      next: next?.slug ?? null,
+      cachedPosts.set(post.slug, {
+        ...post,
+        prev: prev?.slug ?? null,
+        next: next?.slug ?? null,
+      })
     })
-  })
+  }
 
   return allPostsData
 }
