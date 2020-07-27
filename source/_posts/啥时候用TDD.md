@@ -7,8 +7,6 @@ tags:
 thumbnail: null
 ---
 
-# When i follow TDD
-
 TDD 不是任何时候都适用，本文讲了它（对我而言）适用的场景。
 
 测试驱动开发（又称 TDD）分为三步，通常被称为「红、绿、重构」。

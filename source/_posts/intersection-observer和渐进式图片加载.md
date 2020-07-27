@@ -7,8 +7,6 @@ tags:
 thumbnail: null
 ---
 
-# 浏览器级别的图像延迟加载
-
 Chrome 76 对 img 元素增加了一个 `loading` 属性, 这让浏览器有了内置的图像延迟加载的功能。
 
 ![](./assets/web-native-lazt-load-image-demo.gif)
