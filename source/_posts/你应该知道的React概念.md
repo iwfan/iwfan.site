@@ -3,7 +3,7 @@ title: 你应该知道的React概念
 slug: c24cb6d8d5f958b76d713962126e8c75
 date: 2018-11-17 21:45:35
 tags:
-  - Untagged
+  - React
 thumbnail: null
 ---
 

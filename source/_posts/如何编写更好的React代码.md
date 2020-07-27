@@ -3,7 +3,7 @@ title: 如何编写更好的React代码
 slug: 0af64f9fdef55e9a4a4096a15fbb3125
 date: 2018-10-28 07:12:22
 tags:
-  - Untagged
+  - React
 thumbnail: null
 ---
 

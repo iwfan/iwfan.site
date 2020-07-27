@@ -3,7 +3,7 @@ title: TypeScript 中的高级类型
 slug: 1f558a1976db6ccff943cb0868f013c9
 date: 2019-02-26 01:31:45
 tags:
-  - Untagged
+  - TypeScript
 thumbnail: null
 ---
 

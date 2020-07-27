@@ -3,7 +3,7 @@ title: React的事件系统与生命周期
 slug: 7e630e835ecde39d956b40c811b0bacb
 date: 2018-10-20 22:16:15
 tags:
-  - Untagged
+  - React
 thumbnail: null
 ---
 

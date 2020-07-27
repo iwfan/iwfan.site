@@ -3,7 +3,7 @@ title: TypeScript 类型检查机制
 slug: 2601ae16bc94e9ee6bfafc194fad5c82
 date: 2019-02-23 01:31:45
 tags:
-  - Untagged
+  - TypeScript
 thumbnail: null
 ---
 

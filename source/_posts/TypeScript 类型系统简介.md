@@ -3,7 +3,7 @@ title: TypeScript 类型系统简介
 slug: 5bab2699fd9d17cf81834f317c755339
 date: 2019-02-21 01:31:45
 tags:
-  - Untagged
+  - TypeScript
 thumbnail: null
 ---
 
