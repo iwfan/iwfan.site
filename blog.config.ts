@@ -13,3 +13,5 @@ export const author_email = `i.wangfancn@gmail.com`
 export const github_name = `iwfan`
 
 export const posts_dir = `/source/_posts`
+
+export const ga_tracking_id = `UA-115797852-1`

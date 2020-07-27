@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 import { getSortedPostsData } from '../libs/posts'
 import { MarkdownRawData } from '../types'
+import { Layout } from '../components/Layout'
 
 interface IndexPageProps {
   allPostsData: MarkdownRawData[];
@@ -10,8 +11,9 @@ interface IndexPageProps {
 
 const IndexPage: NextPage<IndexPageProps> = (props) => {
   const { allPostsData } = props
+
   return (
-    <>
+    <Layout>
       <h1>First Post</h1>
       <h2>
         <Link href="/">
@@ -30,7 +32,7 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
           </Link>
         ))}
       </section>
-    </>
+    </Layout>
   )
 }
 
