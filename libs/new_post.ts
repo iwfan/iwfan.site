@@ -6,7 +6,9 @@ import zh_CN from 'date-fns/locale/zh-CN'
 import { posts_dir } from '../blog.config'
 
 const rootDir = path.join(__dirname, '..', posts_dir)
-const today = format(new Date(), 'yyyy-MM-dd HH:mm:ss', { locale: zh_CN })
+const dateStr = process.argv[3]
+const date = dateStr ? new Date(dateStr) : new Date()
+const today = format(date, 'yyyy-MM-dd HH:mm:ss', { locale: zh_CN })
 const fileName = process.argv[2] ?? `untitled`
 const postId = md5(today)
 
