@@ -2,15 +2,12 @@
 
 
 # Todo
-
-- [x] path resolve
-- [x] tslint
-- [ ] svg component
-- [ ] dotenv
-- [ ] precommit hook
-- [ ] mdx support
-- [ ] sitemap
+- [x] markdown file system
+- [x] google analytics
+- [x] sitemap
+- [ ] full text search
+- [ ] image lazy loading
 - [ ] offline
 - [ ] manifest
-- [ ] feed
-- [ ] google analytics
+- [ ] rss feed
+
