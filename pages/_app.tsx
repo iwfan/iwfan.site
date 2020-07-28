@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import { AppProps } from 'next/app'
-import './styles.css'
+import '../styles/color.css'
+import '../styles/styles.css'
+import '../styles/tailwind.css'
+import '../styles/prims-highlight.css'
 
 function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />

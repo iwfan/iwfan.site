@@ -3,12 +3,10 @@ import path from 'path'
 import glob from 'glob'
 import { promisify } from 'util'
 import matter from 'gray-matter'
-import remark from 'remark'
 import NodeCache from 'node-cache'
 import { format } from 'date-fns'
 import zh_CN from 'date-fns/locale/zh-CN'
-import html from 'remark-html'
-import { posts_dir } from '../blog.config'
+import { posts_dir } from '../site.config'
 import { MarkdownRawData } from '../types'
 
 const rootDir = path.join(process.cwd(), posts_dir)
@@ -74,14 +72,6 @@ export async function getPostData(slug: string) {
 
   const cachedPost = cachedPosts.get<MarkdownRawData>(slug)!
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    // @ts-ignore
-    .use(html)
-    .process(cachedPost.content)
-
-  const contentHtml = processedContent.toString()
-
   let prev = null,
     next = null
   if (cachedPost.prev) {
@@ -95,7 +85,6 @@ export async function getPostData(slug: string) {
   // Combine the data with the id and contentHtml
   return {
     ...cachedPost,
-    content: contentHtml,
     prev,
     next,
   }

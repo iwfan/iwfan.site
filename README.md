@@ -5,8 +5,8 @@
 - [x] markdown file system
 - [x] google analytics
 - [x] sitemap
+- [x] image lazy loading
 - [ ] full text search
-- [ ] image lazy loading
 - [ ] offline
 - [ ] manifest
 - [ ] rss feed

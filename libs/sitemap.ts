@@ -1,7 +1,7 @@
 import fs from 'fs'
 import prettier from 'prettier'
 import { getSortedPostsData } from './posts'
-import { site_url } from '../blog.config'
+import { site_url } from '../site.config'
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('../.prettierrc')

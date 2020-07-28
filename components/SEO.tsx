@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react'
-import { ga_tracking_id } from '../blog.config'
+import { ga_tracking_id, site_desc, site_title } from '../site.config'
 import { isProd } from '../libs/utils'
 import Head from 'next/head'
 
-export const SEO: React.FC = () => {
+interface SeoProps {
+  title?: string
+}
+
+export const SEO: React.FC<SeoProps> = ({ title }) => {
 
   useEffect(() => {
     if (isProd()) {
@@ -18,10 +22,23 @@ export const SEO: React.FC = () => {
         page_title: window.document.title,
       })
     }
-  })
+  }, [])
 
   return (
     <Head>
+      <title>{title ? `${title} | ${site_title}` : site_title}</title>
+      <meta name="description" content={site_desc} />
+      <meta property="og:type" content="website" />
+      <meta name="og:title" property="og:title" content={title} />
+      <meta
+        name="og:description"
+        property="og:description"
+        content={site_desc}
+      />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={site_title} />
+      <meta name="twitter:description" content={site_desc} />
+
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga_tracking_id}`} />
     </Head>

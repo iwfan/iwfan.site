@@ -3,7 +3,7 @@ import path from 'path'
 import md5 from 'blueimp-md5'
 import { format } from 'date-fns'
 import zh_CN from 'date-fns/locale/zh-CN'
-import { posts_dir } from '../blog.config'
+import { posts_dir } from '../site.config'
 
 const rootDir = path.join(__dirname, '..', posts_dir)
 const dateStr = process.argv[3]
