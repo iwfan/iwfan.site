@@ -6,7 +6,7 @@
 - [x] google analytics
 - [x] sitemap
 - [x] image lazy loading
-- [ ] full text search
+- [ ] posts search
 - [ ] offline
 - [ ] manifest
 - [ ] rss feed

@@ -3,5 +3,10 @@ import { getSortedPostsData } from '../../libs/posts'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const posts = await getSortedPostsData()
-  res.status(200).json(posts)
+  const query = req.query.q;
+  if (!query) {
+    res.status(400).json({ err: 'Missing `q` in query string' })
+  } else {
+    res.status(200).json(posts);
+  }
 }
