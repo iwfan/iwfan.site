@@ -38,9 +38,6 @@ export const SEO: React.FC<SeoProps> = ({ title }) => {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={site_title} />
       <meta name="twitter:description" content={site_desc} />
-
-      {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga_tracking_id}`} />
     </Head>
   )
 }

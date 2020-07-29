@@ -14,7 +14,13 @@ const readFiles = promisify(glob)
 
 const cachedPosts = new NodeCache({ useClones: false })
 
-export const getSortedPostsData = async (useCache: boolean = true) => {
+export function cachePostDataToMemory(allPostsData: Array<MarkdownRawData>) {
+  allPostsData.forEach((post) => {
+    cachedPosts.set(post.slug, post)
+  })
+}
+
+export const getSortedPostsData = async () => {
   const fileNames = await readFiles('**/*.md', { cwd: rootDir })
 
   const allPostsData: Array<MarkdownRawData> = fileNames
@@ -36,38 +42,28 @@ export const getSortedPostsData = async (useCache: boolean = true) => {
       }
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
-    .map((item) => ({
+    .map((item, index, posts) => ({
       ...item,
       date: format(item.date, 'yyyy-MM-dd HH:mm:ss', {
         locale: zh_CN,
       }),
+      prev: posts[index - 1]?.slug ?? null,
+      next: posts[index + 1]?.slug ?? null,
     }))
-
-  // use memory cache
-  if (useCache) {
-    allPostsData.forEach((post, index) => {
-      const prev = allPostsData[index - 1]
-      const next = allPostsData[index + 1]
-
-      cachedPosts.set(post.slug, {
-        ...post,
-        prev: prev?.slug ?? null,
-        next: next?.slug ?? null,
-      })
-    })
-  }
 
   return allPostsData
 }
 
 export const getAllPostSlugs = async () => {
   const posts = await getSortedPostsData()
-  return posts.map((post) => ({ params: { ...post } }))
+  return posts.map((post) => ({ params: { slug: post.slug } }))
 }
 
 export async function getPostData(slug: string) {
-  if (cachedPosts.keys().length === 0) {
-    await getSortedPostsData()
+  if (!cachedPosts.has(slug)) {
+    const allPostsData = await getSortedPostsData()
+    // use memory cache
+    cachePostDataToMemory(allPostsData)
   }
 
   const cachedPost = cachedPosts.get<MarkdownRawData>(slug)!

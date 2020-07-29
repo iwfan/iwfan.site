@@ -7,9 +7,7 @@ tags:
 thumbnail: null
 ---
 
-原文链接：
-
-[](https://blog.appsignal.com/2020/04/09/ride-down-the-javascript-dependency-hell.html)
+原文链接：[ride-down-the-javascript-dependency-hell](https://blog.appsignal.com/2020/04/09/ride-down-the-javascript-dependency-hell.html)
 
 每个 JavaScript 项目在刚开始开发时总是信心满满，不愿意引入过多的 npm 包。但就算花费了更多的时间也做了更多的工作，packages 还是越来越多。 `package.json` 也越来越膨胀，而且由于增加包或者删除包导致的`package-lock.json` 的巨大变更，也让 pull request 看起来十分可怕。
 
