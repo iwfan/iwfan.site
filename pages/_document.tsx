@@ -18,8 +18,6 @@ export default class MyDocument extends Document {
           <Main />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga_tracking_id}`} />
-          {/* full-text search - lunr.js */}
-          {/*<script src="https://unpkg.com/lunr/lunr.js"></script>*/}
           <NextScript />
         </body>
       </html>
