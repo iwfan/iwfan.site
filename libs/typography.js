@@ -12,7 +12,6 @@ SutroTheme.overrideThemeStyles = ({ rhythm }, options) => ({
     letterSpacing: "-1px",
   },
 });
-SutroTheme.scaleRatio = 5 / 2;
 
 const typography = new Typography(SutroTheme);
 

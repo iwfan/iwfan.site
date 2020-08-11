@@ -5,8 +5,8 @@ import { getPostData, getAllPostSlugs } from '../../libs/posts'
 import { Layout } from '../../components/Layout'
 import { SEO } from '../../components/SEO'
 import ReactMarkdown from 'react-markdown'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import style from 'react-syntax-highlighter/dist/cjs/styles/hljs/darcula'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import style from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula'
 
 interface Props {
   userAgent?: string

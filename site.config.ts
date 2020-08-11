@@ -1,4 +1,4 @@
-export const site_title = `反差`
+export const site_title = `Zi莱卷`
 
 export const site_logo = `/logo_with_padding.png`
 
