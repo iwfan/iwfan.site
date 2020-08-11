@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
         </Head>
-        <body>
+        <body className={'font-sans m-0 p-0 bg-gray-100'}>
           <Main />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script

@@ -16,7 +16,6 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
   return (
     <Layout>
       <SEO/>
-      <h1>Hello</h1>
     </Layout>
   )
 }

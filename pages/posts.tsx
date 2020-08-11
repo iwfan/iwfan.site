@@ -16,43 +16,43 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
   return (
     <Layout>
       <SEO/>
-      <div className="md:flex bg-white rounded-lg p-6">
-        <img className="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-6" src="/logo_with_padding.png"/>
-        <div className="text-center md:text-left">
-          <h2 className="text-lg">Erin Lindford</h2>
-          <div className="text-purple-500">Product Engineer</div>
-          <div className="text-gray-600">erinlindford@example.com</div>
-          <div className="text-gray-600">(555) 765-4321</div>
-        </div>
-      </div>
 
-      <div>
-        {allPostsData.map(({ slug, date, title, tags }) => (
-          <article key={slug}>
-            <div className="max-w-sm rounded overflow-hidden shadow-lg">
-              <div className="px-6 py-4">
-                <h3 className="mb-2 font-bold text-xl">
-                  <Link href={'/post/[slug]'} as={`/post/${slug}`}>
-                    <a className="text-3xl text-orange-600 no-underline">
-                      {title}
-                    </a>
-                  </Link>
-                </h3>
-                <p className="text-gray-700 text-base">{date}</p>
-              </div>
-              <div className="px-6 py-4">
-                {
-                  tags.map(tag => (
-                    <span
-                      key={tag}
-                      className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#{tag}</span>
-                  ))
-                }
-              </div>
-            </div>
-          </article>
+      <ul
+        style={{
+          margin: 0,
+          padding: 0,
+          listStyle: `none`,
+        }}
+      >
+        {allPostsData.map((post: any) => (
+          <li
+            key={post.slug}
+            style={{
+              display: `flex`,
+              justifyContent: `space-between`,
+              alignItems: `center`,
+              // marginBottom: rhythm(0.5),
+            }}
+          >
+            <p style={{ margin: 0 }}>
+              <time style={{ marginRight: '10px' }}>
+                <small>{post.date}</small>
+              </time>
+
+              <Link href={'/post/[slug]'} as={`/post/${post.slug}`}>
+                <a className="text-xl text-gray-900 no-underline">
+                  {post.title}
+                </a>
+              </Link>
+            </p>
+            <small style={{ whiteSpace: `nowrap` }}>
+              {post.tags?.map((tag: string) => (
+                  `#${tag}`
+              ))}
+            </small>
+          </li>
         ))}
-      </div>
+      </ul>
     </Layout>
   )
 }
