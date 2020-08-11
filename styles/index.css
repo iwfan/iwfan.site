@@ -1,3 +1,9 @@
+@import "~tailwindcss/base.css";
+
+@import "~tailwindcss/components.css";
+
+@import "~tailwindcss/utilities.css";
+
 html,
 body {
     padding: 0;
@@ -5,7 +11,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     line-height: 1.6;
-    font-size: 18px;
+    font-size: 16px;
     /*background-image: url(https://colors.ichuantong.cn/501227b370fe7f4d6e3b3b0993298eab.png);*/
     /*background-size: auto, auto 1.5rem;*/
     /*background-color: rgb(117, 135, 138);*/

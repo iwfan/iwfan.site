@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
-import { NextPage } from 'next'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
-import { getPostData, getAllPostSlugs } from '../../libs/posts'
+import React from 'react'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { getAllPostSlugs, getPostData } from '../../libs/posts'
 import { Layout } from '../../components/Layout'
 import { SEO } from '../../components/SEO'
 import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import style from 'react-syntax-highlighter/dist/cjs/styles/prism/darcula'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import style from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-light'
+
 
 interface Props {
   userAgent?: string
 }
 const CodeBlock = ({ language, value }: any) => {
   return (
-    <SyntaxHighlighter className={`language-${language}`} language={language} style={style} showLineNumbers={true}>
+    <SyntaxHighlighter
+      className={`language-${language}`}
+      language={language}
+      style={style}
+      showLineNumbers={true}>
       {value}
     </SyntaxHighlighter>
   )
@@ -26,7 +30,7 @@ const Image = ({ alt, src }: any) => {
 const Post: NextPage<Props> = ({ postData }: any) => (
   <Layout>
     <SEO title={postData.title} />
-    <article>
+    <article className="prose">
       <header>
         <h1 className="my-0">{postData.title}</h1>
         <p className="text-xs">{postData.date}</p>

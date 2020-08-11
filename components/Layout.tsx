@@ -25,7 +25,7 @@ export const Layout: React.FC = ({ children }) => {
   );
 
   return (
-    <div className="max-w-screen-sm px-4 py-8 mx-auto">
+    <div className="max-w-screen-md px-4 py-8 mx-auto">
       <header>{header}</header>
       <main>{children}</main>
       <footer>
