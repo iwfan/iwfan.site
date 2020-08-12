@@ -12,12 +12,12 @@ interface Props {
 }
 
 const CodeBlock = ({ language, value }: any) => {
+  const lineNumber = value.split('\n').length
 
-  const lineNumber = value.split('\n').length;
+  const showLineNumbersLanguage = ['javascript', 'typescript']
 
-  const showLineNumbersLanguage = ['javascript', 'typescript'];
-
-  const showLineNumbers = showLineNumbersLanguage.includes(language) && lineNumber >= 10;
+  const showLineNumbers =
+    showLineNumbersLanguage.includes(language) && lineNumber >= 10
 
   return (
     <SyntaxHighlighter
@@ -32,52 +32,65 @@ const CodeBlock = ({ language, value }: any) => {
 }
 
 const Image = ({ alt, src }: any) => {
-  return <img className="w-full rounded-lg shadow-md" src={src} alt={alt} loading={'lazy'} />
+  return (
+    <img
+      className="w-full rounded-lg shadow-md"
+      src={src}
+      alt={alt}
+      loading={'lazy'}
+    />
+  )
 }
 
 const Post: NextPage<Props> = ({ postData }: any) => (
   <Layout>
-    <SEO title={postData.title} />
+    <SEO title={postData.title}/>
     <article className="prose p-6">
       <header>
         <h1 className="my-0">{postData.title}</h1>
-        <p className="text-xs text-gray-600">{postData.date}</p>
+        <p className="text-xs text-gray-600 font-mono">{postData.date}</p>
       </header>
       <ReactMarkdown
         escapeHtml={false}
         source={postData.content}
         renderers={{
           code: CodeBlock,
-          image: Image,
+          image: Image
         }}
       />
 
       <div className="px-6 py-4">
         {postData.tags.map((tag: string) => (
-          <span
+          <div
             key={tag}
-            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2"
+            className="bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 inline-flex items-center"
           >
-            #{tag}
-          </span>
+            <span className="text-lg mr-1">&#128278;</span><span>{tag}</span>
+          </div>
         ))}
       </div>
 
       <div className="mt-6 flex justify-between">
         {postData.prev ? (
-          <Link href={'/post/[slug]'} as={`/post/${postData.prev.slug}`}>
-            <a className="font-medium text-blue-500 underline hover:text-blue-700">
-              ← {postData.prev.title}
-            </a>
-          </Link>
+          <div>
+            <span className="text-lg mr-2">&#128072;</span>
+            <Link href={'/post/[slug]'} as={`/post/${postData.prev.slug}`}>
+              <a className="font-medium">
+                {postData.prev.title}
+              </a>
+            </Link>
+          </div>
         ) : null}
 
         {postData.next ? (
-          <Link href={'/post/[slug]'} as={`/post/${postData.next.slug}`}>
-            <a className="font-medium text-blue-500 underline hover:text-blue-700">
-              {postData.next.title} →
-            </a>
-          </Link>
+          <div>
+            <Link href={'/post/[slug]'} as={`/post/${postData.next.slug}`}>
+              <a className="font-medium">
+                {postData.next.title}
+              </a>
+            </Link>
+            <span className="text-lg ml-2">&#128073;</span>
+          </div>
         ) : null}
       </div>
     </article>
@@ -91,8 +104,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const postData = await getPostData(params.slug)
   return {
     props: {
-      postData,
-    },
+      postData
+    }
   }
 }
 
@@ -101,6 +114,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostSlugs()
   return {
     paths,
-    fallback: false,
+    fallback: false
   }
 }

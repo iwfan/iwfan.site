@@ -20,19 +20,24 @@ const Header: React.FC = () => (
         </h2>
         <p className="text-sm text-gray-600 my-2">{site_desc}</p>
         <nav>
-          <ul className="list-none p-0 flex ">
+          <ul className="list-none p-0 flex items-center">
             <li className="mr-2">
-              <Link href="/posts">
-                <a className="text-blue-500 no-underline hover:text-blue-700">
-                  博客
+              <Link href="/">
+                <a className="text-xl no-underline hover:text-blue-700">
+                  &nbsp;&#127968;&nbsp;
                 </a>
               </Link>
             </li>
             <span className="text-gray-300">{` | `}</span>
             <li className="ml-2">
-              <Link href="/about">
-                <a className="text-blue-500 no-underline hover:text-blue-700">
-                  关于
+              <Link href="/posts">
+                <a className="text-xl no-underline hover:text-blue-700">
+                  &nbsp;&#128214;&nbsp;
+                  {/*
+                  &#128221; 📝
+                  &#x1f4bb; 💻
+
+                  */}
                 </a>
               </Link>
             </li>
@@ -45,8 +50,7 @@ const Header: React.FC = () => (
 
 const Footer = () => (
   <footer className={'my-4 text-sm text-center text-gray-600'}>
-    <abbr
-      title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.">
+    <abbr title="This site and all its content are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.">
       CC BY-NC 4.0
     </abbr>
     {` © `}
@@ -78,18 +82,17 @@ export const Layout: React.FC = ({ children }) => {
 
   if (isRoot) {
     return (
-      <div className="max-w-screen-lg p-0 mx-auto h-screen flex flex-col justify-center">
+      <div className="max-w-screen-md p-0 mx-auto h-screen flex flex-col justify-center">
         <Header />
       </div>
     )
   }
 
-
   return (
-    <div className="max-w-screen-lg p-4 mx-auto">
+    <div className="max-w-screen-md p-4 mx-auto">
       <Header />
       <main className="min-h-full">{children}</main>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

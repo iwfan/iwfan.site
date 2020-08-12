@@ -15,7 +15,7 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
 
   return (
     <Layout>
-      <SEO/>
+      <SEO />
     </Layout>
   )
 }
@@ -26,7 +26,7 @@ export async function getStaticProps() {
   const allPostsData = await getSortedPostsData()
   return {
     props: {
-      allPostsData
-    }
+      allPostsData,
+    },
   }
 }

@@ -12,12 +12,6 @@ module.exports = {
         css: {
           color: '#333',
           maxWidth: '100%',
-          a: {
-            color: '#3182ce',
-            '&:hover': {
-              color: '#2c5282',
-            },
-          },
           'ul, ol': {
             listStyle: 'none',
             padding: '0'
@@ -25,7 +19,10 @@ module.exports = {
           img: {
             marginTop: '0',
             marginBottom: '0'
-          }
+          },
+          code: {
+            fontSize: `1.2em`,
+          },
         },
       },
     },

@@ -15,41 +15,27 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
 
   return (
     <Layout>
-      <SEO/>
+      <SEO />
 
-      <ul
-        style={{
-          margin: 0,
-          padding: 0,
-          listStyle: `none`,
-        }}
-      >
+      <ul className="list-none p-0">
         {allPostsData.map((post: any) => (
-          <li
-            key={post.slug}
-            style={{
-              display: `flex`,
-              justifyContent: `space-between`,
-              alignItems: `center`,
-              // marginBottom: rhythm(0.5),
-            }}
-          >
-            <p style={{ margin: 0 }}>
-              <time style={{ marginRight: '10px' }}>
-                <small>{post.date}</small>
+          <li key={post.slug} className="flex items-center justify-between">
+            <div className="m-2 inline-flex items-center">
+              <time className="font-mono mr-4 text-gray-600 text-sm">
+                <small>{post.date.replace(/\s\d{2}\:\d{2}\:\d{2}/, '')}</small>
               </time>
 
               <Link href={'/post/[slug]'} as={`/post/${post.slug}`}>
-                <a className="text-xl text-gray-900 no-underline">
+                <a className="text-lg text-gray-900 no-underline hover:underline">
                   {post.title}
                 </a>
               </Link>
-            </p>
-            <small style={{ whiteSpace: `nowrap` }}>
+            </div>
+            <div className="inline-flex items-center">
               {post.tags?.map((tag: string) => (
-                  `#${tag}`
+                <small className="text-sm text-gray-600">#{tag}</small>
               ))}
-            </small>
+            </div>
           </li>
         ))}
       </ul>
@@ -63,7 +49,7 @@ export async function getStaticProps() {
   const allPostsData = await getSortedPostsData()
   return {
     props: {
-      allPostsData
-    }
+      allPostsData,
+    },
   }
 }
