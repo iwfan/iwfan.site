@@ -5,7 +5,6 @@ import { Layout } from '../../components/Layout'
 import { SEO } from '../../components/SEO'
 import ReactMarkdown from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import style from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-light'
 import Link from 'next/link'
 
 interface Props {
@@ -13,11 +12,17 @@ interface Props {
 }
 
 const CodeBlock = ({ language, value }: any) => {
+
+  const lineNumber = value.split('\n').length;
+
+  const showLineNumbersLanguage = ['javascript', 'typescript'];
+
+  const showLineNumbers = showLineNumbersLanguage.includes(language) && lineNumber >= 10;
+
   return (
     <SyntaxHighlighter
       className={'font-mono'}
       language={language}
-      style={style}
       useInlineStyles={false}
       showLineNumbers={false}
     >
@@ -27,13 +32,13 @@ const CodeBlock = ({ language, value }: any) => {
 }
 
 const Image = ({ alt, src }: any) => {
-  return <img className="w-full" src={src} alt={alt} loading={'lazy'} />
+  return <img className="w-full rounded-lg shadow-md" src={src} alt={alt} loading={'lazy'} />
 }
 
 const Post: NextPage<Props> = ({ postData }: any) => (
   <Layout>
     <SEO title={postData.title} />
-    <article className="prose p-6 shadow-sm rounded-md bg-white">
+    <article className="prose p-6">
       <header>
         <h1 className="my-0">{postData.title}</h1>
         <p className="text-xs text-gray-600">{postData.date}</p>
