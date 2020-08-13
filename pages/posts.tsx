@@ -33,7 +33,7 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
             </div>
             <div className="inline-flex items-center">
               {post.tags?.map((tag: string) => (
-                <small className="text-sm text-gray-600">#{tag}</small>
+                <small key={tag} className="text-sm text-gray-600">#{tag}</small>
               ))}
             </div>
           </li>
