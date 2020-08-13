@@ -21,7 +21,7 @@ const CodeBlock = ({ language, value }: any) => {
 
   return (
     <SyntaxHighlighter
-      className={'font-mono'}
+      className={`${language} font-mono`}
       language={language}
       useInlineStyles={false}
       showLineNumbers={false}
