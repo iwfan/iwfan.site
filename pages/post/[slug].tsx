@@ -44,18 +44,18 @@ const Image = ({ alt, src }: any) => {
 
 const Post: NextPage<Props> = ({ postData }: any) => (
   <Layout>
-    <SEO title={postData.title}/>
+    <SEO title={postData.title} />
     <article className="prose p-6">
       <header>
         <h1 className="my-0">{postData.title}</h1>
         <p className="text-xs text-gray-600 font-mono">{postData.date}</p>
       </header>
       <ReactMarkdown
-        escapeHtml={false}
+        escapeHtml={true}
         source={postData.content}
         renderers={{
           code: CodeBlock,
-          image: Image
+          image: Image,
         }}
       />
 
@@ -65,7 +65,8 @@ const Post: NextPage<Props> = ({ postData }: any) => (
             key={tag}
             className="bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 inline-flex items-center"
           >
-            <span className="text-lg mr-1">&#128278;</span><span>{tag}</span>
+            <span className="text-lg mr-1">&#128278;</span>
+            <span>{tag}</span>
           </div>
         ))}
       </div>
@@ -75,9 +76,7 @@ const Post: NextPage<Props> = ({ postData }: any) => (
           <div>
             <span className="text-lg mr-2">&#128072;</span>
             <Link href={'/post/[slug]'} as={`/post/${postData.prev.slug}`}>
-              <a className="font-medium">
-                {postData.prev.title}
-              </a>
+              <a className="font-medium">{postData.prev.title}</a>
             </Link>
           </div>
         ) : null}
@@ -85,9 +84,7 @@ const Post: NextPage<Props> = ({ postData }: any) => (
         {postData.next ? (
           <div>
             <Link href={'/post/[slug]'} as={`/post/${postData.next.slug}`}>
-              <a className="font-medium">
-                {postData.next.title}
-              </a>
+              <a className="font-medium">{postData.next.title}</a>
             </Link>
             <span className="text-lg ml-2">&#128073;</span>
           </div>
@@ -104,8 +101,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const postData = await getPostData(params.slug)
   return {
     props: {
-      postData
-    }
+      postData,
+    },
   }
 }
 
@@ -114,6 +111,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostSlugs()
   return {
     paths,
-    fallback: false
+    fallback: false,
   }
 }
