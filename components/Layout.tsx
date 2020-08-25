@@ -84,6 +84,7 @@ export const Layout: React.FC = ({ children }) => {
     return (
       <div className="max-w-screen-md p-0 mx-auto h-screen flex flex-col justify-center">
         <Header />
+        {children}
       </div>
     )
   }

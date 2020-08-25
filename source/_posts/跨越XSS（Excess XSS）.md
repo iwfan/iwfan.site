@@ -9,8 +9,6 @@ tags:
 thumbnail: null
 ---
 
-原文链接：[https://excess-xss.com/](https://excess-xss.com/)
-
 # 第一章：综述
 
 ## 何谓 XSS ?
@@ -366,7 +364,7 @@ CSP 有以下几种规则：
 
 ### CSP 实战
 
-在下面的示例中， 攻击者成功的注入了恶意代码到页面中。
+在下面的示例中， 攻击者成功地注入了恶意代码到页面中。
 
 ```html
 <html>
@@ -374,3 +372,127 @@ CSP 有以下几种规则：
   <script src="http://attacker/malicious‑script.js"></script>
 </html>
 ```
+
+虽然在这种情况下，网站未能安全地处理「用户输入」, 但在正确使用 CSP 策略的情况下，浏览器不会加载和执行 `malicious-script.js`，因为 http://attacker/ 不在受信任来源集中。所以 CSP 策略防止了该漏洞造成地伤害。
+
+即使攻击者将脚本代码内联注入而不是链接到外部文件，在不允许内联 JavaScript 的 CSP 策略下也会防止该漏洞造成任何伤害。
+
+### 如何启用 CSP
+
+浏览器不会默认开启 CSP，如果想在网站中使用该功能, 那么页面的响应头中必须含有 `Content‑Security‑Policy`。只要浏览器支持 CSP，任何使用该响应头的页面都会被加载它的浏览器启用其安全策略。
+
+由于安全策略是与每个 HTTP 响应一起发送的，所以服务器可以在每个页面的基础上设置其策略。通过在每个响应中提供相同的 CSP 头，可以将相同地策略应用于整个网站。
+
+`Content-Security-Policy` 响应头的值是一个定义一个或多个安全策略的字符串。
+
+> ⚠️ 注意：为了表述清晰，本节中的示例使用了换行符和缩进；这不应出现在实际的响应头中。
+
+### CSP 策略的语法
+
+CSP 响应头的语法如下：
+
+```text
+Content‑Security‑Policy:
+    directive source‑expression, source‑expression, ...;
+    directive ...;
+    ...
+```
+
+语法主要由两部分组成：
+
+- **Directives**: 是一组预定义的字符串形式的资源类型列表。
+- **Source expressions**: 来源表达式是用来描述资源来源的模式。
+
+对于每种资源类型，其后跟随的来源表达式定义了哪些资源可以被下载使用。
+
+#### 资源类型
+
+资源类型有如下几种：
+
+- `connect-src`
+- `font-src`
+- `frame-src`
+- `img-src`
+- `media-src`
+- `object-src`
+- `script-src`
+- `style-src`
+
+除此之外，特殊资源类型 `default-src` 可用于为 CSP 响应头中未包含的所有指令提供默认值。
+
+#### 来源表达式
+
+来源表达式的语法如下：
+
+```txt
+protocol://host‑name:port‑number
+```
+
+主机名可以以 `*` 开头，这意味着所提供主机名的任何子域都将被允许进行资源下载。同样，端口号也可以是 `*` ，这意味着所有端口都将被允许。此外，协议和端口号也可以省略。
+
+除上述语法外，来源表达式也可以是四个具有特殊含义的关键字之一（包括引号）：
+
+- `'none'`: 不允许下载任何资源。
+- `'self'`: 只允许同源的资源。
+- `'unsafe-inline'`: 允许向页面中嵌入资源，例如：`<script>` 元素、`<style>` 元素 和 `javascript:` 协议的 URL。
+- `'unsafe-eval'`: 允许使用 JavaScript 中的 eval 函数。
+
+请注意，无论何时使用 CSP，默认情况下都会自动禁止内联资源和 eval。使用 `'unsafe-inline'` 和 `'unsafe-eval'` 是开启它们的唯一方法。
+
+### 一个示例
+
+```txt
+Content‑Security‑Policy:
+    script‑src 'self' scripts.example.com;
+    media‑src 'none';
+    img‑src *;
+    default‑src 'self' http://*.example.com
+```
+
+在该策略中， 页面受到了以下限制：
+
+- scripts 只能从同源服务和 `scripts.example.com` 服务中下载。
+- 音频与视频文件无法下载。
+- 图片资源可以从任意来源下载。
+- 所有其他的资源可以从同源服务器和 `example.com` 的子域服务器中下载。
+
+### CSP 的当前状态
+
+截至 2013 年 6 月，内容安全政策是 W3C 的候选建议。浏览器供应商正在实施该建议，但其中部分内容仍与浏览器有关。特别是要使用的 HTTP 头在不同的浏览器之间可能有所不同。在今天使用 CSP 之前，请查阅你需要支持的浏览器的文档。
+
+# 总结
+
+## XSS 总览
+
+- XSS 是一种代码注入攻击，可以通过对「用户输入」的不安全处理来实现。
+- 成功的 XSS 攻击使攻击者可以在受害者的浏览器中执行恶意 JavaScript。
+- 成功的 XSS 攻击会损害网站及其用户的安全。
+
+## XSS 攻击
+
+- 三种主要的 XSS 攻击类型:
+  - 持久性的 XSS 攻击：恶意的「用户输入」来自于网站的数据库中。
+  - 反射性的 XSS 攻击：恶意的「用户输入」来自于受害者的请求。
+  - 基于 DOM 的 XSS 攻击：XSS 漏洞存在于客户端的代码而不是服务端的代码中。
+- 所有这些攻击都以不同地方式执行，但如果成功，其效果相同。
+
+## 阻止 XSS
+
+- 阻止 XSS 攻击最重要的方式就是执行安全输入处理：
+  - 大多数情况下，只要页面中包含用户输入，就应执行编码转义。
+  - 在某些情况下，编码转义必须被校验替代或补充。
+  - 安全输入处理必须考虑「用户输入」插入页面的哪个上下文。
+  - 为了防止所有类型的 XSS 攻击，必须在客户端和服务器端代码中同时执行安全的输入处理。
+- CSP 内容安全策略为安全输入处理失败时提供了额外的防御层。
+
+# 附录
+
+## 术语
+
+需要注意的是，目前用于描述 XSS 的术语存在重叠：基于 DOM 的 XSS 攻击同时也是持久性的或反射性的，它不是一种独立的攻击类型。目前还没有一个被广泛接受的术语能够涵盖所有类型的 XSS 而不存在重叠。然而，无论用什么术语来描述 XSS，关于任何特定攻击，最重要的是要识别恶意输入来自哪里，漏洞在哪里。
+
+# 补充
+
+- [How to implement whitelisting securely (July 9th, 2016)](https://excess-xss.com/whitelisting)
+
+原文链接：[https://excess-xss.com/](https://excess-xss.com/)
