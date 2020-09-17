@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs-extra'
 import path from 'path'
 import md5 from 'blueimp-md5'
 import { format } from 'date-fns'
@@ -20,11 +20,11 @@ const front_matter = [
   `tags:`,
   `  - Untagged`,
   `thumbnail: null`,
-  '---'
+  '---',
 ]
 
 const markdownFile = path.resolve(rootDir, `${fileName}.md`)
 
-fs.writeFile(markdownFile, front_matter.join('\n'), { flag: 'wx' }, (err) => {
+fs.outputFile(markdownFile, front_matter.join('\n'), { flag: 'wx' }, (err) => {
   console.log(err ? err.message : `Created ${markdownFile}`)
 })

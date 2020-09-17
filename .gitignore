@@ -67,3 +67,5 @@ typings/
 .next
 /public/post/
 /public/sitemap.xml
+
+.DS_Store
