@@ -72,14 +72,6 @@ const Footer = () => (
     <a className="text-gray-600" href="https://vercel.com/">
       Vercel
     </a>
-    <div className="fixed bottom-0 right-0">
-      <canvas
-        id="live2d"
-        className="pointer-events-none "
-        width="176"
-        height="221"
-      />
-    </div>
   </footer>
 )
 
@@ -110,6 +102,12 @@ export const Layout: React.FC = ({ children }) => {
       <Header />
       <main className="min-h-full">{children}</main>
       <Footer />
+      <canvas
+        id="live2d"
+        className="fixed bottom-0 right-0 opacity-75 pointer-events-none"
+        width="176"
+        height="221"
+      />
     </div>
   )
 }
