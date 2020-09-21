@@ -8,7 +8,10 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/atom-one-dark.min.css"/>
+          <link
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/atom-one-dark.min.css"
+          />
         </Head>
         <body className={'font-sans m-0 p-0 bg-gray-100'}>
           <Main />
@@ -17,6 +20,7 @@ export default class MyDocument extends Document {
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${ga_tracking_id}`}
           />
+          <script src="/live2d.js" async></script>
           <NextScript />
         </body>
       </html>

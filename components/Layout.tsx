@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { site_desc, site_title } from '../site.config'
@@ -36,7 +36,6 @@ const Header: React.FC = () => (
                   {/*
                   &#128221; 📝
                   &#x1f4bb; 💻
-
                   */}
                 </a>
               </Link>
@@ -73,20 +72,29 @@ const Footer = () => (
     <a className="text-gray-600" href="https://vercel.com/">
       Vercel
     </a>
-    <div className="cat-container">
+    <div className="fixed bottom-0 right-0">
       <canvas
-        id="vuepress-cat"
-        width="style.width"
-        height="style.height"
-        className="live2d"
+        id="live2d"
+        className="pointer-events-none "
+        width="176"
+        height="221"
       />
     </div>
   </footer>
 )
 
+declare var loadlive2d: any
+
 export const Layout: React.FC = ({ children }) => {
   const { pathname } = useRouter()
   const isRoot = pathname === '/'
+
+  useEffect(() => {
+    loadlive2d(
+      'live2d',
+      'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-hijiki/assets/hijiki.model.json'
+    )
+  }, [])
 
   if (isRoot) {
     return (
