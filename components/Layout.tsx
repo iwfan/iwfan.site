@@ -5,22 +5,22 @@ import { site_desc, site_title } from '../site.config'
 
 const Header: React.FC = () => (
   <header className={`mx-auto w-full`}>
-    <div className="flex bg-white rounded-lg p-4 my-4 shadow-sm items-center">
+    <div className="flex items-center p-4 my-4 bg-white rounded-lg shadow-sm">
       <img
-        className="transform hover:scale-125 hover:-rotate-360 transition-transform ease-linear duration-300 h-16 w-16 md:h-32 md:w-32 rounded-full mx-auto md:mx-0 md:mr-6"
+        className="w-16 h-16 mx-auto rounded-full transform hover:scale-125 hover:-rotate-360 transition-transform ease-linear duration-300 md:h-32 md:w-32 md:mx-0 md:mr-6"
         src="/logo_with_padding.png"
       />
       <div className="text-center md:text-left">
-        <h2 className="text-lg my-2">
+        <h2 className="my-2 text-lg">
           <Link href="/">
             <a className="text-xl font-black text-black no-underline">
               {site_title}
             </a>
           </Link>
         </h2>
-        <p className="text-sm text-gray-600 my-2">{site_desc}</p>
+        <p className="my-2 text-sm text-gray-600">{site_desc}</p>
         <nav>
-          <ul className="list-none p-0 flex items-center">
+          <ul className="flex items-center p-0 list-none">
             <li className="mr-2">
               <Link href="/">
                 <a className="text-xl no-underline hover:text-blue-700">
@@ -73,6 +73,14 @@ const Footer = () => (
     <a className="text-gray-600" href="https://vercel.com/">
       Vercel
     </a>
+    <div className="cat-container">
+      <canvas
+        id="vuepress-cat"
+        width="style.width"
+        height="style.height"
+        className="live2d"
+      />
+    </div>
   </footer>
 )
 
@@ -82,7 +90,7 @@ export const Layout: React.FC = ({ children }) => {
 
   if (isRoot) {
     return (
-      <div className="max-w-screen-md p-0 mx-auto h-screen flex flex-col justify-center">
+      <div className="flex flex-col justify-center h-screen p-0 mx-auto max-w-screen-md">
         <Header />
         {children}
       </div>
@@ -90,7 +98,7 @@ export const Layout: React.FC = ({ children }) => {
   }
 
   return (
-    <div className="max-w-screen-md p-4 mx-auto">
+    <div className="p-4 mx-auto max-w-screen-md">
       <Header />
       <main className="min-h-full">{children}</main>
       <Footer />
