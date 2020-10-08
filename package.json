@@ -23,7 +23,7 @@
     "date-fns": "^2.15.0",
     "glob": "^7.1.6",
     "gray-matter": "^4.0.2",
-    "next": "^9.4.4",
+    "next": "^9.5.4",
     "node-cache": "^5.1.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
