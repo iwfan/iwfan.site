@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { site_desc, site_title } from '../site.config'
@@ -13,9 +12,7 @@ const Header: React.FC = () => (
       <div className="text-center md:text-left">
         <h2 className="my-2 text-lg">
           <Link href="/">
-            <a className="text-xl font-black text-black no-underline">
-              {site_title}
-            </a>
+            <a className="text-xl font-black text-black no-underline">{site_title}</a>
           </Link>
         </h2>
         <p className="my-2 text-sm text-gray-600">{site_desc}</p>
@@ -23,9 +20,7 @@ const Header: React.FC = () => (
           <ul className="flex items-center p-0 list-none">
             <li className="mr-2">
               <Link href="/">
-                <a className="text-xl no-underline hover:text-blue-700">
-                  &nbsp;&#127968;&nbsp;
-                </a>
+                <a className="text-xl no-underline hover:text-blue-700">&nbsp;&#127968;&nbsp;</a>
               </Link>
             </li>
             <span className="text-gray-300">{` | `}</span>
@@ -75,18 +70,9 @@ const Footer = () => (
   </footer>
 )
 
-declare var loadlive2d: any
-
 export const Layout: React.FC = ({ children }) => {
   const { pathname } = useRouter()
   const isRoot = pathname === '/'
-
-  useEffect(() => {
-    loadlive2d(
-      'live2d',
-      'https://cdn.jsdelivr.net/gh/QiShaoXuan/live2DModel@1.0.0/live2d-widget-model-hijiki/assets/hijiki.model.json'
-    )
-  }, [])
 
   if (isRoot) {
     return (
@@ -102,12 +88,6 @@ export const Layout: React.FC = ({ children }) => {
       <Header />
       <main className="min-h-full">{children}</main>
       <Footer />
-      <canvas
-        id="live2d"
-        className="fixed bottom-0 right-0 opacity-75 pointer-events-none"
-        width="176"
-        height="221"
-      />
     </div>
   )
 }

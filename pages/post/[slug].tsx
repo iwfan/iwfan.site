@@ -16,8 +16,7 @@ const CodeBlock = ({ language, value }: any) => {
 
   const showLineNumbersLanguage = ['javascript', 'typescript']
 
-  const showLineNumbers =
-    showLineNumbersLanguage.includes(language) && lineNumber >= 10
+  const showLineNumbers = showLineNumbersLanguage.includes(language) && lineNumber >= 10
 
   return (
     <SyntaxHighlighter
@@ -31,16 +30,9 @@ const CodeBlock = ({ language, value }: any) => {
   )
 }
 
-const Image = ({ alt, src }: any) => {
-  return (
-    <img
-      className="w-full rounded-lg shadow-md"
-      src={src}
-      alt={alt}
-      loading={'lazy'}
-    />
-  )
-}
+// const Image = ({ alt, src }: any) => {
+//   return <img className="w-full rounded-lg shadow-md" src={src} alt={alt} loading={'lazy'} />
+// }
 
 const Post: NextPage<Props> = ({ postData }: any) => (
   <Layout>
@@ -50,14 +42,14 @@ const Post: NextPage<Props> = ({ postData }: any) => (
         <h1 className="my-0">{postData.title}</h1>
         <p className="text-xs text-gray-600 font-mono">{postData.date}</p>
       </header>
-      <ReactMarkdown
-        escapeHtml={true}
-        source={postData.content}
-        renderers={{
-          code: CodeBlock,
-          image: Image,
-        }}
-      />
+      {/*<ReactMarkdown*/}
+      {/*  escapeHtml={true}*/}
+      {/*  source={postData.content}*/}
+      {/*  renderers={{*/}
+      {/*    code: CodeBlock,*/}
+      {/*    image: Image*/}
+      {/*  }}*/}
+      {/*/>*/}
 
       <div className="px-6 py-4">
         {postData.tags.map((tag: string) => (
@@ -101,8 +93,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const postData = await getPostData(params.slug)
   return {
     props: {
-      postData,
-    },
+      postData
+    }
   }
 }
 
@@ -111,6 +103,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getAllPostSlugs()
   return {
     paths,
-    fallback: false,
+    fallback: false
   }
 }

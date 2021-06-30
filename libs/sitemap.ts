@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs-extra'
 import prettier from 'prettier'
 import { formatISO, parse } from 'date-fns'
 import zh_CN from 'date-fns/locale/zh-CN'
@@ -8,7 +8,7 @@ import { site_url } from '../site.config'
 const formatISO8601Date = (dateStr: string) =>
   formatISO(
     parse(dateStr, 'yyyy-MM-dd HH:mm:ss', new Date(dateStr), {
-      locale: zh_CN,
+      locale: zh_CN
     })
   )
 
@@ -22,7 +22,7 @@ const formatISO8601Date = (dateStr: string) =>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${pages
         .map(
-          (page) =>
+          page =>
             `
             <url>
                 <loc>${site_url}/post/${page.slug}</loc>
@@ -45,7 +45,7 @@ const formatISO8601Date = (dateStr: string) =>
   // If you're not using Prettier, you can remove this.
   const formatted = prettier.format(sitemap, {
     ...prettierConfig,
-    parser: 'html',
+    parser: 'html'
   })
 
   fs.writeFileSync('public/sitemap.xml', formatted)

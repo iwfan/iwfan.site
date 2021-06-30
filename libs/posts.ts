@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'fs-extra'
 import path from 'path'
 import glob from 'glob'
 import { promisify } from 'util'
@@ -15,7 +15,7 @@ const readFiles = promisify(glob)
 const cachedPosts = new NodeCache({ useClones: false })
 
 export function cachePostDataToMemory(allPostsData: Array<MarkdownRawData>) {
-  allPostsData.forEach((post) => {
+  allPostsData.forEach(post => {
     cachedPosts.set(post.slug, post)
   })
 }
@@ -24,7 +24,7 @@ export const getSortedPostsData = async () => {
   const fileNames = await readFiles('**/*.md', { cwd: rootDir })
 
   const allPostsData: Array<MarkdownRawData> = fileNames
-    .map((fileName) => {
+    .map(fileName => {
       // Read markdown file as string
       const fullPath = path.join(rootDir, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -38,17 +38,17 @@ export const getSortedPostsData = async () => {
         date: data.date,
         tags: data?.tags ?? [],
         thumbnail: data?.thumbnail ?? '',
-        content,
+        content
       }
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1))
     .map((item, index, posts) => ({
       ...item,
       date: format(item.date, 'yyyy-MM-dd HH:mm:ss', {
-        locale: zh_CN,
+        locale: zh_CN
       }),
       prev: posts[index - 1]?.slug ?? null,
-      next: posts[index + 1]?.slug ?? null,
+      next: posts[index + 1]?.slug ?? null
     }))
 
   return allPostsData
@@ -56,7 +56,7 @@ export const getSortedPostsData = async () => {
 
 export const getAllPostSlugs = async () => {
   const posts = await getSortedPostsData()
-  return posts.map((post) => ({ params: { slug: post.slug } }))
+  return posts.map(post => ({ params: { slug: post.slug } }))
 }
 
 export async function getPostData(slug: string) {
@@ -82,6 +82,6 @@ export async function getPostData(slug: string) {
   return {
     ...cachedPost,
     prev,
-    next,
+    next
   }
 }

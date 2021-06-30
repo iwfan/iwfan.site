@@ -1,9 +1,11 @@
 module.exports = {
-  purge: ["./**/{pages,components,tailwind}/**/*.{js,jsx,ts,tsx,css}"],
+  mode: 'jit',
+  purge: ['./**/{pages,components}/**/*.{js,jsx,ts,tsx,css}'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       rotate: {
-        '360': '360deg',
+        360: '360deg',
         '-360': '-360deg'
       }
     },
@@ -21,17 +23,17 @@ module.exports = {
             marginBottom: '0'
           },
           code: {
-            fontSize: `1.2em`,
-          },
-        },
-      },
-    },
+            fontSize: `1.2em`
+          }
+        }
+      }
+    }
   },
-  variants: {},
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  variants: {
+    extend: {}
+  },
+  plugins: [require('@tailwindcss/typography')],
   corePlugins: {
-    preflight: false,
-  },
+    preflight: false
+  }
 }

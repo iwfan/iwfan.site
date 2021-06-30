@@ -1,7 +1,6 @@
 declare global {
   interface Window {
     dataLayer: any
-    loadlive2d: any
   }
 }
 
