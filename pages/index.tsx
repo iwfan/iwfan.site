@@ -1,12 +1,13 @@
 import { NextPage } from 'next'
 import { MarkdownRawData } from '../types'
+import { Layout } from '../components/Layout'
 
 interface IndexPageProps {
   allPostsData: MarkdownRawData[]
 }
 
 const IndexPage: NextPage<IndexPageProps> = props => {
-  return <h1>adjwada</h1>
+  return <Layout></Layout>
 }
 
 export default IndexPage
