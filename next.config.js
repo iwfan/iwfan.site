@@ -1,6 +1,5 @@
 module.exports = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
   // webpack: (config, { webpack }) => {
   //   config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
   //   config.plugins.push(

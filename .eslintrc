@@ -1,16 +1,17 @@
 {
   "root": true,
   "env": {
+    "browser": true,
+    "node": true,
     "jest/globals": true
-  },
-  "globals": {
-    "module": "readonly",
-    "require": "readonly"
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "plugins": [
     "@typescript-eslint",
@@ -20,16 +21,19 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "next",
     "next/core-web-vitals",
     "plugin:prettier/recommended"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "ignorePatterns": [
     "node_modules/",
     ".next/"
-  ],
-  "rules": {
-    "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/explicit-module-boundary-types": 0
-  }
+  ]
 }
