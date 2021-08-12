@@ -1,11 +1,10 @@
 {
-  "name": "wangfan.site",
+  "name": "iwfan.site",
   "version": "1.0.0",
   "browserslist": [
     "defaults",
     "not IE 11",
-    "not IE_Mob 11",
-    "maintained node versions"
+    "not IE_Mob 11"
   ],
   "scripts": {
     "prepare": "husky install",
@@ -31,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iwfan/wangfan.site.git"
+    "url": "git+https://github.com/iwfan/iwfan.site.git"
   },
   "keywords": [
     "cli",
@@ -40,57 +39,57 @@
   "private": true,
   "author": "iwfan <i.wangfancn@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/iwfan/wangfan.site#readme",
+  "homepage": "https://github.com/iwfan/iwfan.site#readme",
   "bugs": {
-    "url": "https://github.com/iwfan/wangfan.site/issues"
+    "url": "https://github.com/iwfan/iwfan.site/issues"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
     "blueimp-md5": "^2.18.0",
-    "date-fns": "^2.22.1",
+    "date-fns": "^2.23.0",
     "gray-matter": "^4.0.3",
-    "next": "^11.0.1",
+    "next": "^11.1.0",
     "node-cache": "^5.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-markdown": "^6.0.2",
-    "react-syntax-highlighter": "^15.4.3",
+    "react-markdown": "^6.0.3",
+    "react-syntax-highlighter": "^15.4.4",
     "react-typography": "^0.16.20",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@types/blueimp-md5": "^2.18.0",
-    "@types/fs-extra": "^9.0.11",
-    "@types/glob": "^7.1.3",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.5",
-    "@types/react": "^17.0.11",
-    "@types/react-syntax-highlighter": "^13.5.1",
-    "@typescript-eslint/eslint-plugin": "^4.28.1",
-    "@typescript-eslint/parser": "^4.28.1",
-    "eslint": "^7.29.0",
-    "eslint-config-next": "^11.0.1",
+    "@types/fs-extra": "^9.0.12",
+    "@types/glob": "^7.1.4",
+    "@types/jest": "^27.0.0",
+    "@types/node": "^16.6.0",
+    "@types/react": "^17.0.17",
+    "@types/react-syntax-highlighter": "^13.5.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.7",
-    "husky": "^6.0.0",
+    "husky": "^7.0.1",
     "jest": "^27.0.6",
-    "lint-staged": "^11.0.0",
-    "postcss": "^8.3.5",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.6",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
-    "sass": "^1.35.1",
-    "tailwindcss": "^2.2.4",
-    "ts-jest": "^27.0.3",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.4"
+    "sass": "^1.37.5",
+    "tailwindcss": "^2.2.7",
+    "ts-jest": "^27.0.4",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
   }
 }

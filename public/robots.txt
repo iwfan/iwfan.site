@@ -1,3 +1,2 @@
 User-agent: *
-Sitemap: https://wangfan.site/sitemap.xml
-
+Sitemap: https://iwfan.site/sitemap.xml
