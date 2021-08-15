@@ -28,5 +28,5 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": ["node_modules/", ".next/", "out/"]
+  "ignorePatterns": ["node_modules/", ".next/", "out/", "next.config.js"]
 }
