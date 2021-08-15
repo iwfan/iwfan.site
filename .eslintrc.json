@@ -13,27 +13,20 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "@typescript-eslint",
-    "jest"
-  ],
+  "plugins": ["@typescript-eslint", "jest"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "next",
-    "next/core-web-vitals",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "next/core-web-vitals"
   ],
   "settings": {
     "react": {
       "version": "detect"
     }
   },
-  "ignorePatterns": [
-    "node_modules/",
-    ".next/"
-  ]
+  "ignorePatterns": ["node_modules/", ".next/", "out/"]
 }

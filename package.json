@@ -12,8 +12,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
-    "new": "ts-node -O '{\"module\": \"CommonJS\"}' libs/new_post.ts"
+    "test": "jest"
   },
   "commitlint": {
     "extends": [
@@ -44,29 +43,19 @@
     "url": "https://github.com/iwfan/iwfan.site/issues"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.4.1",
-    "blueimp-md5": "^2.18.0",
-    "date-fns": "^2.23.0",
-    "gray-matter": "^4.0.3",
     "next": "^11.1.0",
-    "node-cache": "^5.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-markdown": "^6.0.3",
-    "react-syntax-highlighter": "^15.4.4",
-    "react-typography": "^0.16.20",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
-    "@types/blueimp-md5": "^2.18.0",
     "@types/fs-extra": "^9.0.12",
     "@types/glob": "^7.1.4",
-    "@types/jest": "^27.0.0",
-    "@types/node": "^16.6.0",
-    "@types/react": "^17.0.17",
-    "@types/react-syntax-highlighter": "^13.5.2",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
     "eslint": "^7.32.0",
@@ -81,13 +70,9 @@
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "lint-staged": "^11.1.2",
-    "postcss": "^8.3.6",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.1",
     "sass": "^1.37.5",
-    "tailwindcss": "^2.2.7",
     "ts-jest": "^27.0.4",
     "ts-node": "^10.2.0",
     "typescript": "^4.3.5"
