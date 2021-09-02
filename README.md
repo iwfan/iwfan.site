@@ -1,13 +1,13 @@
-# wangfan.site
+# iwfan.site
 
+Is a JAMstack based blog site.
 
-# Roadmap
-- [x] markdown file system
-- [x] google analytics
-- [x] sitemap
-- [x] image lazy loading
-- [ ] posts search
-- [ ] offline
-- [ ] manifest
-- [ ] rss feed
+CMS: Notion
+API: Notion API
+SSG: Next
+CDN: Cloudflare
 
+# reference
+
+- https://github.com/transitive-bullshit/nextjs-notion-starter-kit
+- https://github.com/samuelkraft/notion-blog-nextjs
