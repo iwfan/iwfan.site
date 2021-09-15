@@ -12,3 +12,4 @@ CDN: Cloudflare
 - https://github.com/transitive-bullshit/nextjs-notion-starter-kit
 - https://github.com/samuelkraft/notion-blog-nextjs
 - https://backendjob.dev/?ref=producthunt
+- https://github.com/thesephist/blocks.css
