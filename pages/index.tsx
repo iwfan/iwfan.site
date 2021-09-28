@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 import { Timeline } from '../components/Timeline'
 
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
           </Timeline.Item>
         </Timeline>
       </main>
+      <Script src={'//hm.baidu.com/hm.js'} />
     </div>
   )
 }
