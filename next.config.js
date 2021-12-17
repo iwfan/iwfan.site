@@ -1,4 +1,3 @@
-const WindiCSS = require('windicss-webpack-plugin').default
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -6,8 +5,4 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
-  webpack(config) {
-    config.plugins.push(new WindiCSS())
-    return config
-  },
 })
