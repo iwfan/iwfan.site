@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={''}>
-        <h1 className={'flex bg-red-300 font-red'}>Hello World</h1>
+        <h1 className={'flex bg-red-300 font-red'}>Hello ZiWei</h1>
       </main>
       <Script src={'//hm.baidu.com/hm.js'} />
     </div>
