@@ -11,7 +11,7 @@ const Home: NextPage<{ posts: any }> = props => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: { posts: await queryNotionDatabase() },
     revalidate: 1,
