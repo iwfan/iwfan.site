@@ -35,16 +35,18 @@ export const retrieveNotionBlocks = async (blockId: string) => {
   })
   const blocks = response.results
 
-  const blocksWithChildren: any = blocks.map(block => {
-    // @ts-ignore
-    if (block.has_children) {
-      return {
-        ...block,
-        __block_children: retrieveNotionBlocks(block.id),
+  const blocksWithChildren: any = await Promise.all(
+    blocks.map(async block => {
+      // @ts-ignore
+      if (block.has_children) {
+        return {
+          ...block,
+          block_children: await retrieveNotionBlocks(block.id),
+        }
       }
-    }
-    return block
-  })
+      return block
+    })
+  )
 
   return blocksWithChildren
 }

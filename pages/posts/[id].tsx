@@ -6,7 +6,6 @@ interface PostProps {
 }
 
 const Posts: NextPage<PostProps> = props => {
-  console.log(props)
   const { page } = props
   return <></>
 }
