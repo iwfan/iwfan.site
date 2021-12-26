@@ -2,7 +2,7 @@ import type { NextPage, GetStaticProps } from 'next'
 import type { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
 import Head from 'next/head'
 import Link from 'next/link'
-import { queryNotionDatabase } from '../services/notion'
+import { queryNotionDatabase } from '../../services/notion'
 
 const parseDate = (dateStr: string) =>
   new Date(dateStr).toLocaleString('zh-CN', {
