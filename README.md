@@ -13,6 +13,5 @@ CDN: Cloudflare
 - https://github.com/samuelkraft/notion-blog-nextjs
 - https://backendjob.dev/?ref=producthunt
 - https://github.com/thesephist/blocks.css
-- https://codepen.io/hexagoncircle/pen/xxwBLMy?editors=1010
 - https://clearbit.com/resources/tools/visitor-report
 - https://github.com/vadimdemedes/ink

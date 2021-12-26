@@ -4,7 +4,7 @@ const notionClient = new Client({
   auth: process.env.NOTION_ACCESS_TOKEN,
 })
 
-export const queryNotionDatabase = async () => {
+export const queryNotionDatabase = async (pageSize = 9999) => {
   const response = await notionClient.databases.query({
     database_id: process.env.NOTION_DATABASE_ID as string,
     sorts: [
@@ -13,9 +13,9 @@ export const queryNotionDatabase = async () => {
         direction: 'descending',
       },
     ],
-    page_size: 9999,
+    page_size: pageSize,
   })
-  return response
+  return response.results
 }
 
 export const retrieveNotionPage = async (pageId: string) => {

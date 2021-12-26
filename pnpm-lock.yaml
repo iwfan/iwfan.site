@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/cli': ^15.0.0
   '@commitlint/config-conventional': ^15.0.0
   '@next/bundle-analyzer': ^12.0.7
+  '@next/eslint-plugin-next': ^12.0.7
   '@notionhq/client': ^0.4.11
   '@types/fs-extra': ^9.0.13
   '@types/glob': ^7.2.0
@@ -63,6 +64,7 @@ devDependencies:
   '@commitlint/cli': 15.0.0
   '@commitlint/config-conventional': 15.0.0
   '@next/bundle-analyzer': 12.0.7
+  '@next/eslint-plugin-next': 12.0.7
   '@types/fs-extra': 9.0.13
   '@types/glob': 7.2.0
   '@types/jest': 27.0.3

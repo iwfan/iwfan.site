@@ -1,18 +1,18 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next'
-import type { GetPageResponse } from '@notionhq/client/build/src/api-endpoints'
-import {
-  queryNotionDatabase,
-  retrieveNotionBlocks,
-  retrieveNotionPage,
-} from '../../services/notion'
+import { queryNotionDatabase, retrieveNotionPage } from '../../services/notion'
 
-const Posts: NextPage<GetPageResponse> = props => {
+interface PostProps {
+  page: any
+}
+
+const Posts: NextPage<PostProps> = props => {
   console.log(props)
+  const { page } = props
   return <></>
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { results } = await queryNotionDatabase()
+  const results = await queryNotionDatabase()
   return {
     paths: results.map(page => ({ params: { id: page.id } })),
     fallback: true,
