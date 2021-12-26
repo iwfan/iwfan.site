@@ -2,8 +2,9 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import { ErrorBoundary } from 'react-error-boundary'
-import { site_desc, site_title, site_url } from '../site.config'
+import { site_desc, site_logo, site_title, site_url, twitter_user } from '../site.config'
 import '../styles/globals.css'
+import '../styles/block.css'
 
 const AppHead = () => (
   <Head>
@@ -30,7 +31,7 @@ const AppSEO = () => (
       description: site_desc,
       images: [
         {
-          url: '/logo.png',
+          url: site_url + site_logo,
           width: 400,
           height: 400,
           alt: site_title,
@@ -38,8 +39,7 @@ const AppSEO = () => (
       ],
     }}
     twitter={{
-      handle: '@handle',
-      site: '@site',
+      handle: `@${twitter_user}`,
       cardType: 'summary_large_image',
     }}
   />

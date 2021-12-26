@@ -2,10 +2,7 @@
 
 Is a JAMstack based blog site.
 
-CMS: Notion
-API: Notion API
-SSG: Next
-CDN: Cloudflare
+Next.js + Notion API + TailwindCSS + Vercel.
 
 # reference
 

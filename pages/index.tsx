@@ -1,8 +1,8 @@
 import type { NextPage, GetStaticProps } from 'next'
-import { NextSeo } from 'next-seo'
 import PostList from '../components/PostList'
 import { queryNotionDatabase } from '../services/notion'
-import { site_desc, site_title } from '../site.config'
+import Layout from '../components/Layout'
+import { Container } from '../components/Container'
 
 interface HomePageProps {
   posts: any[]
@@ -11,10 +11,16 @@ interface HomePageProps {
 const Home: NextPage<HomePageProps> = props => {
   const { posts } = props
   return (
-    <>
-      <NextSeo title={site_title} description={site_desc} />
+    <Layout>
+      <Container tag="section">
+        <div className="b-b b-f">
+          <h1>
+            Hi 👋 <br /> I&apos;m iwfan (Chinese name: fan.wang) -- A JavaScript engineer.
+          </h1>
+        </div>
+      </Container>
       <PostList posts={posts} />
-    </>
+    </Layout>
   )
 }
 
