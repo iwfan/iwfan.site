@@ -1,19 +1,27 @@
-import { LoaderFunction, useLoaderData } from 'remix'
+import { LinksFunction, LoaderFunction, useLoaderData } from 'remix'
 import PostList from '~/components/PostList'
 import { queryNotionDatabase } from '~/services/notion'
+import homeStyleUrl from '~/styles/home/index.css'
+import postListStyleUrl from '~/styles/posts/post-list.css'
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: 'stylesheet', href: homeStyleUrl },
+    { rel: 'stylesheet', href: postListStyleUrl },
+  ]
+}
 
 export const loader: LoaderFunction = async () => {
-  const r = await queryNotionDatabase(10)
-  return r
+  return await queryNotionDatabase()
 }
 
 export default function Index() {
   const posts = useLoaderData<any[]>()
   console.log(posts)
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <h1>Welcome to Remix</h1>
+    <>
+      <h1 className="section-title">Recent posts</h1>
       <PostList posts={posts} />
-    </div>
+    </>
   )
 }

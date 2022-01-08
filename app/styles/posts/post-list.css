@@ -1,0 +1,41 @@
+.post-list .post-item {
+  display: flex;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+.post-list .post-item:hover {
+  text-decoration: none;
+}
+
+.post-list .post-item:hover .post-item__title {
+  text-decoration: underline;
+  color: var(--color-black);
+}
+
+.post-item__emoji {
+  margin-right: 0.4rem;
+}
+
+.post-item__title {
+  flex: none;
+  color: var(--color-text);
+}
+
+.post-item__dashed-line {
+  margin: 0 1rem;
+  width: 100%;
+  flex-shrink: 1;
+  height: 1px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.post-item_tag {
+  flex: none;
+  color: var(--color-gray);
+}
+
+.post-item__date {
+  flex: none;
+  margin-left: 1rem;
+  color: var(--color-shallow);
+}

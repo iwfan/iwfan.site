@@ -1,10 +1,11 @@
 const Twitter = () => (
   <svg
-    className="inline"
-    width="1.2em"
-    height="1.2em"
+    className="icon"
+    width="1em"
+    height="1em"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <g
       fill="none"

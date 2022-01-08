@@ -1,29 +1,19 @@
-import React, { forwardRef, ForwardRefRenderFunction, PropsWithChildren } from 'react'
+import React, { ElementType, forwardRef, ForwardRefRenderFunction, PropsWithChildren } from 'react'
 import cx from 'classnames'
 
 interface ContainerProps {
-  tag?: keyof JSX.IntrinsicElements
-  wrapClassName?: string
+  tag?: ElementType
   className?: string
-  wrapStyle?: React.CSSProperties
+  style?: React.CSSProperties
 }
 
-const ContainerRender: ForwardRefRenderFunction<HTMLDivElement, ContainerProps> = (
-  { tag: Wrapper = 'div', wrapClassName, wrapStyle, className, children },
+const ContainerRender: ForwardRefRenderFunction<HTMLElement, ContainerProps> = (
+  { tag: Wrapper = 'div', style, className, children },
   ref
-) => {
-  return (
-    <Wrapper className={wrapClassName} style={wrapStyle}>
-      <div
-        className={cx('px-6 lg:mx-auto lg:max-w-screen-lg', 'lg:px-3 xl:px-0', className)}
-        ref={ref}
-      >
-        {children}
-      </div>
-    </Wrapper>
-  )
-}
-
-export const Container = forwardRef<HTMLDivElement, PropsWithChildren<ContainerProps>>(
-  ContainerRender
+) => (
+  <Wrapper className={cx(className, 'container')} style={style} ref={ref}>
+    {children}
+  </Wrapper>
 )
+
+export const Container = forwardRef<HTMLElement, PropsWithChildren<ContainerProps>>(ContainerRender)

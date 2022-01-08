@@ -6,7 +6,7 @@ export const site_desc = `此时的庸忙、诺诺慌张, 可否已成你的日�
 
 export const site_url = `https://iwfan.site`
 
-export const twitter_user = `i_wfan`
+export const twitter_name = `i_wfan`
 
 export const author_name = `Zi莱卷`
 
