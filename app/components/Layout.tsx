@@ -21,17 +21,19 @@ interface LayoutProps {
 
 const LayoutHeader = () => (
   <Container tag="header" className={'layout__header'}>
-    <Link to={'/'} className="layout__header-brand">
-      <Terminal />
-      <span>f</span>
-    </Link>
+    <h1>
+      <Link to={'/'} className="layout__header-brand">
+        <Terminal />
+        <span>{site_title}</span>
+      </Link>
+    </h1>
     <menu className={'layout__header-menu'}>
-      <a href={`https://twitter.com/${twitter_name}`}>
+      <Link to={'/'}>
         <Notes />
-      </a>
-      <a href={`https://twitter.com/${twitter_name}`}>
+      </Link>
+      <Link to={'/'}>
         <Bookmark />
-      </a>
+      </Link>
     </menu>
   </Container>
 )

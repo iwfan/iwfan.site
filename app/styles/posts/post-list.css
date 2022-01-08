@@ -1,8 +1,16 @@
+.post-item__year {
+  display: block;
+  color: var(--color-gray);
+  margin: 1rem 0;
+}
+
 .post-list .post-item {
   display: flex;
   align-items: center;
   margin: 0.4rem 0;
+  margin-left: 2rem;
 }
+
 .post-list .post-item:hover {
   text-decoration: none;
 }

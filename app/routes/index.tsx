@@ -20,7 +20,7 @@ export default function Index() {
   console.log(posts)
   return (
     <>
-      <h1 className="section-title">Recent posts</h1>
+      <h2 className="section-title">Recent posts</h2>
       <PostList posts={posts} />
     </>
   )

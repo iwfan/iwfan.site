@@ -9,7 +9,7 @@ export const queryNotionDatabase = async (pageSize = 9999) => {
     database_id: process.env.NOTION_DATABASE_ID as string,
     sorts: [
       {
-        property: 'created_time',
+        property: 'created_date',
         direction: 'descending',
       },
     ],
