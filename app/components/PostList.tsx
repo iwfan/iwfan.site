@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Link from 'next/link'
+import { Link } from 'remix'
 import { Container } from './Container'
 
 interface PostListProps {
@@ -20,7 +20,7 @@ const PostList: FC<PostListProps> = ({ posts }) => {
       <ol className={'flex flex-col'}>
         {posts.map((post: any) => (
           <li key={post.id} className={'b-b b-f'}>
-            <Link href={`/posts/${post.id}`}>
+            <Link to={`/posts/${post.id}`}>
               <a className={'accent b-b'}>
                 {post.icon && post.icon.emoji}
                 {post.properties.title.title[0].text.content}
