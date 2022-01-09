@@ -3,7 +3,10 @@ import { Container } from './Container'
 import { CreativeCommons, CreativeCommonsBy, Feed, Github, Twitter } from '../icons'
 
 const LayoutFooter = () => (
-  <Container tag="footer" className="grid grid-cols-3 items-center py-10 text-gray-300">
+  <Container
+    tag="footer"
+    className="grid grid-cols-3 items-center py-10 mt-20 text-gray-300 border-t-2 border-t-border"
+  >
     <p className="flex items-center">
       <a
         className="mr-4 flex items-center hover:text-green text-xl"
