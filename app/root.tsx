@@ -2,7 +2,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'rem
 import type { LinksFunction } from 'remix'
 import { FC } from 'react'
 import { site_desc, site_title, site_url, twitter_name } from '~/site.config'
-import Layout from './components/Layout'
+import Layout from './components/layout'
 import tailwindStyleUrl from '~/styles/tailwind.css'
 import sharedStyleUrl from '~/styles/shared.css'
 
