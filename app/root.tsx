@@ -3,21 +3,9 @@ import type { LinksFunction } from 'remix'
 import { FC } from 'react'
 import { site_desc, site_title, site_url, twitter_name } from '~/site.config'
 import Layout from './components/Layout'
-import globalStylesUrl from '~/styles/global.css'
-import darkStylesUrl from '~/styles/dark.css'
-import layoutStyleUrl from '~/styles/layout.css'
+import tailwindStyleUrl from '~/styles/tailwind.css'
 
-export const links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: globalStylesUrl },
-    {
-      rel: 'stylesheet',
-      href: darkStylesUrl,
-      media: '(prefers-color-scheme: dark)',
-    },
-    { rel: 'stylesheet', href: layoutStyleUrl },
-  ]
-}
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyleUrl }]
 
 const Document: FC<{ title?: string }> = ({ title, children }) => {
   return (

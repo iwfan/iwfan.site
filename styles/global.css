@@ -3,8 +3,6 @@
  * quick baseline!
  */
 :root {
-  --font-body: -apple-system, 'Segoe UI', Helvetica Neue, Helvetica, Roboto, Arial, sans-serif,
-    system-ui, 'Apple Color Emoji', 'Segoe UI Emoji';
   --max-container-width: 768px;
   --gutter: 16px;
   --color-opacity: 1;
@@ -32,7 +30,7 @@ html {
 }
 
 :focus {
-  outline: var(--color-black) solid 2px;
+  outline: var(--color-border) solid 2px;
   outline-offset: 2px;
 }
 
@@ -45,7 +43,8 @@ body {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
+  font-size: 16px;
   line-height: 1.5;
 }
 

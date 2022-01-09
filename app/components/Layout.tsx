@@ -65,30 +65,17 @@ const LayoutFooter = () => (
       </a>
     </p>
     <p className="layout__footer-powered">
-      Powered by
+      Built with
       <a href="https://remix.run" target="_blank" rel="noreferrer">
-        {/* <img src="https://remix.run/favicon-light.1.png" alt="remix.run" width={16} height={16} /> */}
         Remix
       </a>
-      &{' '}
+      &
       <a href="https://www.notion.so/" target="_blank" rel="noreferrer">
-        {/* <img
-          src="https://www.notion.so/images/favicon.ico"
-          alt="notion.so"
-          width={14}
-          height={14}
-        /> */}
         Notion
       </a>
-      &
+      . Hosted on
       <a href="https://vercel.com/" target="_blank" rel="noreferrer">
-        {/* <img
-          src="https://assets.vercel.com/image/upload/q_auto/front/favicon/vercel/favicon.ico"
-          alt="vercel"
-          width={14}
-          height={14}
-        /> */}
-        Vercel
+        Vercel.
       </a>
     </p>
     <p className="layout__footer-social">

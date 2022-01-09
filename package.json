@@ -2,8 +2,10 @@
   "name": "iwfan.site",
   "private": true,
   "scripts": {
-    "build": "remix build",
-    "dev": "PORT=1125 remix dev",
+    "build": "npm run build:css && remix build",
+    "dev": "concurrently \"npm run dev:css\" \"dotenv -e .env remix dev\"",
+    "dev:css": "postcss styles --base styles --dir app/styles -w",
+    "build:css": "postcss styles --base styles --dir app/styles --env production",
     "postinstall": "remix setup node"
   },
   "dependencies": {
@@ -23,10 +25,19 @@
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "@vercel/node": "^1.8.3",
+    "autoprefixer": "^10.4.2",
+    "concurrently": "^7.0.0",
+    "cssnano": "^5.0.15",
+    "dotenv": "^10.0.0",
+    "dotenv-cli": "^4.1.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.0.2",
     "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.12",
     "typescript": "^4.1.2"
   },
   "engines": {

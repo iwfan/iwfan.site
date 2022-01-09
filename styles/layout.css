@@ -2,7 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-height: calc(100vh - env(safe-area-inset-bottom));
+  min-height: -webkit-fill-available;
 }
 
 .layout__header {
@@ -65,7 +65,6 @@ body {
   font-size: 14px;
   color: var(--color-shallow);
   padding: 1rem 0;
-  /* border-top: 1px solid var(--color-border); */
 }
 
 .layout__footer p {
@@ -106,7 +105,7 @@ body {
 }
 
 .layout__footer .layout__footer-social {
-  grid-row: 1 / span 2;
+  grid-row: span 2;
   font-size: 1.2rem;
   justify-content: flex-end;
 }

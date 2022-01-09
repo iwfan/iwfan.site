@@ -16,7 +16,7 @@ const parseDate = (dateStr: string) =>
 const PostList: FC<PostListProps> = ({ posts }) => {
   let year = ''
   return (
-    <Container tag={'section'} className="post-list">
+    <Container tag={'section'} className="post-list grid">
       {posts.map((post: any) => {
         const tags = post.properties.tags
         const createdDate = post.properties.created_date
