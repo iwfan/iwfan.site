@@ -5,7 +5,7 @@ import { CreativeCommons, CreativeCommonsBy, Feed, Github, Twitter } from '../ic
 const LayoutFooter = () => (
   <Container
     tag="footer"
-    className="grid grid-cols-3 items-center py-10 mt-20 text-gray-300 border-t-2 border-t-border"
+    className="flex justify-around items-center flex-wrap gap-4 py-10 mt-20 text-gray-300 border-t-2 border-t-border"
   >
     <p className="flex items-center">
       <a
@@ -32,6 +32,27 @@ const LayoutFooter = () => (
       >
         <Feed />
       </a>
+    </p>
+    <p className="flex items-center justify-end md:order-9">
+      <a
+        className="mr-2 hover:text-green"
+        target="_blank"
+        title="Creative Commons"
+        href="https://creativecommons.org/"
+        rel="noreferrer"
+      >
+        <CreativeCommons />
+      </a>
+      <a
+        className="mr-2 hover:text-green"
+        target="_blank"
+        title="Attribution 4.0 International"
+        href="https://creativecommons.org/licenses/by/4.0/"
+        rel="noreferrer"
+      >
+        <CreativeCommonsBy />
+      </a>
+      &copy;&nbsp;{new Date().getUTCFullYear()} {site_title}
     </p>
     <p className="flex items-center justify-center">
       Built with
@@ -61,27 +82,6 @@ const LayoutFooter = () => (
       >
         Vercel.
       </a>
-    </p>
-    <p className="flex items-center justify-end">
-      <a
-        className="mr-2 hover:text-green"
-        target="_blank"
-        title="Creative Commons"
-        href="https://creativecommons.org/"
-        rel="noreferrer"
-      >
-        <CreativeCommons />
-      </a>
-      <a
-        className="mr-2 hover:text-green"
-        target="_blank"
-        title="Attribution 4.0 International"
-        href="https://creativecommons.org/licenses/by/4.0/"
-        rel="noreferrer"
-      >
-        <CreativeCommonsBy />
-      </a>
-      &copy;&nbsp;{new Date().getUTCFullYear()} {site_title}
     </p>
   </Container>
 )

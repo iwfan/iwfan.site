@@ -1,5 +1,7 @@
+import cx from 'classnames'
+
 const Banner = () => (
-  <div className="grid grid-cols-4 gap-6 py-20">
+  <div className={cx('grid-cols-4 justify-center gap-6 py-4', 'lg:grid lg:py-20')}>
     <section className="col-span-3">
       <h1
         className="text-5xl text-green font-bold leading-relaxed tracking-wider"
@@ -12,7 +14,7 @@ const Banner = () => (
       </h1>
       <p className="text-lg my-10">🤚 🐟 Touching fish makes work more efficient.</p>
     </section>
-    <section className="relative group">
+    <section className={cx('relative group h-40 my-32', 'lg:h-auto lg:my-0')}>
       <div className="absolute inset-0 flex items-center justify-center animate-shrink">
         <HeartSprinkle />
       </div>
@@ -31,7 +33,7 @@ const HeartSprinkle = () => (
     viewBox="0 0 360 362"
     version="1.1"
   >
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g transform="translate(-2.000000, -2.000000)">
         <g transform="translate(4.000000, 3.000000)">
           <rect
@@ -81,7 +83,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.73"
             transform="translate(344.280357, 335.031152) rotate(-357.000000) translate(-344.280357, -335.031152) "
             cx="344.280357"
@@ -91,7 +93,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.9"
             transform="translate(344.189691, 13.683744) rotate(-276.000000) translate(-344.189691, -13.683744) "
             cx="344.189691"
@@ -101,7 +103,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#B9597B"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.9"
             transform="translate(292.086994, 207.182316) rotate(-276.000000) translate(-292.086994, -207.182316) "
             cx="292.086994"
@@ -111,7 +113,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.71"
             transform="translate(196.744739, 248.557136) rotate(-239.000000) translate(-196.744739, -248.557136) "
             cx="196.744739"
@@ -121,7 +123,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.73"
             transform="translate(228.447749, 73.754361) rotate(-23.000000) translate(-228.447749, -73.754361) "
             cx="228.447749"
@@ -131,7 +133,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.87"
             transform="translate(165.263907, 329.595577) rotate(-145.000000) translate(-165.263907, -329.595577) "
             cx="165.263907"
@@ -141,7 +143,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.88"
             transform="translate(88.696973, 206.210366) rotate(-12.000000) translate(-88.696973, -206.210366) "
             cx="88.6969735"
@@ -151,7 +153,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.8"
             transform="translate(152.823905, 144.345519) rotate(-289.000000) translate(-152.823905, -144.345519) "
             cx="152.823905"
@@ -161,7 +163,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#D96666"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.9"
             transform="translate(29.786925, 345.589707) rotate(-292.000000) translate(-29.786925, -345.589707) "
             cx="29.7869253"
@@ -171,7 +173,7 @@ const HeartSprinkle = () => (
           />
           <ellipse
             stroke="#B9597B"
-            stroke-width="4"
+            strokeWidth="4"
             opacity="0.84"
             transform="translate(12.785105, 98.941343) rotate(-271.000000) translate(-12.785105, -98.941343) "
             cx="12.7851052"
@@ -182,8 +184,8 @@ const HeartSprinkle = () => (
           <g
             opacity="0.9"
             transform="translate(309.052251, 306.283448) rotate(-234.000000) translate(-309.052251, -306.283448) translate(298.373781, 294.020575)"
-            stroke-linecap="square"
-            stroke-width="4"
+            strokeLinecap="square"
+            strokeWidth="4"
             stroke="#65BF94"
           >
             <polyline
@@ -194,8 +196,8 @@ const HeartSprinkle = () => (
           <g
             opacity="0.98"
             transform="translate(258.964376, 20.321280) rotate(-58.000000) translate(-258.964376, -20.321280) translate(249.811402, 9.529952)"
-            stroke-linecap="square"
-            stroke-width="4"
+            strokeLinecap="square"
+            strokeWidth="4"
             stroke="#65BF94"
           >
             <polyline
@@ -206,8 +208,8 @@ const HeartSprinkle = () => (
           <g
             opacity="0.91"
             transform="translate(141.113836, 253.373646) rotate(-356.000000) translate(-141.113836, -253.373646) translate(127.384374, 237.677169)"
-            stroke-linecap="square"
-            stroke-width="4"
+            strokeLinecap="square"
+            strokeWidth="4"
             stroke="#65BF94"
           >
             <polyline
@@ -218,8 +220,8 @@ const HeartSprinkle = () => (
           <g
             opacity="0.91"
             transform="translate(36.205029, 188.262306) rotate(-356.000000) translate(-36.205029, -188.262306) translate(22.475568, 172.565829)"
-            stroke-linecap="square"
-            stroke-width="4"
+            strokeLinecap="square"
+            strokeWidth="4"
             stroke="#65BF94"
           >
             <polyline
@@ -230,8 +232,8 @@ const HeartSprinkle = () => (
           <g
             opacity="0.91"
             transform="translate(308.760270, 96.045504) rotate(-386.000000) translate(-308.760270, -96.045504) translate(295.030808, 80.349027)"
-            stroke-linecap="square"
-            stroke-width="4"
+            strokeLinecap="square"
+            strokeWidth="4"
             stroke="#65BF94"
           >
             <polyline
@@ -242,8 +244,8 @@ const HeartSprinkle = () => (
           <g
             opacity="0.98"
             transform="translate(45.900068, 50.249698) rotate(-202.000000) translate(-45.900068, -50.249698) translate(36.238594, 38.967855)"
-            stroke-linecap="square"
-            stroke-width="4"
+            strokeLinecap="square"
+            strokeWidth="4"
             stroke="#65BF94"
           >
             <polyline
@@ -267,8 +269,8 @@ const GreenHeart = () => (
   >
     <g filter="url(#filter0_d)">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M87.7143 141.95V159.261H110.286V141.95H127.214V118.868H144.143V107.327H161.071V84.2452H178V32.3113H161.071V15H110.286V32.3113H87.7143V15H36.9286V32.3113H20V84.2452H36.9286V107.327H53.8571V118.868H70.7857V141.95H87.7143ZM65.1363 38.0837H42.5649V72.7063H65.1363V38.0837Z"
         fill="url(#paint0_linear)"
       ></path>
@@ -281,9 +283,9 @@ const GreenHeart = () => (
         width="198"
         height="184.261"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -306,8 +308,8 @@ const GreenHeart = () => (
         y2="149.964"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BAFFC5"></stop>
-        <stop offset="1" stop-color="#74AED6"></stop>
+        <stop stopColor="#BAFFC5"></stop>
+        <stop offset="1" stopColor="#74AED6"></stop>
       </linearGradient>
     </defs>
   </svg>

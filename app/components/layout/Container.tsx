@@ -11,7 +11,11 @@ const ContainerRender: ForwardRefRenderFunction<HTMLElement, ContainerProps> = (
   { tag: Wrapper = 'div', style, className, children },
   ref
 ) => (
-  <Wrapper className={cx(className, 'w-full max-w-screen-lg mx-auto')} style={style} ref={ref}>
+  <Wrapper
+    className={cx(className, 'px-4 md:px-6 lg:px-0 w-full max-w-screen-lg mx-auto')}
+    style={style}
+    ref={ref}
+  >
     {children}
   </Wrapper>
 )
