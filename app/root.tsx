@@ -4,8 +4,20 @@ import { FC } from 'react'
 import { site_desc, site_title, site_url, twitter_name } from '~/site.config'
 import Layout from './components/Layout'
 import tailwindStyleUrl from '~/styles/tailwind.css'
+import sharedStyleUrl from '~/styles/shared.css'
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: tailwindStyleUrl }]
+export const links: LinksFunction = () => [
+  {
+    rel: 'preconnect',
+    href: 'https://fonts.googleapis.com',
+  },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap',
+  },
+  { rel: 'stylesheet', href: tailwindStyleUrl },
+  { rel: 'stylesheet', href: sharedStyleUrl },
+]
 
 const Document: FC<{ title?: string }> = ({ title, children }) => {
   return (

@@ -1,6 +1,6 @@
 import { FC, Fragment } from 'react'
 import { Link } from 'remix'
-import { Container } from './Container'
+import { Container } from './layout/Container'
 
 interface PostListProps {
   posts: any[]
@@ -24,19 +24,25 @@ const PostList: FC<PostListProps> = ({ posts }) => {
         const date = createdDate[createdDate.type]?.start
         const currentYear = date.slice(0, 4)
         return (
-          <Fragment key={post.id}>
-            {year !== currentYear &&
-              ((year = currentYear), (<h3 className="post-item__year">{currentYear}</h3>))}
-            <Link to={`posts/${post.id}`} className="post-item">
-              {post.icon && <span className="post-item__emoji">{post.icon.emoji}</span>}
-              <strong className="post-item__title">
-                {post.properties.title.title[0].text.content}
-              </strong>
-              <span className="post-item__dashed-line" />
-              {tagName && <span className="post-item_tag">{tagName}</span>}
-              <time className="post-item__date">{parseDate(date)}</time>
-            </Link>
-          </Fragment>
+          <ul key={post.id}>
+            <li className="grid grid-cols-12 grid-rows-2 items-center gap-2 my-6">
+              <div className="flex items-center justify-between">
+                <strong className="text-blue">
+                  {currentYear !== year ? ((year = currentYear), currentYear) : null}
+                </strong>
+                <span>{post.icon?.emoji ?? '🙈'}</span>
+              </div>
+              <div className="col-span-11">
+                <Link to={`posts/${post.id}`} className="text-lg hover:text-green u-underline">
+                  <strong>{post.properties.title.title[0].text.content}</strong>
+                </Link>
+              </div>
+              <div className="col-start-2 col-span-2 text-sm text-blue">
+                <time className="mr-4">{parseDate(date)}</time>
+                {tagName && <span className="col-span-2">#{tagName}</span>}
+              </div>
+            </li>
+          </ul>
         )
       })}
     </Container>

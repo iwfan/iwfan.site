@@ -1,0 +1,20 @@
+.icon {
+  margin-right: 0.2em;
+}
+
+.u-underline {
+  display: inline-block;
+}
+
+.u-underline::after {
+  content: '';
+  width: 0;
+  height: 1px;
+  display: block;
+  transition: width 0.25s ease;
+}
+
+.u-underline:hover::after {
+  width: 100%;
+  background-color: currentColor;
+}

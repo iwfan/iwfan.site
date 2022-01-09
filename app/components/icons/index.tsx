@@ -3,6 +3,7 @@ import Github from './Github'
 import Notes from './Notes'
 import Bookmark from './Bookmark'
 import Feed from './Feed'
+import Heart from './Heart'
 import Terminal from './Terminal'
 import Copyright from './Copyright'
 import CreativeCommons from './CreativeCommons'
@@ -13,6 +14,7 @@ export {
   Github,
   Notes,
   Bookmark,
+  Heart,
   Feed,
   Terminal,
   Copyright,
