@@ -1,4 +1,4 @@
-import { github_name, site_title, twitter_name } from '../../site.config'
+import { author_name, github_name, twitter_name } from '../../site.config'
 import { Container } from './Container'
 import { CreativeCommons, CreativeCommonsBy, Feed, Github, Twitter } from '../icons'
 
@@ -52,7 +52,7 @@ const LayoutFooter = () => (
       >
         <CreativeCommonsBy />
       </a>
-      &copy;&nbsp;{new Date().getUTCFullYear()} {site_title}
+      &copy;&nbsp;{new Date().getUTCFullYear()} {author_name}
     </p>
     <p className="flex items-center justify-center">
       Built with
