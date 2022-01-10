@@ -8,7 +8,7 @@ type DataListProps<T> = {
 const DataList = <T extends unknown>(props: DataListProps<T>) => {
   const { list, children } = props
   return (
-    <ol className="border border-border rounded-md">
+    <ol className="border-2 border-border rounded-md">
       {list.map((item, idx) => (
         <li
           key={idx}
