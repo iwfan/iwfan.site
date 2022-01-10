@@ -1,16 +1,37 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
+import { Fragment } from 'react'
 import Layout from '../../components/Layout'
+import renderBlock from '../../components/NotionRenderer'
 import { queryNotionDatabase, retrieveNotionPage } from '../../services/notion'
+import { NotionPage } from '../../services/typings'
+import { site_title } from '../../site.config'
 
-type PostProps = any
-
-const Posts: NextPage<PostProps> = props => {
-  const page = props
-  console.log(page)
+const Posts: NextPage<NotionPage> = props => {
+  const post = props
+  console.log(post)
+  const postTitle = post.properties.title.title[0].text.content
+  const createdDate = post.properties.created_date
+  const date = createdDate[createdDate.type]?.start
   return (
-    <Layout>
-      <article>{page.id}</article>
-    </Layout>
+    <>
+      <Head>
+        <title>
+          {postTitle} | {site_title}
+        </title>
+      </Head>
+      <Layout>
+        <article className="text-grey">
+          <header className="my-12">
+            <h1 className="my-2 text-3xl text-fg font-bold">{postTitle}</h1>
+            <p className="text-blue">{date}</p>
+          </header>
+          {(post.blocks ?? []).map(block => (
+            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+          ))}
+        </article>
+      </Layout>
+    </>
   )
 }
 
