@@ -10,7 +10,7 @@ const Banner = () => (
           background: 'linear-gradient(rgb(176, 251, 188), rgb(130, 249, 161)) text',
         }}
       >
-        Hi 👋, I'm iwfan, A JavaScript engineer and Vimmer.
+        Hi 👋, I&apos;m iwfan, A JavaScript engineer and Vimmer.
       </h1>
       <p className="text-lg my-10">🤚 🐟 Touching fish makes work more efficient.</p>
     </section>

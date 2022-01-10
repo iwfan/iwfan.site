@@ -1,4 +1,4 @@
-import { github_name, site_title, twitter_name } from '~/site.config'
+import { github_name, site_title, twitter_name } from '../../site.config'
 import { Container } from './Container'
 import { CreativeCommons, CreativeCommonsBy, Feed, Github, Twitter } from '../icons'
 
@@ -58,11 +58,11 @@ const LayoutFooter = () => (
       Built with
       <a
         className="mx-2 text-gray-200 hover:text-green u-underline"
-        href="https://remix.run"
+        href="https://nextjs.org/"
         target="_blank"
         rel="noreferrer"
       >
-        Remix
+        Next.js
       </a>
       <span>&</span>
       <a

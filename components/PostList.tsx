@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import { FC } from 'react'
-import { Link } from 'remix'
-import { Container } from './layout/Container'
+import { Container } from './Layout/Container'
 
 interface PostListProps {
   posts: any[]
@@ -26,8 +26,10 @@ const PostList: FC<PostListProps> = ({ posts }) => {
                 <span>{post.icon?.emoji ?? '🙈'}</span>
               </div>
               <div className="col-span-11">
-                <Link to={`/posts/${post.id}`} className="text-lg hover:text-green u-underline">
-                  {post.properties.title.title[0].text.content}
+                <Link href={`/posts/${post.id}`}>
+                  <a className="text-lg hover:text-green u-underline">
+                    {post.properties.title.title[0].text.content}
+                  </a>
                 </Link>
               </div>
               <div className="col-start-2 col-span-6 flex text-sm text-blue">

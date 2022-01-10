@@ -1,4 +1,4 @@
-export const site_title = `Zi莱卷`
+export const site_title = `iwfan's portfolio`
 
 export const site_logo = `/unicorn.png`
 

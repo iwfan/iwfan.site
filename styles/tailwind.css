@@ -6,7 +6,7 @@ html {
   @apply bg-deep-green text-fg font-Jost antialiased;
 }
 
-body {
+#__next {
   @apply min-h-screen flex flex-col;
 }
 
