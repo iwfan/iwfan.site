@@ -5,9 +5,71 @@ import { CreativeCommons, CreativeCommonsBy, Feed, Github, Twitter } from '../ic
 const LayoutFooter = () => (
   <Container
     tag="footer"
-    className="flex justify-around items-center flex-wrap gap-4 py-10 mt-20 text-gray-300 border-t-2 border-t-border"
+    className="flex justify-center sm:justify-between items-center flex-wrap gap-4 py-10 mt-20 text-grey border-t-2 border-t-border"
   >
-    <p className="flex items-center">
+    <div>
+      <p className="flex items-center">
+        Built with
+        <a
+          className="mx-2 text-link u-underline"
+          href="https://nextjs.org/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Next.js
+        </a>
+        <span>&</span>
+        <a
+          className="mx-2 text-link u-underline"
+          href="https://www.notion.so/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Notion.
+        </a>
+        Hosted on
+        <a
+          className="mx-2 text-link u-underline"
+          href="https://vercel.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Vercel.
+        </a>
+      </p>
+      <p className="flex items-center text-sm">
+        Thanks
+        <a className="mx-2 text-link u-underline" href="https://twitter.com/RyanWarnerCodes">
+          Ryan Warner
+        </a>
+        designed
+        <a
+          className="mx-2 text-link u-underline"
+          href="https://www.figma.com/community/file/824810955262478067"
+        >
+          Blog theme.
+        </a>
+      </p>
+    </div>
+    <p className="flex items-center justify-end">
+      <a
+        className="mr-4 flex items-center hover:text-green text-xl"
+        target="_blank"
+        title="Creative Commons"
+        href="https://creativecommons.org/"
+        rel="noreferrer"
+      >
+        <CreativeCommons />
+      </a>
+      <a
+        className="mr-4 flex items-center hover:text-green text-xl"
+        target="_blank"
+        title="Attribution 4.0 International"
+        href="https://creativecommons.org/licenses/by/4.0/"
+        rel="noreferrer"
+      >
+        <CreativeCommonsBy />
+      </a>
       <a
         className="mr-4 flex items-center hover:text-green text-xl"
         href={`https://twitter.com/${twitter_name}`}
@@ -31,56 +93,6 @@ const LayoutFooter = () => (
         rel="noreferrer"
       >
         <Feed />
-      </a>
-    </p>
-    <p className="flex items-center justify-end md:order-9">
-      <a
-        className="mr-2 hover:text-green"
-        target="_blank"
-        title="Creative Commons"
-        href="https://creativecommons.org/"
-        rel="noreferrer"
-      >
-        <CreativeCommons />
-      </a>
-      <a
-        className="mr-2 hover:text-green"
-        target="_blank"
-        title="Attribution 4.0 International"
-        href="https://creativecommons.org/licenses/by/4.0/"
-        rel="noreferrer"
-      >
-        <CreativeCommonsBy />
-      </a>
-      &copy;&nbsp;{new Date().getUTCFullYear()} {author_name}
-    </p>
-    <p className="flex items-center justify-center">
-      Built with
-      <a
-        className="mx-2 text-gray-200 hover:text-green u-underline"
-        href="https://nextjs.org/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Next.js
-      </a>
-      <span>&</span>
-      <a
-        className="mx-2 text-gray-200 hover:text-green u-underline"
-        href="https://www.notion.so/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Notion.
-      </a>
-      Hosted on
-      <a
-        className="mx-2 text-gray-200 hover:text-green u-underline"
-        href="https://vercel.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Vercel.
       </a>
     </p>
   </Container>

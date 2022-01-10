@@ -24,10 +24,12 @@ module.exports = {
       colors: {
         fg: '#ECF8FF',
         green: '#83F9A2',
+        grey: '#C9E2F0',
         blue: '#5E8CA7',
         border: 'rgb(28, 44, 53)',
         light: 'rgba(130, 249, 161, 0.07)',
         bar: 'rgb(222, 255, 231)',
+        link: '#4FB8FF',
         ['deep-green']: 'rgb(22, 33, 41)',
       },
       boxShadow: {
