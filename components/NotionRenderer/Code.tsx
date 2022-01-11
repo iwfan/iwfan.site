@@ -14,7 +14,9 @@ const Code: FC<{ children: CodeBlock }> = ({ children }) => {
 
   return (
     <SyntaxHighlighter
-      className={`${language} font-mono`}
+      className={`${language} font-mono border-2 border-border rounded-md my-4 ${
+        showLineNumbers ? 'py-2' : 'p-3'
+      }`}
       language={language}
       useInlineStyles={false}
       showLineNumbers={showLineNumbers}

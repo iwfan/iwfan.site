@@ -9,7 +9,7 @@ import { site_title } from '../../site.config'
 
 const Posts: NextPage<NotionPage> = props => {
   const post = props
-  console.log(post)
+  process.env.NODE_ENV === 'development' && console.log(post)
   const postTitle = post?.properties?.title?.title?.[0]?.text?.content ?? null
 
   if (postTitle == null) {
@@ -41,7 +41,7 @@ const Posts: NextPage<NotionPage> = props => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const results = await queryNotionDatabase()
+  const results = await queryNotionDatabase(10)
   return {
     paths: results.map(page => ({ params: { id: page.id } })),
     fallback: true,
