@@ -4,6 +4,7 @@ import { DefaultSeo } from 'next-seo'
 import { site_desc, site_title, site_url, twitter_name } from '../site.config'
 import '../styles/tailwind.css'
 import '../styles/shared.css'
+import '../styles/prism-highlight.css'
 
 const AppSEO = () => (
   <DefaultSeo
