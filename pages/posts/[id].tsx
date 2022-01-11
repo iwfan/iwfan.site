@@ -10,7 +10,12 @@ import { site_title } from '../../site.config'
 const Posts: NextPage<NotionPage> = props => {
   const post = props
   console.log(post)
-  const postTitle = post.properties.title.title[0].text.content
+  const postTitle = post?.properties?.title?.title?.[0]?.text?.content ?? null
+
+  if (postTitle == null) {
+    return null
+  }
+
   const createdDate = post.properties.created_date
   const date = createdDate[createdDate.type]?.start
   return (
@@ -46,7 +51,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async context => {
   // @ts-ignore
   const { id } = context.params
-  console.log(id)
 
   return {
     props: await retrieveNotionPage(id),
