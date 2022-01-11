@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Text from './Text'
-import { CalloutBlock } from '../../services/typings'
+import { CalloutBlock } from '../../notion/typings'
 
 const Callout: FC<{ children: CalloutBlock }> = ({ children }) => {
   return (

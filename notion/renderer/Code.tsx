@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { CodeBlock } from '../../services/typings'
+import { CodeBlock } from '../../notion/typings'
 
 const Code: FC<{ children: CodeBlock }> = ({ children }) => {
   const { language, text } = children
@@ -14,7 +14,7 @@ const Code: FC<{ children: CodeBlock }> = ({ children }) => {
 
   return (
     <SyntaxHighlighter
-      className={`${language} font-mono border-2 border-border rounded-md my-4 ${
+      className={`bg-[#1C2C35] font-mono border-2 border-border rounded-md my-4 ${
         showLineNumbers ? 'py-2' : 'p-3'
       }`}
       language={language}

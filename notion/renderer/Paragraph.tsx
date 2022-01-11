@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Text from './Text'
-import { ParagraphBlock } from '../../services/typings'
+import { ParagraphBlock } from '../../notion/typings'
 
 const Paragraph: FC<{ children: ParagraphBlock }> = ({ children }) => {
   return (

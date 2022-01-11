@@ -1,4 +1,4 @@
-import { author_name, github_name, twitter_name } from '../../site.config'
+import { github_name, twitter_name } from '../../site.config'
 import { Container } from './Container'
 import { CreativeCommons, CreativeCommonsBy, Feed, Github, Twitter } from '../icons'
 
@@ -73,6 +73,7 @@ const LayoutFooter = () => (
       <a
         className="mr-4 flex items-center hover:text-green text-xl"
         href={`https://twitter.com/${twitter_name}`}
+        title="Twitter"
         target="_blank"
         rel="noreferrer"
       >
@@ -81,6 +82,7 @@ const LayoutFooter = () => (
       <a
         className="mr-4 flex items-center hover:text-green text-xl"
         href={`https://github.com/${github_name}`}
+        title="Github"
         target="_blank"
         rel="noreferrer"
       >
@@ -89,6 +91,7 @@ const LayoutFooter = () => (
       <a
         className="mr-4 flex items-center hover:text-green text-xl"
         href={`https://github.com/${github_name}`}
+        title="RSS"
         target="_blank"
         rel="noreferrer"
       >

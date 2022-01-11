@@ -1,5 +1,9 @@
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './notion/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -27,6 +31,7 @@ module.exports = {
         grey: '#C9E2F0',
         blue: '#5E8CA7',
         border: 'rgb(28, 44, 53)',
+        border_light: 'rgba(124, 201, 255, 0.41)',
         light: 'rgba(130, 249, 161, 0.07)',
         bar: 'rgb(222, 255, 231)',
         link: '#4FB8FF',
@@ -51,6 +56,5 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

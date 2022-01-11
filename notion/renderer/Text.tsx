@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import cx from 'classnames'
-import { TextBlock } from '../../services/typings'
+import { TextBlock } from '../../notion/typings'
 
 const Text: FC<{ children?: TextBlock[] }> = ({ children }) => {
   if (!children) {
@@ -10,10 +10,8 @@ const Text: FC<{ children?: TextBlock[] }> = ({ children }) => {
   return (
     <>
       {children.map((value, idx) => {
-        const {
-          annotations: { bold, code, color, italic, strikethrough, underline },
-          text,
-        } = value
+        const { annotations: { bold, code, color, italic, strikethrough, underline } = {}, text } =
+          value
 
         if (text.link) {
           return (
@@ -23,7 +21,14 @@ const Text: FC<{ children?: TextBlock[] }> = ({ children }) => {
           )
         }
         if (code) {
-          return <code key={idx}>{text.content}</code>
+          return (
+            <code
+              key={idx}
+              className="inline-block border border-border_light px-1 m-1 rounded-lg text-fg"
+            >
+              {text.content}
+            </code>
+          )
         }
 
         return (

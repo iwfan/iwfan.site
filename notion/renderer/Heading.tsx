@@ -1,19 +1,16 @@
 import { ElementType, FC } from 'react'
 import Text from './Text'
-import { ParagraphBlock } from '../../services/typings'
+import { ParagraphBlock } from '../../notion/typings'
 
 const Heading: FC<{ level: 1 | 2 | 3; children: ParagraphBlock }> = ({ level, children }) => {
   const HeadingTag: ElementType = `h${level}`
 
   const getClassName = (level: 1 | 2 | 3) => {
-    if (level === 1) {
-      return ['my-4', 'text-3xl', 'font-bold'].join(' ')
-    }
-    if (level === 2) {
-      return ['my-3', 'text-2xl', 'font-semibold'].join(' ')
-    }
+    const fontBoldClass = ['font-bold', 'font-semibold', 'font-medium']
+    const fontSizeClass = ['text-3xl', 'text-2xl', 'text-xl']
+    const spacingClass = ['my-4', 'my-3', 'my-2']
 
-    return ['my-2', 'text-xl', 'font-medium'].join(' ')
+    return [fontBoldClass[level - 1], fontSizeClass[level - 1], spacingClass[level - 1]].join(' ')
   }
 
   return (

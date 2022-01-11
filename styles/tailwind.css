@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-deep-green text-fg font-Jost antialiased;
+  @apply bg-deep-green text-fg font-Jost antialiased leading-relaxed;
 }
 
 #__next {

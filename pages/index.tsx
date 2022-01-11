@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Link from 'next/link'
 import cx from 'classnames'
-import { queryNotionDatabase } from '../services/notion'
+import { queryNotionDatabase } from '../notion/client'
 import Layout from '../components/Layout'
 import Banner from '../components/Layout/Banner'
 import DataList from '../components/DataList'

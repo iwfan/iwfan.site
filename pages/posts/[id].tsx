@@ -1,13 +1,13 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
 import { Fragment } from 'react'
+import Head from 'next/head'
 import Layout from '../../components/Layout'
-import renderBlock from '../../components/NotionRenderer'
-import { queryNotionDatabase, retrieveNotionPage } from '../../services/notion'
-import { NotionPage } from '../../services/typings'
+import { renderBlock } from '../../notion/renderer'
+import { queryNotionDatabase, retrieveNotionPage } from '../../notion/client'
+import { NotionPageBlock } from '../../notion/typings'
 import { site_title } from '../../site.config'
 
-const Posts: NextPage<NotionPage> = props => {
+const Posts: NextPage<NotionPageBlock> = props => {
   const post = props
   process.env.NODE_ENV === 'development' && console.log(post)
   const postTitle = post?.properties?.title?.title?.[0]?.text?.content ?? null
@@ -26,7 +26,7 @@ const Posts: NextPage<NotionPage> = props => {
         </title>
       </Head>
       <Layout>
-        <article className="text-grey">
+        <article className="text-grey leading-relaxed">
           <header className="my-12">
             <h1 className="my-2 text-3xl text-fg font-bold">{postTitle}</h1>
             <p className="text-blue">{date}</p>

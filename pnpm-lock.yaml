@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/cli': ^15.0.0
   '@commitlint/config-conventional': ^15.0.0
   '@notionhq/client': ^0.4.12
+  '@tailwindcss/typography': ^0.5.0
   '@types/node': 17.0.8
   '@types/react': 17.0.38
   '@types/react-syntax-highlighter': ^13.5.2
@@ -16,6 +17,7 @@ specifiers:
   eslint-config-prettier: ^8.3.0
   eslint-plugin-prettier: ^4.0.0
   husky: ^7.0.4
+  iconoir: ^1.0.0
   lint-staged: ^12.1.7
   next: 12.0.7
   next-seo: ^4.28.1
@@ -35,6 +37,7 @@ specifiers:
 dependencies:
   '@notionhq/client': 0.4.12
   classnames: 2.3.1
+  iconoir: 1.0.0
   next: 12.0.7_e1d8af59225a23e7c53bc90485906a07
   next-seo: 4.28.1_d837ce8f3acb2f60f8b7454672a9bcea
   next-sitemap: 1.8.4_next@12.0.7
@@ -47,6 +50,7 @@ devDependencies:
   '@babel/core': 7.16.7
   '@commitlint/cli': 15.0.0
   '@commitlint/config-conventional': 15.0.0
+  '@tailwindcss/typography': 0.5.0_tailwindcss@3.0.12
   '@types/node': 17.0.8
   '@types/react': 17.0.38
   '@types/react-syntax-highlighter': 13.5.2
@@ -926,6 +930,21 @@ packages:
       {
         integrity: sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==,
       }
+    dev: true
+
+  /@tailwindcss/typography/0.5.0_tailwindcss@3.0.12:
+    resolution:
+      {
+        integrity: sha512-1p/3C6C+JJziS/ghtG8ACYalbA2SyLJY27Pm33cVTlAoY6VQ7zfm2H64cPxUMBkVIlWXTtWHhZcZJPobMRmQAA==,
+      }
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1 || insiders'
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      lodash.uniq: 4.5.0
+      tailwindcss: 3.0.12_ef48b3b8837f8a23677bffe8f9cd866d
     dev: true
 
   /@trysound/sax/0.2.0:
@@ -3685,6 +3704,13 @@ packages:
     hasBin: true
     dev: true
 
+  /iconoir/1.0.0:
+    resolution:
+      {
+        integrity: sha512-rZ4ZMMOarUfsRrfH7h3MGIFVNrcWsThtJWpTuZOp/FYhSomaa32HhHg8WH0V3VlN7MIVK4VMD2O7jNq6jRKY3w==,
+      }
+    dev: false
+
   /iconv-lite/0.4.24:
     resolution:
       {
@@ -4295,8 +4321,16 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash.castarray/4.4.0:
+    resolution: { integrity: sha1-wCUTUV4wna3dTCTGDP3c9ZdtkRU= }
+    dev: true
+
   /lodash.get/4.4.2:
     resolution: { integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk= }
+    dev: true
+
+  /lodash.isplainobject/4.0.6:
+    resolution: { integrity: sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs= }
     dev: true
 
   /lodash.memoize/4.1.2:

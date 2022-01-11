@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps } from 'next'
-import { queryNotionDatabase } from '../../services/notion'
+import { queryNotionDatabase } from '../../notion/client'
 import Layout from '../../components/Layout'
 import PostList from '../../components/PostList'
 
