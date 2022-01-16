@@ -9,6 +9,8 @@ module.exports = {
       fontFamily: {
         Jost: [
           'Jost',
+          'Lato',
+          'Geneva',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',

@@ -1,22 +1,36 @@
+import path from 'path'
+import { readJson, writeJson, pathExists, ensureFile } from 'fs-extra'
 import { Client } from '@notionhq/client'
 import { NotionBlock, TextBlock } from './typings'
+
+const CACHE_PATH = path.resolve(process.cwd(), 'notion/.cache')
 
 const notionClient = new Client({
   auth: process.env.NOTION_ACCESS_TOKEN,
 })
 
 export const queryNotionDatabase = async (pageSize = 9999) => {
-  const response = await notionClient.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID as string,
-    sorts: [
-      {
-        property: 'created_date',
-        direction: 'descending',
-      },
-    ],
-    page_size: pageSize,
-  })
-  return response.results
+  const databaseId = process.env.NOTION_DATABASE_ID as string
+  const databaseCachePath = path.resolve(CACHE_PATH, 'd', `${databaseId}.json`)
+
+  if (await pathExists(databaseCachePath)) {
+    return await readJson(databaseCachePath)
+  } else {
+    const response = await notionClient.databases.query({
+      database_id: process.env.NOTION_DATABASE_ID as string,
+      sorts: [
+        {
+          property: 'created_date',
+          direction: 'descending',
+        },
+      ],
+      page_size: pageSize,
+    })
+    const { results } = response
+    await ensureFile(databaseCachePath)
+    await writeJson(databaseCachePath, results)
+    return results
+  }
 }
 
 export const retrieveNotionBlocks = async (blockId: string): Promise<NotionBlock[]> => {
@@ -79,12 +93,20 @@ const formatNotionBlocks = (blocks: NotionBlock[]): NotionBlock[] => {
 }
 
 export const retrieveNotionPage = async (pageId: string) => {
-  const page = await notionClient.pages.retrieve({ page_id: pageId })
-  const blocks = await retrieveNotionBlocks(pageId)
+  const pageCachePath = path.resolve(CACHE_PATH, 'p', `${pageId}.json`)
 
-  return {
-    ...page,
-    blocks: formatNotionBlocks(blocks),
-    // blocks,
+  if (await pathExists(pageCachePath)) {
+    return await readJson(pageCachePath)
+  } else {
+    const page = await notionClient.pages.retrieve({ page_id: pageId })
+    const blocks = await retrieveNotionBlocks(pageId)
+    const result = {
+      ...page,
+      blocks: formatNotionBlocks(blocks),
+      // blocks,
+    }
+    await ensureFile(pageCachePath)
+    await writeJson(pageCachePath, result)
+    return result
   }
 }
