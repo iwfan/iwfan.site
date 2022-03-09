@@ -43,7 +43,7 @@ const Posts: NextPage<NotionPageBlock> = props => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const results = await queryNotionDatabase(10)
   return {
-    paths: results.map(page => ({ params: { id: page.id } })),
+    paths: results.map((page: any) => ({ params: { id: page.id } })),
     fallback: true,
   }
 }
@@ -54,7 +54,6 @@ export const getStaticProps: GetStaticProps = async context => {
 
   return {
     props: await retrieveNotionPage(id),
-    revalidate: 1,
   }
 }
 

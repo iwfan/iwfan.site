@@ -40,7 +40,9 @@ export const renderBlock = (block: NotionBlock) => {
     case 'column_list':
       return <ColumnList>{block.block_children as any}</ColumnList>
     case 'quote':
-      return <blockquote key={id}>{value.text[0].plain_text}</blockquote>
+      const textBlocks = value.text || (value as any).rich_text
+      console.log(textBlocks)
+      return <blockquote key={id}>{textBlocks[0].plain_text}</blockquote>
     case 'image':
       return <Image>{value as any}</Image>
     case 'toggle':

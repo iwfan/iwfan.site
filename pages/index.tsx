@@ -49,7 +49,7 @@ const Home: NextPage<HomePageProps> = props => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: { posts: await queryNotionDatabase(5) },
-    revalidate: 1,
+    // revalidate: 1, // Do not re-generation on every request
   }
 }
 
