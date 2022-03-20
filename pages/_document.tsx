@@ -14,6 +14,14 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {process.env.NODE_ENV === 'production' && (
+          <script
+            async
+            defer
+            data-website-id="a62faa43-f000-4f53-a79f-ad5d822ec24d"
+            src="https://u.iwfan.site/umami.js"
+          />
+        )}
       </body>
     </Html>
   )
