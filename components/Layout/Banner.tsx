@@ -12,7 +12,12 @@ const Banner = () => (
       >
         Hi 👋, I&apos;m iwfan, A JavaScript engineer and Vimmer.
       </h1>
-      <p className="text-lg my-10">🤚 🐟 Touching fish makes work more efficient.</p>
+      <p className="text-lg my-10 text-natural-300">
+        🤚 🐟 Touching fish makes work more efficient.
+      </p>
+      <a href="https://skillicons.dev/" className="block my-10">
+        <img src="https://skillicons.dev/icons?i=js,vim,react,graphql,tailwind" alt="skills" />
+      </a>
     </section>
     <section className={cx('relative group h-40 my-32', 'lg:h-auto lg:my-0')}>
       <div className="absolute inset-0 flex items-center justify-center animate-shrink">
