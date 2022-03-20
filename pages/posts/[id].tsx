@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
+import { getBlockTitle } from 'notion-utils'
 import Layout from '../../components/Layout'
 import { queryNotionDatabase } from '../../notion/client'
 import { retrieveNotionPage } from '../../notion/x'
@@ -9,29 +10,40 @@ import { site_title } from '../../site.config'
 import Link from 'next/link'
 
 const Posts: NextPage<NotionPageBlock> = props => {
-  const post = props
-  process.env.NODE_ENV === 'development' && console.log(post)
-  // const postTitle = post?.properties?.title?.title?.[0]?.text?.content ?? null
-  //
-  // if (postTitle == null) {
-  //   return null
-  // }
+  process.env.NODE_ENV === 'development' && console.log(props)
 
-  // const createdDate = post.properties.created_date
-  // const date = createdDate[createdDate.type]?.start
+  const { recordMap } = props
+
+  const keys = Object.keys(recordMap?.block || {})
+  const block = recordMap?.block?.[keys[0]]?.value
+
+  const postTitle = getBlockTitle(block, recordMap) || site_title
+
+  if (postTitle == null) {
+    return null
+  }
+
   return (
     <>
-      {/* <Head> */}
-      {/*   <title> */}
-      {/*     {postTitle} | {site_title} */}
-      {/*   </title> */}
-      {/* </Head> */}
+      <Head>
+        <title>
+          {postTitle} | {site_title}
+        </title>
+      </Head>
       <Layout>
-        <article className="text-grey leading-relaxed">
-          {/* <header className="my-12"> */}
-          {/*   <h1 className="my-2 text-3xl text-fg font-bold">{postTitle}</h1> */}
-          {/*   <p className="text-blue">{date}</p> */}
-          {/* </header> */}
+        <article
+          className="text-grey leading-relaxed dark-mode"
+          style={
+            {
+              '--bg-color': 'rgb(22, 33, 41)',
+              '--bg-color-1': 'rgba(135, 131, 120, 0.15)',
+            } as React.CSSProperties
+          }
+        >
+          <header className="my-12">
+            <h1 className="my-2 text-3xl font-bold text-fg">{postTitle}</h1>
+            {/* <p className="text-blue">{date}</p> */}
+          </header>
           <NotionRenderer
             recordMap={props.recordMap}
             fullPage={true}
@@ -66,9 +78,6 @@ const Posts: NextPage<NotionPageBlock> = props => {
               collectionRow: CollectionRow,
             }}
           />
-          {/* {(post.blocks ?? []).map(block => ( */}
-          {/*   <Fragment key={block.id}>{renderBlock(block)}</Fragment> */}
-          {/* ))} */}
         </article>
       </Layout>
     </>

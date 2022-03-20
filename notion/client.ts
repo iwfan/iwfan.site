@@ -103,7 +103,6 @@ export const retrieveNotionPage = async (pageId: string) => {
     const result = {
       ...page,
       blocks: formatNotionBlocks(blocks),
-      // blocks,
     }
     await ensureFile(pageCachePath)
     await writeJson(pageCachePath, result)
