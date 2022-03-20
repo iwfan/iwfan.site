@@ -1,6 +1,7 @@
 export interface NotionPageBlock {
   properties: Record<string, any>
   blocks: any[]
+  recordMap: any
 }
 
 export interface TextAnnotations {

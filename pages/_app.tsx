@@ -2,6 +2,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 import { site_desc, site_title, site_url, twitter_name } from '../site.config'
+// core styles shared by all of react-notion-x (required)
+import 'react-notion-x/src/styles.css'
 import '../styles/tailwind.css'
 import '../styles/shared.css'
 import '../styles/prism-highlight.css'
