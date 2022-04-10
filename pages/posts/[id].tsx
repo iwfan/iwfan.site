@@ -1,13 +1,21 @@
 import type { NextPage, GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import { NotionRenderer, Code, Collection, CollectionRow } from 'react-notion-x'
-import { getBlockTitle } from 'notion-utils'
+import { NotionRenderer } from 'react-notion-x'
+import { Code } from 'react-notion-x/build/third-party/code'
+import { Collection } from 'react-notion-x/build/third-party/collection'
 import Layout from '../../components/Layout'
 import { queryNotionDatabase } from '../../notion/client'
 import { retrieveNotionPage } from '../../notion/x'
 import { NotionPageBlock } from '../../notion/typings'
 import { site_title } from '../../site.config'
 import Link from 'next/link'
+
+import dynamic from 'next/dynamic'
+
+// const Code = dynamic(() => import('react-notion-x/build/third-party/code').then(m => m.Code))
+// const Collection = dynamic(() =>
+//   import('react-notion-x/build/third-party/collection').then(m => m.Collection)
+// )
 
 const Posts: NextPage<NotionPageBlock> = props => {
   process.env.NODE_ENV === 'development' && console.log(props)
@@ -49,7 +57,7 @@ const Posts: NextPage<NotionPageBlock> = props => {
             fullPage={true}
             darkMode={false}
             components={{
-              pageLink: ({
+              PageLink: ({
                 href,
                 as,
                 passHref,
@@ -73,9 +81,9 @@ const Posts: NextPage<NotionPageBlock> = props => {
                   <a {...props} />
                 </Link>
               ),
-              code: Code,
-              collection: Collection,
-              collectionRow: CollectionRow,
+              Code,
+              Collection,
+              // CollectionRow,
             }}
           />
         </article>

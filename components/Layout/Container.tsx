@@ -7,7 +7,7 @@ interface ContainerProps {
   style?: React.CSSProperties
 }
 
-const ContainerRender: ForwardRefRenderFunction<HTMLElement, ContainerProps> = (
+const ContainerRender: ForwardRefRenderFunction<HTMLElement, PropsWithChildren<ContainerProps>> = (
   { tag: Wrapper = 'div', style, className, children },
   ref
 ) => (
