@@ -24,9 +24,9 @@ specifiers:
   next: 12.1.4
   next-seo: ^5.4.0
   next-sitemap: ^2.5.19
-  notion-client: ^6.9.3-6.10.0-alpha.0.0
-  notion-types: ^6.7.0
-  notion-utils: ^6.9.3-6.10.0-alpha.0.0
+  notion-client: ^6.9.5
+  notion-types: ^6.9.4
+  notion-utils: ^6.9.4
   postcss: ^8.4.12
   postcss-import: ^14.1.0
   prettier: ^2.6.2
@@ -34,7 +34,7 @@ specifiers:
   react: 18.0.0
   react-dom: 18.0.0
   react-error-boundary: ^3.1.4
-  react-notion-x: ^6.9.3-6.10.0-alpha.0.0
+  react-notion-x: ^6.9.5
   react-syntax-highlighter: ^15.5.0
   sass: ^1.50.0
   tailwindcss: ^3.0.23
@@ -70,14 +70,14 @@ devDependencies:
   fs-extra: 10.0.1
   husky: 7.0.4
   lint-staged: 12.3.7
-  notion-client: 6.9.3-6.10.0-alpha.0.0
-  notion-types: 6.7.0
-  notion-utils: 6.9.3-6.10.0-alpha.0.0
+  notion-client: 6.9.5
+  notion-types: 6.9.4
+  notion-utils: 6.9.4
   postcss: 8.4.12
   postcss-import: 14.1.0_postcss@8.4.12
   prettier: 2.6.2
   pretty-quick: 3.1.3_prettier@2.6.2
-  react-notion-x: 6.9.3-6.10.0-alpha.0.0_d1b655986da7bf62d1172c7ae6e89165
+  react-notion-x: 6.9.5_d1b655986da7bf62d1172c7ae6e89165
   sass: 1.50.0
   tailwindcss: 3.0.23_autoprefixer@10.4.4
   typescript: 4.6.3
@@ -613,6 +613,13 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@fisch0920/medium-zoom/1.0.7:
+    resolution:
+      {
+        integrity: sha512-hPUrgVM/QvsZdZzDTPyL1C1mOtEw03RqTLmK7ZlJ8S/64u4O4O5BvPvjB/9kyLtE6iVaS9UDRAMSwmM9uh2JIw==,
+      }
     dev: true
 
   /@humanwhocodes/config-array/0.9.5:
@@ -1845,28 +1852,30 @@ packages:
     engines: { node: '>=8' }
     dev: true
 
-  /array.prototype.flat/1.2.5:
+  /array.prototype.flat/1.3.0:
     resolution:
       {
-        integrity: sha512-KaYU+S+ndVqyUnignHftkwc58o3uVU1jzczILJ1tN2YaIZpFIKBiP/x/j97E5MVPsaCloPbqWLB/8qCTVvT2qg==,
+        integrity: sha512-12IUEkHsAhA4DY5s0FPgNXIdc8VRSqD9Zp78a5au9abH/SOBrsp082JOWFNTjkMozh8mqcdiKuaLGhPeYztxSw==,
       }
     engines: { node: '>= 0.4' }
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.3
       es-abstract: 1.19.2
+      es-shim-unscopables: 1.0.0
     dev: true
 
-  /array.prototype.flatmap/1.2.5:
+  /array.prototype.flatmap/1.3.0:
     resolution:
       {
-        integrity: sha512-08u6rVyi1Lj7oqWbS9nUxliETrtIROT4XGTA4D/LWGten6E3ocm7cy9SIrmNHOL5XVbVuckUp3X6Xyg8/zpvHA==,
+        integrity: sha512-PZC9/8TKAIxcWKdyeb77EzULHPrIX/tIZebLJUQOMR1OwYosT8yggdfWScfTBCDj5utONvOuPQQumYsU2ULbkg==,
       }
     engines: { node: '>= 0.4' }
     dependencies:
       call-bind: 1.0.2
       define-properties: 1.1.3
       es-abstract: 1.19.2
+      es-shim-unscopables: 1.0.0
     dev: true
 
   /arrify/1.0.1:
@@ -1989,7 +1998,7 @@ packages:
       caniuse-lite: 1.0.30001327
       electron-to-chromium: 1.4.106
       escalade: 3.1.1
-      node-releases: 2.0.2
+      node-releases: 2.0.3
       picocolors: 1.0.0
     dev: true
 
@@ -2936,6 +2945,15 @@ packages:
       unbox-primitive: 1.0.1
     dev: true
 
+  /es-shim-unscopables/1.0.0:
+    resolution:
+      {
+        integrity: sha512-Jm6GPcCdC30eMLbZ2x8z2WuRwAws3zTBBKuusffYVUrNj/GVSUAZ+xKMaUpfNDR5IbyNA5LJbaecoUVbmUcB1w==,
+      }
+    dependencies:
+      has: 1.0.3
+    dev: true
+
   /es-to-primitive/1.2.1:
     resolution:
       {
@@ -3080,7 +3098,7 @@ packages:
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
     dependencies:
       array-includes: 3.1.4
-      array.prototype.flat: 1.2.5
+      array.prototype.flat: 1.3.0
       debug: 2.6.9
       doctrine: 2.1.0
       eslint: 8.13.0
@@ -3161,7 +3179,7 @@ packages:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
       array-includes: 3.1.4
-      array.prototype.flatmap: 1.2.5
+      array.prototype.flatmap: 1.3.0
       doctrine: 2.1.0
       eslint: 8.13.0
       estraverse: 5.3.0
@@ -4666,13 +4684,6 @@ packages:
       }
     dev: true
 
-  /medium-zoom/1.0.6:
-    resolution:
-      {
-        integrity: sha512-UdiUWfvz9fZMg1pzf4dcuqA0W079o0mpqbTnOz5ip4VGYX96QjmbM+OgOU/0uOzAytxC0Ny4z+VcYQnhdifimg==,
-      }
-    dev: true
-
   /mem/9.0.2:
     resolution:
       {
@@ -4993,10 +5004,10 @@ packages:
       whatwg-url: 5.0.0
     dev: false
 
-  /node-releases/2.0.2:
+  /node-releases/2.0.3:
     resolution:
       {
-        integrity: sha512-XxYDdcQ6eKqp/YjI+tb2C5WM2LgjnZrfYg4vgQt49EK268b6gYCHsBLrK2qvJo4FmCtqmKezb0WZFK4fkrZNsg==,
+        integrity: sha512-maHFz6OLqYxz+VQyCAtA3PTX4UP/53pa05fyDNc9CwjvJ0yEh6+xBwKsgCxMNhS8taUKBFYxfuiaD9U/55iFaw==,
       }
     dev: true
 
@@ -5054,38 +5065,38 @@ packages:
     engines: { node: '>=12.20' }
     dev: true
 
-  /notion-client/6.9.3-6.10.0-alpha.0.0:
+  /notion-client/6.9.5:
     resolution:
       {
-        integrity: sha512-Zq+7TxavVYuZ4+zUqlqeIEENkfM64b1u0MBNQSgKuHW9typCqQBckxnYwm2gydOHgBdrEp1nFWOugE8kXU+Nrg==,
+        integrity: sha512-CJd6CL5T+9ZAn2yfQH5t4i67MbabCdIgFN+lpvCSR2PR+YdOAHy3fzTYuWjCmLAYqMMIfYDjqPn52nZxfZljJA==,
       }
     engines: { node: '>=12' }
     dependencies:
       got: 11.8.3
-      notion-types: 6.7.0
-      notion-utils: 6.9.3-6.10.0-alpha.0.0
+      notion-types: 6.9.4
+      notion-utils: 6.9.4
       p-map: 5.3.0
     dev: true
 
-  /notion-types/6.7.0:
+  /notion-types/6.9.4:
     resolution:
       {
-        integrity: sha512-j7O6juQDOPgAinELMMpvVn0c8Vgr+Dhqm7UTTnhILnBhbOtQKaIYPCNKA4AJw/OPzzy1iEJ6KrthTEkPbQYEeg==,
+        integrity: sha512-hLOHtg5VZU5czs77aHNROUYuY/1bk+Ejl7GAHjPpAgCzfTeQVpJYjvLr+XZIqcBUSa/3u/BcTpEImRmp+UOw9Q==,
       }
     engines: { node: '>=12' }
     dev: true
 
-  /notion-utils/6.9.3-6.10.0-alpha.0.0:
+  /notion-utils/6.9.4:
     resolution:
       {
-        integrity: sha512-uBJYy2JzMVWLy1UvnaEsmZPlM32B8zxWx9rAmMTmcszblYrTCU9CZJCA0h/gyYiI7hmYfDEXDEgpFo/4kkpEtQ==,
+        integrity: sha512-OIAeGBBkOndVb6rXZosStugM0di8Pvi3YMGTLf1oh84KtipYyPw70zbloJNM9zLDf578AW9MU2i/yyt5A4TMRQ==,
       }
     engines: { node: '>=12' }
     dependencies:
       is-url-superb: 6.1.0
       mem: 9.0.2
       normalize-url: 7.0.3
-      notion-types: 6.7.0
+      notion-types: 6.9.4
       p-queue: 7.2.0
     dev: true
 
@@ -6171,10 +6182,10 @@ packages:
       warning: 4.0.3
     dev: true
 
-  /react-notion-x/6.9.3-6.10.0-alpha.0.0_d1b655986da7bf62d1172c7ae6e89165:
+  /react-notion-x/6.9.5_d1b655986da7bf62d1172c7ae6e89165:
     resolution:
       {
-        integrity: sha512-JI/KfqIX4+1Q644HEU13CUix5u+LeOWTPbr2q8x/PeoULhise89A68QSN/j34kQvBw+zVZThc8/As1BN5Wgj6A==,
+        integrity: sha512-AxPDkHh4R8VPXcNttPjjrXIp3JCC8la/kwAywEq3FIcuXYO9pyUWBxUU0qpgq/jivLKi21QVrUzCTPTjZTh8Pg==,
       }
     engines: { node: '>=12' }
     peerDependencies:
@@ -6185,11 +6196,11 @@ packages:
       katex:
         optional: true
     dependencies:
+      '@fisch0920/medium-zoom': 1.0.7
       '@matejmazur/react-katex': 3.1.3_react@18.0.0
       '@radix-ui/react-dropdown-menu': 0.1.6_d1b655986da7bf62d1172c7ae6e89165
-      medium-zoom: 1.0.6
-      notion-types: 6.7.0
-      notion-utils: 6.9.3-6.10.0-alpha.0.0
+      notion-types: 6.9.4
+      notion-utils: 6.9.4
       prismjs: 1.27.0
       react: 18.0.0
       react-dom: 18.0.0_react@18.0.0
