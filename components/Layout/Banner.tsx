@@ -1,35 +1,3 @@
-import cx from 'classnames'
-
-const Banner = () => (
-  <div className={cx('grid-cols-4 justify-center gap-6 py-4', 'lg:grid lg:py-20')}>
-    <section className="col-span-3">
-      <h1
-        className="text-5xl text-green font-bold leading-relaxed tracking-wider"
-        style={{
-          textShadow: '0px 0px 76px rgba(188, 251, 195, 0.3)',
-          background: 'linear-gradient(rgb(176, 251, 188), rgb(130, 249, 161)) text',
-        }}
-      >
-        Hi 👋, I&apos;m iwfan, A JavaScript engineer and Vimmer.
-      </h1>
-      <p className="text-lg my-10 text-natural-300">
-        🤚 🐟 Touching fish makes work more efficient.
-      </p>
-      <a href="https://skillicons.dev/" className="block my-10">
-        <img src="https://skillicons.dev/icons?i=js,vim,react,graphql,tailwind" alt="skills" />
-      </a>
-    </section>
-    <section className={cx('relative group h-40 my-32', 'lg:h-auto lg:my-0')}>
-      <div className="absolute inset-0 flex items-center justify-center animate-shrink">
-        <HeartSprinkle />
-      </div>
-      <div className="absolute inset-0 flex items-center justify-center animate-expand">
-        <GreenHeart />
-      </div>
-    </section>
-  </div>
-)
-
 const HeartSprinkle = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -265,59 +233,6 @@ const HeartSprinkle = () => (
 )
 
 const GreenHeart = () => (
-  <svg
-    width="198"
-    height="185"
-    viewBox="0 0 198 185"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g filter="url(#filter0_d)">
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M87.7143 141.95V159.261H110.286V141.95H127.214V118.868H144.143V107.327H161.071V84.2452H178V32.3113H161.071V15H110.286V32.3113H87.7143V15H36.9286V32.3113H20V84.2452H36.9286V107.327H53.8571V118.868H70.7857V141.95H87.7143ZM65.1363 38.0837H42.5649V72.7063H65.1363V38.0837Z"
-        fill="url(#paint0_linear)"
-      ></path>
-    </g>
-    <defs>
-      <filter
-        id="filter0_d"
-        x="0"
-        y="0"
-        width="198"
-        height="184.261"
-        filterUnits="userSpaceOnUse"
-        colorInterpolationFilters="sRGB"
-      >
-        <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
-        <feColorMatrix
-          in="SourceAlpha"
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        ></feColorMatrix>
-        <feOffset dy="5"></feOffset>
-        <feGaussianBlur stdDeviation="10"></feGaussianBlur>
-        <feColorMatrix
-          type="matrix"
-          values="0 0 0 0 0.0666667 0 0 0 0 0.101961 0 0 0 0 0.12549 0 0 0 1 0"
-        ></feColorMatrix>
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend>
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend>
-      </filter>
-      <linearGradient
-        id="paint0_linear"
-        x1="42.7125"
-        y1="15"
-        x2="109.803"
-        y2="149.964"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#BAFFC5"></stop>
-        <stop offset="1" stopColor="#74AED6"></stop>
-      </linearGradient>
-    </defs>
-  </svg>
 )
 
 export default Banner
