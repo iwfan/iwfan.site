@@ -41,12 +41,24 @@ const { title, description, image = "/placeholder-social.jpg" } = Astro.props
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css">
-{process.env.NODE_ENV === 'production' && (
-  <script
-    async
-    defer
-    data-website-id="a62faa43-f000-4f53-a79f-ad5d822ec24d"
-    src="https://u.iwfan.site/umami.js"
-  />
-)}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.6.0/lxgwwenkaiscreen.css"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,600;1,400&display=swap"
+  rel="stylesheet"
+/>
+
+{
+  process.env.NODE_ENV === "production" && (
+    <script
+      async
+      defer
+      data-website-id="a62faa43-f000-4f53-a79f-ad5d822ec24d"
+      src="https://u.iwfan.site/umami.js"
+    />
+  )
+}

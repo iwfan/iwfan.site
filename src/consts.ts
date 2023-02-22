@@ -1,7 +1,7 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = `Zi莱卷 iwfan's portfolio`
+export const SITE_TITLE = `iwfan's portfolio`
 
 export const SITE_DESCRIPTION = `此时的庸忙、诺诺慌张, 可否已成你的日常。`
 

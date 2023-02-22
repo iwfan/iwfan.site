@@ -7,16 +7,34 @@ const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, "")
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
+<a
+  href={href}
+  class:list={[
+    className,
+    "inline-block transition hover:text-glow20",
+    { "no-underline": !isActive },
+    { "text-glow20 active": isActive }
+  ]}
+  {...props}
+>
   <slot />
 </a>
+
 <style>
-  a {
-    display: inline-block;
-    text-decoration: none;
+  a::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    will-change: color, width;
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms;
   }
-  a.active {
-    font-weight: bolder;
-    text-decoration: underline;
+
+  a.active::after,
+  a:hover::after {
+    width: 100%;
   }
 </style>

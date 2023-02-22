@@ -5,7 +5,7 @@ import { SITE_TITLE } from "../consts"
 ---
 
 <Container tag="header" class="flex items-center justify-between py-6">
-  <h1 class="flex items-center text-lg font-bold">
+  <h1 class="flex items-center text-lg font-bold cursor-pointer font-jost">
     <svg class="mr-2" width="1em" height="1em" viewBox="0 0 23 21">
       <path
         fill-rule="evenodd"
@@ -13,11 +13,11 @@ import { SITE_TITLE } from "../consts"
         d="M9.85714 18.0714V20.5357H13.1429V18.0714H15.6071V14.7857H18.0714V13.1429H20.5357V9.85715H23V2.46429H20.5357V0H13.1429V2.46429H9.85714V0H2.46429V2.46429H0V9.85715H2.46429V13.1429H4.92857V14.7857H7.39286V18.0714H9.85714ZM6.57168 3.28596H3.28596V8.21453H6.57168V3.28596Z"
         fill="#82F9A1"></path>
     </svg>
-    <span class="cursor-default hover:text-glow20">
+    <span class="transition-colors hover:text-glow20">
       {SITE_TITLE}
     </span>
   </h1>
-  <nav>
+  <nav class="space-x-2">
     <HeaderLink href="/">❤️‍🔥 Home</HeaderLink>
     <HeaderLink href="/blog">📑 Blog</HeaderLink>
     <HeaderLink href="/about">🔖 About</HeaderLink>
