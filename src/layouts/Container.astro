@@ -1,0 +1,14 @@
+---
+const { tag, class: className, style } = Astro.props
+const Container = tag ?? "div"
+---
+
+<Container
+  class:list={[
+    className,
+    "px-4 md:px-6 lg:px-0 w-full max-w-screen-lg mx-auto"
+  ]}
+  style={style}
+>
+  <slot />
+</Container>

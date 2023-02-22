@@ -17,7 +17,7 @@ const menus = [
 ]
 
 const LayoutHeader = () => (
-  <Container tag="header" className="flex items-center justify-between py-6">
+  <Container tag="header" className=>
     <Link href={'/'}>
       <a className="col-span-2 u-underline hover:text-green">
         <h1 className="flex items-center text-lg font-bold">

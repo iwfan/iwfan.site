@@ -12,7 +12,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
     tailwind({
-      config: { path: "./tailwind.config.mjs" }
+      config: { path: "./tailwind.config.cjs" }
     })
   ]
 })
