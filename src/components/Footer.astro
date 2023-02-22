@@ -1,13 +1,66 @@
 ---
-const today = new Date()
+import Container from "../layouts/Container.astro"
+import { AUTHOR_NAME, TWITTER_ID, GITHUB_ID } from "../consts"
+import CreativeCommons from "../icons/CreativeCommons.astro"
+import CreativeCommonsBy from "../icons/CreativeCommonsBy.astro"
+import Copyright from "../icons/Copyright.astro"
+
+const copyrightTitle =
+  new Date().getFullYear() + " " + AUTHOR_NAME + ". All rights reserved."
 ---
 
-<footer>
-  &copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
-</footer>
-<style>
-  footer {
-    padding: 25px;
-    text-align: center;
-  }
-</style>
+<Container
+  tag="footer"
+  class="py-10 mt-20 border-t-2 border-t-blue20 space-y-4"
+>
+  <div class="flex items-center justify-center gap-x-2 text-text30">
+    <a class="hover:text-glow20" title={copyrightTitle}>
+      <Copyright />
+    </a>
+    <a
+      class="hover:text-glow20"
+      target="_blank"
+      title="Creative Commons"
+      href="https://creativecommons.org/"
+      rel="noreferrer"
+    >
+      <CreativeCommons />
+    </a>
+    <a
+      class="hover:text-glow20"
+      target="_blank"
+      title="Attribution 4.0 International"
+      href="https://creativecommons.org/licenses/by/4.0/"
+      rel="noreferrer"
+    >
+      <CreativeCommonsBy />
+    </a>
+    <a
+      class="hover:text-glow20"
+      href={`https://twitter.com/${TWITTER_ID}`}
+      title="Twitter"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <!-- <Twitter /> -->
+    </a>
+    <a
+      class="hover:text-glow20"
+      href={`https://github.com/${GITHUB_ID}`}
+      title="Github"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <!-- <Github /> -->
+    </a>
+    <a
+      class="hover:text-glow20"
+      href={`https://github.com/`}
+      title="RSS"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <!-- <Feed /> -->
+    </a>
+  </div>
+</Container>

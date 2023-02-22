@@ -9,7 +9,7 @@ export const SITE_LOGO = `/unicorn.png`
 
 export const SITE_URL = `https://iwfan.site`
 
-export const TWITTER_NAME = `i_wfan`
+export const TWITTER_ID = `i_wfan`
 
 export const AUTHOR_NAME = `Zi莱卷`
 
