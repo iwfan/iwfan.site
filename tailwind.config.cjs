@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         glow10: "#B0FBBC",
         glow20: "#82F9A1",
+        glow30: "#00E895",
         text10: "#ECF8FF",
         text20: "#C9E2F0",
         text30: "#BBC6CC",

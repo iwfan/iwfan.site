@@ -1,22 +1,50 @@
 ---
 import Container from "../layouts/Container.astro"
-import { AUTHOR_NAME, TWITTER_ID, GITHUB_ID } from "../consts"
+import { TWITTER_ID, GITHUB_ID } from "../consts"
 import CreativeCommons from "../icons/CreativeCommons.astro"
 import CreativeCommonsBy from "../icons/CreativeCommonsBy.astro"
 import Copyright from "../icons/Copyright.astro"
-
-const copyrightTitle =
-  new Date().getFullYear() + " " + AUTHOR_NAME + ". All rights reserved."
+import Twitter from "../icons/Twitter.astro"
+import Github from "../icons/Github.astro"
+import Feed from "../icons/Feed.astro"
 ---
 
 <Container
   tag="footer"
-  class="py-10 mt-20 border-t-2 border-t-blue20 space-y-4"
+  class="flex justify-center sm:justify-between items-center flex-wrap gap-4 py-10 mt-20 text-text30 border-t-2 border-t-blue20 font-jost"
 >
-  <div class="flex items-center justify-center gap-x-2 text-text30">
-    <a class="hover:text-glow20" title={copyrightTitle}>
-      <Copyright />
+  <p class="flex items-center">
+    <Copyright class="text-sm mr-1" />
+    {new Date().getFullYear()}
+    Built with
+    <a
+      class="mx-1 text-cyan10"
+      href="https://astro.build/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Astro
     </a>
+    <span>&</span>
+    <a
+      class="mx-1 text-cyan10"
+      href="https://www.notion.so/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Notion
+    </a>
+    Hosted on
+    <a
+      class="mx-1 text-cyan10"
+      href="https://vercel.com/"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Vercel
+    </a>
+  </p>
+  <p class="flex items-center justify-end text-xl space-x-4">
     <a
       class="hover:text-glow20"
       target="_blank"
@@ -42,7 +70,7 @@ const copyrightTitle =
       target="_blank"
       rel="noreferrer"
     >
-      <!-- <Twitter /> -->
+      <Twitter />
     </a>
     <a
       class="hover:text-glow20"
@@ -51,16 +79,16 @@ const copyrightTitle =
       target="_blank"
       rel="noreferrer"
     >
-      <!-- <Github /> -->
+      <Github />
     </a>
     <a
       class="hover:text-glow20"
-      href={`https://github.com/`}
+      href={`https://github.com/${GITHUB_ID}`}
       title="RSS"
       target="_blank"
       rel="noreferrer"
     >
-      <!-- <Feed /> -->
+      <Feed />
     </a>
-  </div>
+  </p>
 </Container>
