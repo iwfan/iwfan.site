@@ -5,7 +5,7 @@ import Container from "../layouts/Container.astro"
 ---
 
 <Container class={"grid-cols-4 justify-center gap-6 py-4 lg:grid lg:py-20"}>
-  <section id="tilt-mouse" class="col-span-3">
+  <section class="col-span-3">
     <h1
       class="text-5xl text-glow20 font-bold leading-relaxed tracking-wider font-jost"
       style={{
@@ -25,11 +25,7 @@ import Container from "../layouts/Container.astro"
     </a>
   </section>
   <div
-    id="vanilla-tilt"
     class={"relative group h-40 my-32 lg:h-auto lg:my-0"}
-    style={{
-      transformStyle: "preserve-3d"
-    }}
   >
     <div
       class="absolute inset-0 flex items-center justify-center animate-shrink"
@@ -44,8 +40,3 @@ import Container from "../layouts/Container.astro"
     </div>
   </div>
 </Container>
-
-<script>
-  // @ts-ignore
-  VanillaTilt.init(document.querySelector("#vanilla-tilt"))
-</script>
