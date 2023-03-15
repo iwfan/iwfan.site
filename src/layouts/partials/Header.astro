@@ -1,0 +1,24 @@
+---
+import NavLink from "../../components/NavLink.astro"
+import Container from "./Container.astro"
+import Fire from "../../icons/Fire.astro"
+import { SITE_TITLE } from "../../consts"
+---
+
+<Container tag="header" class="flex items-center justify-between py-6">
+  <h1>
+    <a
+      href="/"
+      class="flex items-center text-lg font-bold cursor-pointer font-jost"
+    >
+      <Fire class="mr-2 text-xl" />
+      <span class="u-underline transition-colors hover:text-glow20">
+        {SITE_TITLE}
+      </span>
+    </a>
+  </h1>
+  <nav class="space-x-2">
+    <NavLink href="/blog">Blog</NavLink>
+    <NavLink href="/about">About</NavLink>
+  </nav>
+</Container>

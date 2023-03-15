@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         glow10: "#B0FBBC",
         glow20: "#82F9A1",
+        glow25: "#82F9A112",
         glow30: "#00E895",
         text10: "#ECF8FF",
         text20: "#C9E2F0",
@@ -20,7 +21,10 @@ module.exports = {
         blue50: "#5E8CA7",
         cyan10: "#1DA1F2",
         red10: "#D9534D",
-        red20: "#EA4C89"
+        red20: "#EA4C89",
+        bar: "#DEFFE7",
+        border_light: 'rgba(124, 201, 255, 0.41)',
+        light: 'rgba(130, 249, 161, 0.07)',
       },
       boxShadow: {
         emanate: "rgb(14 255 77 / 50%) 3px 0px 22px"
