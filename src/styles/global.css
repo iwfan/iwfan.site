@@ -1,0 +1,80 @@
+@tailwind base;
+@layer base {
+  html {
+    @apply bg-blue10 text-text10;
+    color-scheme: dark;
+  }
+  ::selection {
+    @apply bg-blue50 text-text10;
+  }
+}
+
+@tailwind components;
+@layer components {
+  .layout-grid {
+    --xl-size: calc((theme("screens.xl") - theme("screens.lg")) / 2);
+    --lg-size: calc((theme("screens.lg") - theme("screens.md")) / 2);
+    --md-size: calc((theme("screens.md") - theme("screens.sm")) / 2);
+
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(theme("spacing.4"), 1fr)
+      [xl-start] minmax(0, var(--xl-size))
+      [lg-start] minmax(0, var(--lg-size))
+      [md-start] minmax(0, var(--md-size))
+      [sm-start]
+      min(100% - theme("spacing.4") * 2, theme("screens.sm"))
+      [sm-end]
+      minmax(0, var(--md-size)) [md-end]
+      minmax(0, var(--lg-size)) [lg-end]
+      minmax(0, var(--xl-size)) [xl-end]
+      minmax(theme("spacing.4"), 1fr) [full-end];
+  }
+
+  .layout-grid
+    > *:not(.layout-grid, .content-sm, .content-md, .content-lg, .content-xl, .content-full) {
+    grid-column: md;
+  }
+
+  .layout-grid > .content-sm {
+    grid-column: sm;
+  }
+
+  .layout-grid > .content-md {
+    grid-column: md;
+  }
+
+  .layout-grid > .content-lg {
+    grid-column: lg;
+  }
+
+  .layout-grid > .content-xl {
+    grid-column: xl;
+  }
+
+  .layout-grid > .content-full {
+    grid-column: full;
+  }
+}
+
+@tailwind utilities;
+@layer utilities {
+  .u-underline::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: currentColor;
+    will-change: color, width;
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms;
+    border-radius: 2px;
+    margin-top: -1px;
+  }
+
+  .u-underline-active::after,
+  .u-underline:hover::after {
+    width: 100%;
+  }
+}

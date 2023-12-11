@@ -1,0 +1,59 @@
+---
+import LandingPageLayout from "../layouts/LandingPage.astro"
+import Hero from "../layouts/partials/Hero.astro"
+import Container from "../layouts/partials/Container.astro"
+
+const list = [
+  {
+    title: "adwadawdaw",
+    date: "2023-03-15"
+  },
+  {
+    title: "adwadawdaw",
+    date: "2023-03-15"
+  },
+  {
+    title: "adwadawdaw",
+    date: "2023-03-15"
+  },
+  {
+    title: "adwadawdaw",
+    date: "2023-03-15"
+  },
+  {
+    title: "adwadawdaw",
+    date: "2023-03-15"
+  }
+]
+---
+
+<LandingPageLayout>
+  <Hero />
+  <Container>
+    <ol class="border-2 border-blue20 rounded-md">
+      {
+        list.map((item) => (
+          <li
+            class:list={[
+              "group relative border-b border-b-blue20 first:rounded-t-md last:rounded-b-md",
+              "transition-colors hover:bg-glow25"
+            ]}
+          >
+            <a class="grid grid-rows-2 grid-cols-12 gap-x-4 items-center p-4 md:pl-0">
+              <span class="flex justify-end items-center text-lg">{"🙈"}</span>
+              <div class="col-span-11">
+                <span class="text-lg hover:text-green u-underline">
+                  {item.title}
+                </span>
+              </div>
+              <time class="col-start-2 col-span-11 text-sm text-blue">
+                {item.date}
+              </time>
+            </a>
+            <div class="absolute h-full left-0 top-0 w-0 bg-bar shadow-emanate rounded-l-md group-hover:w-1" />
+          </li>
+        ))
+      }
+    </ol>
+  </Container>
+</LandingPageLayout>

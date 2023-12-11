@@ -1,0 +1,71 @@
+---
+import { TWITTER_ID, GITHUB_ID } from "../../backup/src/consts"
+import CreativeCommons from "../../backup/src/icons/CreativeCommons.astro"
+import CreativeCommonsBy from "../../backup/src/icons/CreativeCommonsBy.astro"
+import Copyright from "../../backup/src/icons/Copyright.astro"
+import Twitter from "../../backup/src/icons/Twitter.astro"
+import Github from "../../backup/src/icons/Github.astro"
+import Feed from "../../backup/src/icons/Feed.astro"
+---
+
+<footer
+  class="flex justify-center sm:justify-between items-center flex-wrap gap-4 py-10 mt-20 text-text30 border-t-2 border-t-blue20 font-jost">
+  <p class="flex items-center">
+    <Copyright class="text-sm mr-1" />
+    {new Date().getFullYear()}
+     Built with
+    <a class="mx-1 text-cyan10" href="https://astro.build/" target="_blank" rel="noreferrer">
+      Astro
+    </a>
+    <span>&</span>
+    <a class="mx-1 text-cyan10" href="https://www.notion.so/" target="_blank" rel="noreferrer">
+      Notion
+    </a>
+     Hosted on
+    <a class="mx-1 text-cyan10" href="https://vercel.com/" target="_blank" rel="noreferrer">
+      Vercel
+    </a>
+  </p>
+  <p class="flex items-center justify-end text-xl space-x-4">
+    <a
+      class="hover:text-glow20"
+      target="_blank"
+      title="Creative Commons"
+      href="https://creativecommons.org/"
+      rel="noreferrer">
+      <CreativeCommons />
+    </a>
+    <a
+      class="hover:text-glow20"
+      target="_blank"
+      title="Attribution 4.0 International"
+      href="https://creativecommons.org/licenses/by/4.0/"
+      rel="noreferrer">
+      <CreativeCommonsBy />
+    </a>
+    <a
+      class="hover:text-glow20"
+      href={`https://twitter.com/${TWITTER_ID}`}
+      title="Twitter"
+      target="_blank"
+      rel="noreferrer">
+      <Twitter />
+    </a>
+    <a
+      class="hover:text-glow20"
+      href={`https://github.com/${GITHUB_ID}`}
+      title="Github"
+      target="_blank"
+      rel="noreferrer">
+      <Github />
+    </a>
+    <a
+      class="hover:text-glow20"
+      href={`https://github.com/${GITHUB_ID}`}
+      title="RSS"
+      target="_blank"
+      rel="noreferrer">
+      <Feed />
+    </a>
+  </p>
+</footer>

@@ -1,0 +1,23 @@
+---
+import Head from "./Head.astro"
+import Footer from "./Footer.astro"
+import Header from "./Header.astro"
+import "../styles/global.css"
+
+interface Props {
+  title?: string
+  desc?: string
+}
+
+const { title, desc } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <Head title={title} description={desc} />
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

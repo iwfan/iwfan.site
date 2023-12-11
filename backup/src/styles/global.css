@@ -1,0 +1,21 @@
+::selection {
+  background: rgb(65, 104, 131);
+  color: rgb(236, 248, 255);
+}
+
+.u-underline::after {
+  display: block;
+  content: "";
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  will-change: color, width;
+  transition-property: width;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
+
+.u-underline-active::after,
+.u-underline:hover::after {
+  width: 100%;
+}
