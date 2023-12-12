@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config"
-
 import tailwind from "@astrojs/tailwind"
+import sitemap from "@astrojs/sitemap"
+
 import { site_url } from "./src/site.config"
 
 // https://astro.build/config
@@ -12,5 +13,6 @@ export default defineConfig({
       // Useful if you need to define and/or import your own custom `base.css`.
       applyBaseStyles: false,
     }),
+    sitemap(),
   ],
 })

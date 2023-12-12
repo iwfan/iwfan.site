@@ -1,11 +1,20 @@
 @tailwind base;
 @layer base {
   html {
-    @apply bg-blue10 text-text10;
+    @apply bg-blue10 antialiased;
     color-scheme: dark;
   }
+  body {
+    @apply text-text10;
+    font-family: "LXGW WenKai Screen";
+  }
+
   ::selection {
     @apply bg-blue50 text-text10;
+  }
+
+  a {
+    @apply hover:text-glow20 active:text-glow30;
   }
 }
 
@@ -32,7 +41,14 @@
   }
 
   .layout-grid
-    > *:not(.layout-grid, .content-sm, .content-md, .content-lg, .content-xl, .content-full) {
+    > *:not(
+      .layout-grid,
+      .content-sm,
+      .content-md,
+      .content-lg,
+      .content-xl,
+      .content-full
+    ) {
     grid-column: md;
   }
 
@@ -63,18 +79,34 @@
     display: block;
     content: "";
     width: 0;
-    height: 3px;
+    height: 0.5em;
+    opacity: 0.3;
     background-color: currentColor;
     will-change: color, width;
     transition-property: width;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 250ms;
-    border-radius: 2px;
-    margin-top: -1px;
+    margin-top: -0.6em;
   }
 
   .u-underline-active::after,
   .u-underline:hover::after {
     width: 100%;
+  }
+
+  .u-highlight {
+    margin: 0 -0.4em;
+    padding: 0 0.4em;
+    border-radius: 0.8em 0.3em;
+    background-image: linear-gradient(
+      to right,
+      rgba(176, 251, 188, 0.2),
+      rgba(0, 232, 149, 0.2) 4%,
+      rgba(0, 232, 149, 0.3) 96%,
+      rgba(130, 249, 161, 0.2)
+    );
+    text-shadow: 0px 0px 1em rgba(188, 251, 195, 0.3);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 }

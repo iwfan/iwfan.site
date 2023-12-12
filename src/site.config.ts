@@ -2,6 +2,8 @@ export const site_title = `iwfan's blog - portfolio`
 
 export const site_desc = `Less is solid and solid is more. Slow is smooth and smooth is fast.`
 
+export const site_desc2 = `Slacking off boosts work efficiency.`
+
 export const site_url = `https://iwfan.site`
 
 export const twitter_name = `i_wfan`

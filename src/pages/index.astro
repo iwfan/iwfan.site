@@ -1,10 +1,57 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Card from "../components/Card.astro"
 ---
 
 <Layout>
-  <main></main>
+  <section class="grid grid-cols-1 sm:grid-cols-2 font-jost">
+    <h1
+      class:list={[
+        "text-glow20 text-4xl font-black leading-relaxed",
+        "sm:text-5xl sm:tracking-wider sm:col-span-2",
+        "lg:text-6xl",
+      ]}
+      style={{
+        "text-shadow": "0px 0px 76px rgba(188, 251, 195, 0.3)",
+      }}>
+      👋 Hello, I'm iwfan
+    </h1>
+    <h2
+      class:list={[
+        "text-glow20 text-2xl font-bold leading-snug tracking-wider",
+        "sm:leading-normal sm:my-2",
+        "lg:text-3xl",
+      ]}
+      style={{
+        "text-shadow": "0px 0px 76px rgba(188, 251, 195, 0.2)",
+      }}>
+      A software engineer and passionate coder.
+    </h2>
+    <p
+      class:list={[
+        "text-lg mt-4 text-text30 font-bold tracking-wider",
+        "sm:row-start-3 sm:tracking-normal",
+      ]}>
+      💬 Less is solid and <span class="text-yellow-500">solid is more</span>.
+      <br />
+       Slow is smooth and <span class="text-red20">smooth is fast</span>.
+    </p>
+    <a
+      href="https://skillicons.dev/"
+      class="mt-6 justify-self-center sm:row-span-2 sm:ml-6">
+      <img
+        src="https://skillicons.dev/icons?i=neovim,vscode,ts,js,nextjs,react,vue,astro,redux,tailwind,sentry,supabase,cloudflare,lua,ruby,rails&perline=6"
+        alt="skills"
+      />
+    </a>
+    <a
+      href="https://skillicons.dev/"
+      class="mt-6 justify-self-center sm:col-span-2">
+      <img
+        src="https://skillicons.dev/icons?i=neovim,vscode,ts,js,nextjs,react,vue,astro,redux,tailwind,sentry,supabase,cloudflare,lua,ruby,rails"
+        alt="skills"
+      />
+    </a>
+  </section>
 </Layout>
 
 <style></style>
