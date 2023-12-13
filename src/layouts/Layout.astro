@@ -22,7 +22,7 @@ const isActive = (href: string) =>
     <header
       class:list={[
         "flex items-center justify-between",
-        "container mx-auto px-4 py-6",
+        "container mx-auto px-4 py-6 lg:max-w-screen-lg",
       ]}>
       <a href="/" title={site_title} class="h-9">
         <img src="/favicon.svg" alt="fire flame" />
@@ -47,13 +47,15 @@ const isActive = (href: string) =>
       </nav>
     </header>
 
-    <main class="container mx-auto px-4 py-6">
+    <main
+      class="container mx-auto px-4 py-6 lg:max-w-screen-lg"
+      style="min-height: calc(100vh - 184px);">
       <slot />
     </main>
 
     <footer
       class:list={[
-        "flex flex-col items-center justify-center py-12",
+        "flex flex-col items-center justify-center py-10",
         "font-jost text-text30",
       ]}>
       <p class="text-sm flex items-center space-x-2">
