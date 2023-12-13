@@ -25,7 +25,7 @@ const isActive = (href: string) =>
         "container mx-auto px-4 py-6 lg:max-w-screen-lg",
       ]}>
       <a href="/" title={site_title} class="h-9">
-        <img src="/favicon.svg" alt="fire flame" />
+        <img src="/favicon.svg" alt="fire flame" width="36" height="36" />
       </a>
       <nav class="space-x-2">
         <a
@@ -60,7 +60,12 @@ const isActive = (href: string) =>
       ]}>
       <p class="text-sm flex items-center space-x-2">
         <a href="/" title={site_title}>
-          <img src="/flames/colored-flame.svg" width="13" height="13" />
+          <img
+            src="/flames/colored-flame.svg"
+            alt={site_title}
+            width="13"
+            height="13"
+          />
         </a>
         <span>
           Copyright © <time>{new Date().getFullYear()}</time>
