@@ -6,7 +6,6 @@
   }
   body {
     @apply text-text10;
-    font-family: "LXGW WenKai Screen";
   }
 
   ::selection {

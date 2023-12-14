@@ -1,34 +1,15 @@
 ---
 import Heart from "../components/Heart.astro"
-import Snazzy from "../components/Snazzy.astro"
 import Layout from "../layouts/Layout.astro"
-
-const list = [
-  {
-    title: "adwadawdaw",
-    date: "2023-03-15",
-  },
-  {
-    title: "adwadawdaw",
-    date: "2023-03-15",
-  },
-  {
-    title: "adwadawdaw",
-    date: "2023-03-15",
-  },
-  {
-    title: "adwadawdaw",
-    date: "2023-03-15",
-  },
-  {
-    title: "adwadawdaw",
-    date: "2023-03-15",
-  },
-]
 ---
 
 <Layout>
-  <section class="grid grid-cols-1 sm:grid-cols-2 font-jost magicpattern">
+  <section
+    class:list={[
+      "grid grid-cols-1 sm:grid-cols-2 font-jost magicpattern",
+      "gap-4 sm:gap-8 md:gap-10 lg:gap-14",
+      "py-6 sm:py-10 md:py-14 lg:py-20",
+    ]}>
     <h1
       class:list={[
         "text-glow20 text-4xl font-black leading-relaxed",
@@ -38,19 +19,12 @@ const list = [
       style={{
         "text-shadow": "0px 0px 76px rgba(188, 251, 195, 0.3)",
       }}>
-      <img
-        src="/emojis/waving-hand.png"
-        alt="Waving Hand"
-        width="36"
-        height="36"
-        class="inline align-baseline select-none"
-      />
-       Hello, I'm iwfan
+      👋 Hello, I'm iwfan
     </h1>
     <h2
       class:list={[
-        "text-glow20 text-2xl font-bold leading-snug tracking-wider",
-        "sm:leading-normal sm:my-2",
+        "text-glow20 text-2xl font-bold leading-snug tracking-wider self-center",
+        "sm:leading-normal",
         "lg:text-3xl",
       ]}
       style={{
@@ -60,67 +34,54 @@ const list = [
     </h2>
     <p
       class:list={[
-        "text-lg mt-4 text-text30 font-bold tracking-wider",
+        "text-lg text-text30 font-semibold tracking-wider self-center",
         "sm:row-start-3 sm:tracking-normal",
       ]}>
-      <img
-        src="/emojis/speech-balloon.png"
-        alt="Speech Balloon"
-        class="inline align-baseline select-none"
-        width="20"
-        height="20"
-      />
-       Less is solid and <span class="text-yellow-500">solid is more</span>.
+      💬 Less is solid and <span class="text-yellow-500">solid is more</span>.
       <br />
        Slow is smooth and <span class="text-red20">smooth is fast</span>.
     </p>
-    <div
-      class:list={[
-        "my-10 justify-self-center sm:row-span-2 sm:my-8 md:my-4 lg:my-0",
-        "relative group h-36 w-36",
-      ]}>
-      <div
-        class="absolute inset-0 flex items-center justify-center scale-125 -translate-y-2">
-        <Snazzy />
-      </div>
-      <div class="absolute inset-0 flex items-center justify-center scale-110">
-        <Heart />
-      </div>
+    <div class:list={["justify-self-center sm:row-span-2"]}>
+      <Heart class="sm:scale-110 md:scale-125 lg:scale-150" />
     </div>
     <a
       href="https://skillicons.dev/"
-      class="mt-2 justify-self-center sm:col-span-2 sm:mt-4 md:mt-8 lg:mt-12">
+      class="mt-2 justify-self-center sm:col-span-2 sm:mt-4 md:mt-8 lg:mt-12 select-none">
       <img
         src="https://skillicons.dev/icons?i=neovim,vscode,ts,js,nextjs,react,vue,astro,redux,tailwind,sentry,supabase,cloudflare"
         alt="skills"
       />
     </a>
   </section>
-  <section class="mt-10">
-    <ol class="border-2 border-blue20 rounded-md">
-      {
-        list.map(item => (
-          <li
-            class:list={[
-              "group relative border-b border-b-blue20 first:rounded-t-md last:rounded-b-md",
-              "transition-colors hover:bg-glow25",
-            ]}>
-            <a class="grid grid-rows-2 grid-cols-12 gap-x-4 items-center p-4 md:pl-0">
-              <span class="flex justify-end items-center text-lg">{"🙈"}</span>
-              <div class="col-span-11">
-                <span class="text-lg hover:text-green u-underline">
-                  {item.title}
-                </span>
-              </div>
-              <time class="col-start-2 col-span-11 text-sm text-blue">
-                {item.date}
-              </time>
-            </a>
-            <div class="absolute h-full left-0 top-0 w-0 bg-bar shadow-emanate rounded-l-md group-hover:w-1" />
-          </li>
-        ))
-      }
-    </ol>
+  <section>
+    <h1 class="text-text10 font-jost text-2xl font-semibold">What you get</h1>
+
+    <div class="bg-blue10 pt-5 pl-6 rounded-lg relative">
+      <div
+        class="bg-blue10 rounded-full absolute p-3 flex items-center justify-center top-0 left-0">
+        <img src="/flames/orange.svg" alt="flames" width="32" height="32" />
+      </div>
+      <article class="bg-blue20 rounded-lg py-8 px-11 shadow-lg">
+        <h2 class="font-jost font-semibold text-lg text-text10">Notes</h2>
+        <p class="font-jost text-base mt-3 text-text10">
+          During my review, I take notes detailing actionable steps you can take
+          to improve, as well as any valuable thoughts I have during my time
+          with your project.
+        </p>
+      </article>
+    </div>
+  </section>
+  <section class="mt-10 grid grid-cols-2 gap-12">
+    <div
+      class="py-9 px-10 rounded-md bg-blue20"
+      style="box-shadow: 4px 4px 44px 0px rgba(0, 0, 0, 0.25), 3px 3px 13px 0px rgba(0, 0, 0, 0.20), -1px -1px 0px 0px rgba(130, 242, 249, 0.15);">
+      <h3>Code splitting & lazy loading a server side rendered React app</h3>
+      <p>
+        Reasoning, approach, and goals Goals Faster initial load times. Users
+        only download the code they need for the features they are using. This…
+      </p>
+    </div>
+    <div></div>
   </section>
 </Layout>
 
