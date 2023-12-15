@@ -4,6 +4,8 @@ export const site_desc = `Less is solid and solid is more. Slow is smooth and sm
 
 export const site_desc2 = `Slacking off boosts work efficiency.`
 
+export const site_desc3 = `此时的庸忙、诺诺慌张, 可否已成你的日常。`
+
 export const site_url = `https://iwfan.site`
 
 export const twitter_name = `i_wfan`

@@ -4,8 +4,9 @@
     @apply bg-blue10 antialiased;
     color-scheme: dark;
   }
+
   body {
-    @apply text-text10;
+    @apply text-text10 font-prose;
   }
 
   ::selection {
@@ -39,15 +40,7 @@
       minmax(theme("spacing.4"), 1fr) [full-end];
   }
 
-  .layout-grid
-    > *:not(
-      .layout-grid,
-      .content-sm,
-      .content-md,
-      .content-lg,
-      .content-xl,
-      .content-full
-    ) {
+  .layout-grid > *:not(.layout-grid, .content-sm, .content-md, .content-lg, .content-xl, .content-full) {
     grid-column: md;
   }
 

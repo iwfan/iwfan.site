@@ -1,4 +1,5 @@
 import typography from "@tailwindcss/typography"
+import aspectRatio from "@tailwindcss/aspect-ratio"
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -6,13 +7,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jost: "Jost, sans-serif",
-        lxgw: "'LXGW WenKai Screen', sans-serif",
+        jost: "Jost",
+        prose: "'Rethink Sans', 'PingFang SC', 'Noto Sans SC'",
       },
       colors: {
+        glow0: "#DEFFE7",
         glow10: "#B0FBBC",
         glow20: "#82F9A1",
-        glow30: "#00E895",
+        glow30: "#0ACF83",
         text10: "#ECF8FF",
         text20: "#C9E2F0",
         text30: "#BBC6CC",
@@ -25,7 +27,6 @@ export default {
         cyan10: "#1DA1F2",
         red10: "#D9534D",
         red20: "#EA4C89",
-        bar: "#DEFFE7",
         border_light: "rgba(124, 201, 255, 0.41)",
         light: "rgba(130, 249, 161, 0.07)",
       },
@@ -34,5 +35,5 @@ export default {
       },
     },
   },
-  plugins: [typography],
+  plugins: [aspectRatio, typography],
 }
