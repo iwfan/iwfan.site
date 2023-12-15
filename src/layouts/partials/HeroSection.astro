@@ -4,52 +4,54 @@ import Heart from "../../components/Heart.astro"
 const greeting = ["👋 Hi, It's Ivan here!", "👋 Hello, I'm iwfan!"]
 ---
 
-<section class="-mx-4">
-  <div class="sm:aspect-w-16 sm:aspect-h-9 w-full magicpattern">
-    <section class:list={["grid grid-cols-1 gap-y-6 sm:gap-y-8 font-jost p-4 sm:grid-cols-6 sm:grid-rows-6"]}>
-      <h1
-        class:list={[
-          "sm:col-span-full sm:self-center",
-          "text-glow20 font-bold leading-loose",
-          "text-3xl sm:text-4xl md:text-5xl lg:text-6xl",
-        ]}
-        style="text-shadow: 0px 0px 1em rgba(188, 251, 195, 0.30)">
-        {greeting[0]}
-      </h1>
-      <h2
-        class:list={[
-          "sm:col-span-3 sm:row-span-2 sm:self-center",
-          "text-text20 font-semibold font-prose",
-          "text-2xl md:text-3xl lg:text-4xl",
-        ]}>
-        A software engineer and passionate coder.
-      </h2>
+<section class="-mx-4 magicpattern">
+  <div
+    class:list={[
+      "grid grid-cols-1 font-jost p-4 sm:grid-cols-6 sm:grid-rows-6",
+      "gap-y-4 sm:gap-y-6 md:gap-y-8 lg:gap-y-8",
+      "px-4 py-6 sm:py-12 md:py-20 lg:py-24",
+    ]}>
+    <h1
+      class:list={[
+        "sm:col-span-full sm:self-center",
+        "text-glow20 font-bold leading-loose",
+        "text-3xl sm:text-4xl md:text-5xl lg:text-6xl",
+      ]}
+      style="text-shadow: 0px 0px 1em rgba(188, 251, 195, 0.30)">
+      {greeting[0]}
+    </h1>
+    <h2
+      class:list={[
+        "sm:col-span-3 sm:row-span-2 sm:self-center",
+        "text-text20 font-semibold font-prose",
+        "text-2xl md:text-3xl lg:text-4xl",
+      ]}>
+      A software engineer and passionate coder.
+    </h2>
 
-      <div
-        class:list={["sm:row-start-2 sm:row-span-4 sm:col-start-4 sm:col-span-3", "justify-self-center self-center"]}>
-        <Heart class="sm:scale-110 md:scale-125 lg:scale-150" />
-      </div>
+    <div class:list={["sm:row-start-2 sm:row-span-4 sm:col-start-4 sm:col-span-3", "justify-self-center self-center"]}>
+      <Heart class="sm:scale-110 md:scale-125 lg:scale-150" />
+    </div>
 
-      <div class:list={["sm:row-start-4 sm:col-span-3", "text-lg text-text20 font-medium sm:row-start-3"]}>
-        <p class="whitespace-nowrap">
-          💬 Less is solid and <span class="text-yellow-500">Solid is more</span>,
-        </p>
-        <p class="indent-16 whitespace-nowrap">
-          Slow is smooth and <span class="text-red20">Smooth is fast</span>.
-        </p>
-      </div>
+    <div class:list={["sm:row-start-4 sm:col-span-3", "text-lg text-text20 font-medium sm:row-start-3"]}>
+      <p class="whitespace-nowrap">
+        💬 Less is solid and <span class="text-yellow-500">Solid is more</span>,
+      </p>
+      <p class="indent-16 whitespace-nowrap">
+        Slow is smooth and <span class="text-red20">Smooth is fast</span>.
+      </p>
+    </div>
 
-      <a
-        href="https://skillicons.dev/"
-        class:list={["justify-self-center self-center sm:row-start-6 sm:col-span-full select-none", "pt-8 sm:pt-0"]}>
-        <img
-          src="https://skillicons.dev/icons?i=neovim,vscode,ts,js,nextjs,react,vue,astro,redux,tailwind,sentry,supabase,cloudflare"
-          alt="skills"
-          width="800"
-          height="48"
-        />
-      </a>
-    </section>
+    <a
+      href="https://skillicons.dev/"
+      class:list={["justify-self-center self-center sm:row-start-6 sm:col-span-full select-none", "pt-8 sm:pt-0"]}>
+      <img
+        src="https://skillicons.dev/icons?i=neovim,vscode,ts,js,nextjs,react,vue,astro,redux,tailwind,sentry,supabase,cloudflare"
+        alt="skills"
+        width="800"
+        height="48"
+      />
+    </a>
   </div>
 </section>
 
