@@ -12,6 +12,7 @@ export default {
       },
       colors: {
         glow0: "#DEFFE7",
+        a: "#BAFFC5",
         glow10: "#B0FBBC",
         glow20: "#82F9A1",
         glow30: "#0ACF83",

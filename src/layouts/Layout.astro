@@ -18,54 +18,58 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
 <html lang="en">
   <Head title={title} description={desc} />
   <body>
-    <header class:list={["flex items-center justify-between", "container mx-auto px-4 py-8 lg:max-w-screen-lg"]}>
-      <a href="/" title={site_title} class="h-9">
-        <img src="/favicon.svg" alt="fire flame" width="36" height="36" />
-      </a>
-      <nav class="space-x-2 text-text30 font-medium">
-        <a
-          href="/blog"
-          class:list={[
-            "inline-block transition hover:text-glow20 u-underline",
-            { "text-glow20 u-underline-active": isActive("/blog") },
-          ]}>
-          Blog
+    <header>
+      <nav class="flex items-center justify-between container mx-auto px-4 py-8">
+        <a href="/" title={site_title}>
+          <img src="/favicon.svg" alt={site_title} width="36" height="36" />
         </a>
-        <a
-          href="/about"
-          class:list={[
-            "inline-block transition hover:text-glow20 u-underline",
-            { "text-glow20 u-underline-active": isActive("/about") },
-          ]}>
-          About
-        </a>
+        <nav class="space-x-2 text-text30 font-medium">
+          <a
+            href="/blog"
+            class:list={[
+              "inline-block transition hover:text-glow20 u-underline",
+              { "text-glow20 u-underline-active": isActive("/blog") },
+            ]}>
+            Blog
+          </a>
+          <a
+            href="/about"
+            class:list={[
+              "inline-block transition hover:text-glow20 u-underline",
+              { "text-glow20 u-underline-active": isActive("/about") },
+            ]}>
+            About
+          </a>
+        </nav>
       </nav>
     </header>
 
-    <main class="container mx-auto px-4 lg:max-w-screen-lg" style="min-height: calc(100vh - 200px);">
+    <main style="min-height: calc(100vh - 200px);">
       <slot />
     </main>
 
-    <footer class:list={["flex flex-col items-center justify-center py-10", "font-jost text-text30"]}>
-      <p class="text-sm flex items-center space-x-2">
-        <a href="/" title={site_title}>
-          <img src="/flames/colored-flame.svg" alt={site_title} width="13" height="13" />
-        </a>
-        <span>
-          Copyright © <time>{new Date().getFullYear()}</time>
-          <a class="hover:text-glow20" href={`mailto:${author_email}`}>
-            <strong>iwfan</strong>.
+    <footer class="font-jost text-text30">
+      <div class="container mx-auto px-4 py-10">
+        <p class="text-sm flex items-center justify-center space-x-2">
+          <a href="/" title={site_title}>
+            <img src="/flames/colored-flame.svg" alt={site_title} width="13" height="13" />
           </a>
-        </span>
-        <a
-          class="hover:text-glow20"
-          target="_blank"
-          title="Attribution 4.0 International"
-          href="https://creativecommons.org/licenses/by/4.0/"
-          rel="noreferrer">
-          <em>CC BY 4.0</em>
-        </a>
-      </p>
+          <span>
+            Copyright © <time>{new Date().getFullYear()}</time>
+            <a class="hover:text-glow20" href={`mailto:${author_email}`}>
+              <strong>iwfan</strong>.
+            </a>
+          </span>
+          <a
+            class="hover:text-glow20"
+            target="_blank"
+            title="Attribution 4.0 International"
+            href="https://creativecommons.org/licenses/by/4.0/"
+            rel="noreferrer">
+            <em>CC BY 4.0</em>
+          </a>
+        </p>
+      </div>
     </footer>
   </body>
 </html>
