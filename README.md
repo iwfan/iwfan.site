@@ -1,3 +1,4 @@
 # iwfan.site
 
-[ ] placeholder-social.jpg
+[x] placeholder-social.jpg
+[x] sitemap
