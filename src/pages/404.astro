@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout title="404" desc="Are you lost here?">
+  <section class="container mx-auto h-full xl:max-w-screen-xl py-24">
+    <div class="grid text-8xl font-bold justify-center italic">
+      <h1 class="row-start-1 col-start-1 text-red-600">404</h1>
+      <h1 class="row-start-1 col-start-1 text-blue-600">404</h1>
+      <h1 class="row-start-1 col-start-1 text-text10">404</h1>
+    </div>
+
+    <p class="text-lg text-center mt-12 text-text30">
+      Are you lost here? <a href="/" class="text-base underline text-glow20">Go to Home page</a>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  h1:nth-child(1) {
+    animation: noise-1 0.2s linear infinite;
+  }
+  h1:nth-child(2) {
+    animation: noise-2 0.2s linear infinite;
+  }
+  h1:nth-child(3) {
+    animation: noise 2s linear infinite;
+  }
+
+  @keyframes noise-1 {
+    0%,
+    20%,
+    40%,
+    60%,
+    70%,
+    90% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(-10px) scaleY(1.2) rotate(5deg);
+    }
+    80% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.6;
+      transform: translateX(2px);
+    }
+  }
+
+  @keyframes noise-2 {
+    0%,
+    20%,
+    40%,
+    60%,
+    70%,
+    90% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.5;
+      transform: translateX(10px) scaleY(1.2) rotate(-5deg);
+    }
+    80% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 0.6;
+      transform: translateX(-2px);
+    }
+  }
+
+  @keyframes noise {
+    0%,
+    3%,
+    5%,
+    42%,
+    44%,
+    100% {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+    4.3% {
+      opacity: 0.5;
+      transform: scaleY(3);
+    }
+    43% {
+      opacity: 0.3;
+      transform: scaleX(6) rotate(60deg);
+    }
+  }
+</style>

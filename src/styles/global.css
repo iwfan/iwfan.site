@@ -6,7 +6,7 @@
   }
 
   body {
-    @apply text-text10 font-prose;
+    @apply text-text10;
   }
 
   ::selection {

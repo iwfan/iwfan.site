@@ -1,10 +1,26 @@
 ---
+import { getCollection, getEntry } from "astro:content"
 import Layout from "../layouts/Layout.astro"
 import HeroSection from "../layouts/partials/HeroSection.astro"
+
+const posts = await getCollection("posts", entry => true)
 ---
 
 <Layout>
   <HeroSection />
+  <section class="container mx-auto xl:max-w-screen-xl">
+    <ul>
+      {
+        posts.map(post => {
+          return (
+            <li>
+              <a href={"/posts/" + post.slug}>{post.slug}</a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </section>
 
   <!-- <section>
     <h1 class="text-text10 font-jost text-2xl font-semibold">What you get</h1>
