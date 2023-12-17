@@ -8,7 +8,6 @@ export default {
     extend: {
       fontFamily: {
         jost: "Jost",
-        prose: "'Rethink Sans', 'PingFang SC', 'Noto Sans SC'",
       },
       colors: {
         glow10: "#B0FBBC",

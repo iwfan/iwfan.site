@@ -1,7 +1,10 @@
 ---
 title: Excess XSS
-created_date: August 15, 2020
-tags: FE, Translation
+icon: null
+image: null
+created: August 15, 2020
+published: August 15, 2020
+update: August 15, 2020
 ---
 
 原文链接：
