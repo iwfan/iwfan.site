@@ -6,9 +6,10 @@ import "../styles/global.css"
 interface Props {
   title?: string
   desc?: string
+  classes?: string[]
 }
 
-const { title, desc } = Astro.props
+const { title, desc, classes } = Astro.props
 const { pathname } = Astro.url
 
 const isActive = (href: string) => href === pathname || href === pathname.replace(/\/$/, "")
@@ -44,7 +45,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
       </nav>
     </header>
 
-    <main style="min-height: calc(100vh - 200px);">
+    <main style="min-height: calc(100vh - 200px);" class:list={classes}>
       <slot />
     </main>
 

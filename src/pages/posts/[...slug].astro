@@ -8,20 +8,24 @@ export async function getStaticPaths() {
   return posts.map(({ slug, data }) => {
     return {
       params: { slug },
-      // props: { title, text },
+      props: { title: data.title },
     }
   })
 }
 
 const { slug } = Astro.params
-// const { title, text } = Astro.props
+const { title } = Astro.props
 
 const entry = await getEntry("posts", slug)
 const { Content, headings } = await entry.render()
 ---
 
-<Layout>
-  <article class="container mx-auto xl:max-w-screen-xl prose prose-invert">
+<Layout classes={["flex justify-between container mx-auto xl:max-w-screen-xl"]}>
+  <article class="prose prose-invert w-[920px] flex-none">
+    <h1>{title}</h1>
+    <Content />
+  </article>
+  <aside class="w-[320px] flex-none">
     <ul>
       {
         headings.map((item, idx) => {
@@ -33,6 +37,5 @@ const { Content, headings } = await entry.render()
         })
       }
     </ul>
-    <Content />
-  </article>
+  </aside>
 </Layout>

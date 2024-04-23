@@ -1,11 +1,8 @@
 ---
 title: Excess XSS
 created_at: "2020-08-15"
+original: https://excess-xss.com/
 ---
-
-原文链接：
-
-[Excess XSS](https://excess-xss.com/)
 
 # 第一章：综述
 
@@ -229,17 +226,16 @@ JavaScript 代码伪装成了本应由文字所构成的评论信息，但是由
 
 下面的伪代码中展示了用户的输入通过服务器端的代码做 HTML 转义后插入到页面中的样子。
 
-```
+```php
 print "<html>"
 print "Latest comment: "
 print encodeHtml(userInput)
 print "</html>"
-
 ```
 
 如果用户的输入是 `<script>...</script>`, 那么 HTML 将会是如下形式：
 
-```
+```html
 <html>
   Latest comment: &lt;script&gt;...&lt;/script&gt;
 </html>
@@ -265,9 +261,8 @@ print "</html>"
 
 即使使用编码将恶意输入转义，但攻击者也还可以将恶意字符串输入某些上下文。一个例子是当用户输入用于组成 URL 时：
 
-```
-document.querySelector('a').href = userInput
-
+```javascript
+document.querySelector("a").href = userInput
 ```
 
 虽然给 a 元素的 href 属性赋值会自动对其进行编码，使其变成一个属性值而已，但这本身并不能阻止攻击者插入一个以 `javascript:` 开头的 URL。当链接被点击时，无论 URL 内嵌入什么 JavaScript 都会被执行。
@@ -278,7 +273,7 @@ document.querySelector('a').href = userInput
 
 ## 校验
 
-校验是过滤用户输入的行为，以便删除其中的恶意代码部分，但不一定要删除所有代码。网页开发中最常见地校验类型之一是允许「用户输入」注入到某些 HTML 元素（如<em>和<strong>），但不允许注入到其他元素（如<script>）中。
+校验是过滤用户输入的行为，以便删除其中的恶意代码部分，但不一定要删除所有代码。网页开发中最常见地校验类型之一是允许「用户输入」注入到某些 HTML 元素（如`<em>`和`<strong>`），但不允许注入到其他元素（如`<script>`）中。
 
 校验有如下两种方式：
 
@@ -342,12 +337,11 @@ CSP 有以下几种规则：
 
 在下面的示例中， 攻击者成功地注入了恶意代码到页面中。
 
-```
+```html
 <html>
   Latest comment:
   <script src="<http://attacker/malicious‑script.js>"></script>
 </html>
-
 ```
 
 虽然在这种情况下，网站未能安全地处理「用户输入」, 但在正确使用 CSP 策略的情况下，浏览器不会加载和执行 `malicious-script.js`，因为 [http://attacker/](http://attacker/) 不在受信任来源集中。所以 CSP 策略防止了该漏洞造成地伤害。
@@ -404,7 +398,6 @@ Content‑Security‑Policy:
 
 ```
 protocol://host‑name:port‑number
-
 ```
 
 主机名可以以 `*` 开头，这意味着所提供主机名的任何子域都将被允许进行资源下载。同样，端口号也可以是 `*` ，这意味着所有端口都将被允许。此外，协议和端口号也可以省略。

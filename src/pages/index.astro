@@ -30,7 +30,7 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
 
 <Layout>
   <HeroSection />
-  <PortfolioGame />
+  <!-- <PortfolioGame /> -->
 
   <section class="container mx-auto xl:max-w-screen-xl mt-14">
     <h1 class="text-text10 font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl">Works</h1>
@@ -58,7 +58,7 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
         posts.map(post => {
           return (
             <li>
-              <a href={"/posts/" + post.slug}>{post.slug}</a>
+              <a href={"/posts/" + post.slug}>{post.data.title}</a>
             </li>
           )
         })
