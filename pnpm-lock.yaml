@@ -23,6 +23,9 @@ dependencies:
   astro:
     specifier: ^4.6.3
     version: 4.6.3(typescript@5.4.5)
+  kaboom:
+    specifier: ^3000.1.17
+    version: 3000.1.17
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.3
@@ -2454,6 +2457,10 @@ packages:
 
   /jsonc-parser@2.3.1:
     resolution: {integrity: sha512-H8jvkz1O50L3dMZCsLqiuB2tA7muqbSg1AtGEkN0leAqGjsUzDJir3Zwr02BhqdcITPg3ei3mZ+HjMocAknhhg==}
+    dev: false
+
+  /kaboom@3000.1.17:
+    resolution: {integrity: sha512-npAtjGxj9Oj9vLpXfURck9eUPHR2ac1Lhc1bNcZ0NWcs+Lgs40Ty+wjujv1C2DwjWvxaX+3r2G64M35BS/Ry2g==}
     dev: false
 
   /kind-of@6.0.3:

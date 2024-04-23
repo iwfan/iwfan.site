@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import Layout from "../layouts/Layout.astro"
 import HeroSection from "../layouts/fragments/HeroSection.astro"
+import PortfolioGame from "../components/PortfolioGame/index.astro"
 
 const posts = await getCollection("posts", entry => true)
 
@@ -29,6 +30,7 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
 
 <Layout>
   <HeroSection />
+  <PortfolioGame />
 
   <section class="container mx-auto xl:max-w-screen-xl mt-14">
     <h1 class="text-text10 font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl">Works</h1>
