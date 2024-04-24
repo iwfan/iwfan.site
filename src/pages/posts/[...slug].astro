@@ -34,7 +34,9 @@ const { Content, headings } = await entry.render()
             .map(item => {
               return (
                 <li class:list={[{ "indent-4": item.depth === 2 }]}>
-                  <a href={`#${item.slug}`}>{item.text}</a>
+                  <a class="text-text30 text-sm" href={`#${item.slug}`}>
+                    {item.text}
+                  </a>
                 </li>
               )
             })}
