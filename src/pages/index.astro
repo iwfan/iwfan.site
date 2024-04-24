@@ -7,7 +7,7 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
   {
     name: "Quick Search",
     link: "https://www.raycast.com/iwfan/quick-search",
-    desc: "Quick Search is a Raycase extension that use a global keyboard shortcut to quickly search selected text or clipboard text via Google or Github or DeepL etc.",
+    desc: "Quick Search is a Raycast extension that use a global keyboard shortcut to quickly search selected text or clipboard text via Google or Github or DeepL etc.",
     color: "bg-glow20",
     icon: "https://www.raycast.com/_next/image?url=https://files.raycast.com/pixlysgqsyz2564jhin5x0zfjd5r&w=64&q=75",
   },
@@ -30,7 +30,6 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
 
 <Layout>
   <HeroSection />
-  <!-- <PortfolioGame /> -->
 
   <section class="container mx-auto xl:max-w-screen-xl">
     <a href="/posts" class="flex items-center gap-2">
@@ -65,7 +64,7 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
               <h2 class="text-base md:text-lg font-medium">
                 <a href={work.link}>{work.name}</a>
               </h2>
-              <p class="mt-3">{work.desc}</p>
+              <p class="mt-3 text-text30">{work.desc}</p>
             </div>
           </div>
         ))
