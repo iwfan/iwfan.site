@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   return posts.map(({ slug, data }) => {
     return {
       params: { slug },
-      props: { title: data.title, created_at: data.created_at, original: data.original },
+      props: data,
     }
   })
 }
