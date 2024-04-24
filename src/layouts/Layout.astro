@@ -26,7 +26,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
         </a>
         <nav class="space-x-2 text-text30 font-medium">
           <a
-            href="/blog"
+            href="/posts"
             class:list={[
               "inline-block transition hover:text-glow20 u-underline",
               { "text-glow20 u-underline-active": isActive("/blog") },
@@ -49,7 +49,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
       <slot />
     </main>
 
-    <footer class="font-jost text-text30">
+    <footer class="font-jost text-text30 mt-32">
       <div class="container mx-auto px-4 py-10">
         <p class="text-sm flex items-center justify-center space-x-2">
           <a href="/" title={site_title}>

@@ -1,1 +1,31 @@
-<h1>hha</h1>
+---
+import { getCollection } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import FormattedDate from "../../components/FormattedDate.astro"
+
+const posts = await getCollection("posts", entry => true)
+posts.sort((a, b) => +b.data.created_at - +a.data.created_at)
+---
+
+<Layout title="All articles" desc="">
+  <section class="container mx-auto xl:max-w-screen-md">
+    <a href="/posts">
+      <h1 class="font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl">Latest Articles</h1>
+    </a>
+
+    <ul class="space-y-6">
+      {
+        posts.map(post => {
+          return (
+            <li>
+              <h3 class="text-base md:text-lg">
+                <a href={"/posts/" + post.slug}>{post.data.title}</a>
+              </h3>
+              <FormattedDate date={post.data.created_at} class="text-blue50" />
+            </li>
+          )
+        })
+      }
+    </ul>
+  </section>
+</Layout>

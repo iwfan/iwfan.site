@@ -3,8 +3,10 @@ import { getCollection } from "astro:content"
 import Layout from "../layouts/Layout.astro"
 import HeroSection from "../layouts/fragments/HeroSection.astro"
 import PortfolioGame from "../components/PortfolioGame/index.astro"
+import FormattedDate from "../components/FormattedDate.astro"
 
 const posts = await getCollection("posts", entry => true)
+posts.sort((a, b) => +b.data.created_at - +a.data.created_at)
 
 const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: string }> = [
   {
@@ -52,13 +54,19 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; color: str
   </section>
 
   <section class="container mx-auto xl:max-w-screen-xl mt-14">
-    <h1 class="text-text10 font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl">Latest Articles</h1>
-    <ul>
+    <a href="/posts">
+      <h1 class="font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl">Latest Articles</h1>
+    </a>
+
+    <ul class="space-y-6">
       {
         posts.map(post => {
           return (
             <li>
-              <a href={"/posts/" + post.slug}>{post.data.title}</a>
+              <h3 class="text-base md:text-lg">
+                <a href={"/posts/" + post.slug}>{post.data.title}</a>
+              </h3>
+              <FormattedDate date={post.data.created_at} class="text-blue50" />
             </li>
           )
         })

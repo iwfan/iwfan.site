@@ -21,21 +21,25 @@ const { Content, headings } = await entry.render()
 ---
 
 <Layout classes={["flex justify-between container mx-auto xl:max-w-screen-xl"]}>
-  <article class="prose prose-invert w-[920px] flex-none">
+  <article class="prose prose-invert w-[768px] max-w-screen-md flex-none mx-auto">
     <h1>{title}</h1>
     <Content />
   </article>
-  <aside class="w-[320px] flex-none">
-    <ul>
-      {
-        headings.map((item, idx) => {
-          return (
-            <li>
-              {item.text}-{item.depth}-{item.slug}
-            </li>
-          )
-        })
-      }
-    </ul>
-  </aside>
+  {
+    headings.length > 0 && (
+      <aside class="w-[320px] flex-none relative pt-10">
+        <ul class="fixed">
+          {headings
+            .filter(item => item.depth < 3)
+            .map(item => {
+              return (
+                <li class:list={[{ "indent-4": item.depth === 2 }]}>
+                  <a href={`#${item.slug}`}>{item.text}</a>
+                </li>
+              )
+            })}
+        </ul>
+      </aside>
+    )
+  }
 </Layout>
