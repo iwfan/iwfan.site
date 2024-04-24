@@ -1,7 +1,7 @@
 ---
 title: React 应用状态管理
 emoji: 🎰
-created_at: "2020-09-18"
+created_at: "2021-09-06"
 original: https://kentcdodds.com/blog/application-state-management-with-react
 ---
 
