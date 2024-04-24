@@ -4,6 +4,7 @@ const postsCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    emoji: z.string(),
     description: z.string().optional().nullable(),
     original: z.string().optional().nullable(),
     created_at: z.date({ coerce: true }),

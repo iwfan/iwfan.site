@@ -1,5 +1,6 @@
 ---
-title: 🛡️ The guardian of Server Component in Next.js
+title: The guardian of Server Component in Next.js
+emoji: 🛡️
 created_at: "2023-12-23"
 ---
 

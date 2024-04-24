@@ -1,5 +1,6 @@
 ---
-title: 🧶 XSS 大揭秘
+title: XSS 大揭秘
+emoji: 🧶
 created_at: "2020-08-15"
 original: https://excess-xss.com/
 ---
