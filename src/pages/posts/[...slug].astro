@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
+import FormattedDate from "../../components/FormattedDate.astro"
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts")
@@ -8,13 +9,13 @@ export async function getStaticPaths() {
   return posts.map(({ slug, data }) => {
     return {
       params: { slug },
-      props: { title: data.title },
+      props: { title: data.title, created_at: data.created_at, original: data.original },
     }
   })
 }
 
 const { slug } = Astro.params
-const { title } = Astro.props
+const { title, created_at, original } = Astro.props
 
 const entry = await getEntry("posts", slug)
 const { Content, headings } = await entry.render()
@@ -23,6 +24,18 @@ const { Content, headings } = await entry.render()
 <Layout classes={["flex justify-between container mx-auto xl:max-w-screen-xl"]}>
   <article class="prose prose-invert w-[768px] max-w-screen-md flex-none mx-auto">
     <h1>{title}</h1>
+    <p class="text-blue50">
+      ℹ️ 本文发布于<FormattedDate date={created_at} locale={"zh-cn"} />请注意时效性。{
+        original && (
+          <>
+            本文译自：
+            <a class="text-text30" href={original}>
+              原文链接
+            </a>
+          </>
+        )
+      }
+    </p>
     <Content />
   </article>
   {

@@ -3,23 +3,18 @@ import type { HTMLAttributes } from "astro/types"
 
 type Props = HTMLAttributes<"time"> & {
   date: Date
+  locale?: Intl.LocalesArgument
 }
 
-const { date, ...attrs } = Astro.props
+const { date, locale = "en-us", ...attrs } = Astro.props
 ---
 
 <time datetime={date.toISOString()} {...attrs}>
   {
-    date.toLocaleDateString("en-us", {
+    date.toLocaleDateString(locale, {
       year: "numeric",
       month: "long",
       day: "numeric",
     })
   }
 </time>
-
-<style>
-  time {
-    display: block;
-  }
-</style>

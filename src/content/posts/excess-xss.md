@@ -1,12 +1,12 @@
 ---
-title: Excess XSS
+title: 🧶 XSS 大揭秘
 created_at: "2020-08-15"
 original: https://excess-xss.com/
 ---
 
 # 第一章：综述
 
-## 何谓 XSS ?
+## 什么是 XSS ?
 
 XSS 全称是 `Cross-site scripting（跨站脚本攻击）`, 是一种网络攻击方式。它可以让攻击者在其他人的浏览器中执行恶意的 JavaScript 代码。从而达到攻击者不可告人的目的。
 
@@ -100,6 +100,8 @@ JavaScript 代码伪装成了本应由文字所构成的评论信息，但是由
 
 下图说明了攻击者是如何执行 XSS 攻击的：
 
+![How the example attack works](https://excess-xss.com/persistent-xss.png)
+
 1. 攻击者使用网站提供的一个表单提交了恶意代码到网站的数据库中。
 2. 受害者开始请求网站的页面。
 3. 网站将数据库中由攻击者提交的恶意代码包含在页面的响应中发送给受害者。
@@ -118,6 +120,8 @@ JavaScript 代码伪装成了本应由文字所构成的评论信息，但是由
 ## 反射性 XSS
 
 在反射性的 XSS 攻击中，恶意代码是受害者请求页面时 URL 中的一部分。然后，网站将这个 URL 中的恶意字符串包含在发回给用户的响应中。下图说明了这种情况。
+
+![Reflected XSS](https://excess-xss.com/reflected-xss.png)
 
 1. 攻击者设计了一个包含恶意字符串的 URL，并将其发送给受害者。
 2. 攻击者诱骗受害者从网站请求 URL。
@@ -138,6 +142,8 @@ JavaScript 代码伪装成了本应由文字所构成的评论信息，但是由
 ## 基于 DOM 的 XSS 攻击
 
 基于 DOM 的 XSS 是持久性 XSS 和反射性 XSS 的一种变种。在基于 DOM 的 XSS 攻击中，直到网站的 JavaScript 被执行，恶意字符串才会被受害者的浏览器解析。这种 XSS 攻击方式，比前两种更为隐蔽，且不以查找。下图说明了这种反射性 XSS 攻击的情况。
+
+![DOM-based XSS](https://excess-xss.com/dom-based-xss.png)
 
 1. 攻击者设计了一个包含恶意字符串的 URL，并将其发送给受害者。
 2. 攻击者诱骗受害者从网站请求 URL。
@@ -191,7 +197,13 @@ JavaScript 代码伪装成了本应由文字所构成的评论信息，但是由
 
 在一个网页中，用户输入可能被插入在许多不同的上下文(位置)中。对于每一种上下文，都必须遵循特定的规则，以保证用户输入的内容不会脱离上下文而被解释为恶意代码。以下是最常见的上下文。
 
-[Untitled Database](Excess%20XSS%2025d463345c544f55b5a0a7a03645ecd7/Untitled%20Database%209bc38af4edf54eeca99226253462809d.csv)
+| Context              | Example code                              |
+| :------------------- | :---------------------------------------- |
+| HTML element content | `<div>userInput</div> `                   |
+| HTML attribute value | `<input value="userInput">`               |
+| URL query value      | `http://example.com/?parameter=userInput` |
+| CSS value            | `color: userInput`                        |
+| JavaScript value     | `var name = "userInput"; `                |
 
 ### 为何上下文很重要
 
@@ -199,7 +211,11 @@ JavaScript 代码伪装成了本应由文字所构成的评论信息，但是由
 
 例如，如果网站在某一时刻将用户输入直接插入到 HTML 属性中，攻击者就可以通过以引号开始他的输入来注入一个恶意脚本，如下所示。
 
-[Untitled Database](Excess%20XSS%2025d463345c544f55b5a0a7a03645ecd7/Untitled%20Database%202bf0ec31fd6b49f1af17cbb43becadb6.csv)
+|                      |                                                        |
+| :------------------- | :----------------------------------------------------- |
+| **Application code** | `<input value="userInput">`                            |
+| **Malicious string** | `"><script>...</script><input value="`                 |
+| **Resulting code**   | `<input value=""><script>...</script><input value="">` |
 
 尽管可以通过简单地删除用户输入中的所有引号来防止 XSS 攻击，但这只限于在这个（html element content）上下文中。如果同样的输入被插入到另一个上下文中，结尾定界符就会不同，这样就有可能被注入。出于这个原因，安全输入处理总是需要根据插入用户输入的上下文来定制。
 
@@ -253,7 +269,12 @@ print "</html>"
 
 当使用 JavaScript 在客户端对用户输入进行编码时，有几种内置的方法和属性可以以上下文感知的方式自动对所有数据进行编码。
 
-[Untitled Database](Excess%20XSS%2025d463345c544f55b5a0a7a03645ecd7/Untitled%20Database%207a06f3df92004dddacb7de43f0ebd09b.csv)
+| Context              | Method/property                                                                |
+| :------------------- | :----------------------------------------------------------------------------- |
+| HTML element content | `node.textContent = userInput`                                                 |
+| HTML attribute value | `element.setAttribute(attribute, userInput) or element[attribute] = userInput` |
+| URL query value      | `window.encodeURIComponent(userInput)`                                         |
+| CSS value            | `element.style.property = userInput`                                           |
 
 上面提到的最后一个上下文（JavaScript Value）未包含在此列表中，因为 JavaScript 没有提供编码要包含在 JavaScript 源代码中的数据的内置方法。
 
