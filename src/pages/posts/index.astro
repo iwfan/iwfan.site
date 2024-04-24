@@ -1,38 +1,12 @@
 ---
-import { getCollection } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
-import FormattedDate from "../../components/FormattedDate.astro"
-
-const posts = await getCollection("posts", entry => true)
-posts.sort((a, b) => +b.data.created_at - +a.data.created_at)
+import PostList from "../../components/PostList.astro"
 ---
 
 <Layout title="All articles" desc="">
   <section class="container mx-auto xl:max-w-screen-md">
-    <a href="/posts">
-      <h1 class="font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl">Latest Articles</h1>
-    </a>
+    <h1 class="font-bold font-jost text-lg py-6 md:text-xl lg:text-2xl my-4">Articles</h1>
 
-    <ul class="space-y-6">
-      {
-        posts.map(post => {
-          return (
-            <li class="flex flex-col gap-2">
-              <div class="flex items-center gap-2">
-                <span class="text-lg md:text-xl w-6 flex items-center justify-center">{post.data.emoji}</span>
-                <a href={"/posts/" + post.slug}>
-                  <h3 class="text-base md:text-lg">{post.data.title}</h3>
-                </a>
-              </div>
-
-              <div class="flex items-start gap-1.5">
-                <span class="w-6" />
-                <FormattedDate date={post.data.created_at} class="text-blue50 text-sm" />
-              </div>
-            </li>
-          )
-        })
-      }
-    </ul>
+    <PostList />
   </section>
 </Layout>
