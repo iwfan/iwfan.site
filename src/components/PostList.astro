@@ -7,10 +7,12 @@ type Props = {
   filter?: (post: any, index: number) => boolean
 }
 
-const { filter } = Astro.props
+const { filter = () => true } = Astro.props
 const posts = await getCollection("posts")
-const paritalPosts = filter ? posts.filter(filter) : posts
+
+let paritalPosts = posts
 paritalPosts.sort((a, b) => +b.data.created_at - +a.data.created_at)
+paritalPosts = paritalPosts.filter(filter)
 ---
 
 <ul class="space-y-6">
