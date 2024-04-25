@@ -17,6 +17,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/typography": "^0.5.12",
     "astro": "^4.6.3",
+    "astro-font": "^0.0.80",
     "kaboom": "^3000.1.17",
     "sharp": "^0.33.3",
     "tailwindcss": "^3.4.3",
