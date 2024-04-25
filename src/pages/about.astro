@@ -2,27 +2,17 @@
 import Layout from "../layouts/Layout.astro"
 ---
 
-<Layout>
-  <article class="max-w-screen-md mx-auto font-sans">
-    <h1 class="font-jost text-3xl">About</h1>
-    <p>
-      Hello there! I'm iwfan, a passionate software engineer and an avid Neovim
-      enthusiast.
-    </p>
-    <p>
-      The technologies, services, and inspiration that helped me build this
-      website.
-    </p>
+<Layout title="About" desc="Things about me and this site.">
+  <section class="container mx-auto max-w-screen-md px-4 font-sans">
+    <h1 class="font-bold font-jost text-xl py-6 md:text-2xl lg:text-3xl my-4">About</h1>
+    <p>Hello there! I'm iwfan, a passionate software engineer and an avid Neovim enthusiast.</p>
+    <p>The technologies, services, and inspiration that helped me build this website.</p>
     <h3>Inspiration</h3>
     <p>My website’s design is a reflection of those who inspire me:</p>
     <ul>
       <li>
-        <a
-          class="mx-2 text-link"
-          href="https://www.figma.com/community/file/824810955262478067">
-          Ryan Warner
-        </a>
+        <a class="mx-2 text-link" href="https://www.figma.com/community/file/824810955262478067"> Ryan Warner </a>
       </li>
     </ul>
-  </article>
+  </section>
 </Layout>

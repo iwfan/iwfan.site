@@ -21,9 +21,9 @@ const entry = await getEntry("posts", slug)
 const { Content, headings } = await entry.render()
 ---
 
-<Layout classes={["flex justify-between container mx-auto xl:max-w-screen-xl"]}>
-  <article class="prose prose-invert w-[768px] max-w-screen-md flex-none mx-auto">
-    <h1>{title}</h1>
+<Layout title={title} classes={["flex justify-between container mx-auto xl:max-w-screen-xl px-4"]}>
+  <article class="prose prose-invert w-full max-w-screen-md flex-none mx-auto">
+    <h1 class="py-6 my-4">{title}</h1>
     <p class="text-blue50">
       ℹ️ 本文发布于<FormattedDate date={created_at} locale={"zh-cn"} />请注意文中内容的时效性。{
         original && (
@@ -40,7 +40,7 @@ const { Content, headings } = await entry.render()
   </article>
   {
     headings.length > 0 && (
-      <aside class="w-[320px] flex-none relative pt-10">
+      <aside class="hidden lg:block w-[320px] flex-none relative pt-10">
         <ul class="fixed">
           {headings
             .filter(item => item.depth < 3)
