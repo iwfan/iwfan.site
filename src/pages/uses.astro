@@ -1,0 +1,14 @@
+---
+import { getEntry } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+
+const entry = await getEntry("docs", "uses")
+const { Content } = await entry.render()
+---
+
+<Layout title="Uses" desc="List of things I use on a daily basis." classes={["container px-4 font-sans"]}>
+  <article class="prose prose-invert w-full max-w-screen-md flex-none mx-auto">
+    <h1 class="font-bold font-jost text-xl py-6 md:text-2xl lg:text-3xl my-4">Uses</h1>
+    <Content />
+  </article>
+</Layout>
