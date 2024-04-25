@@ -6,9 +6,6 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      fontFamily: {
-        jost: "Jost",
-      },
       colors: {
         glow10: "#B0FBBC",
         glow20: "#82F9A1",
