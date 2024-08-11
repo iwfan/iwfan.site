@@ -1,5 +1,7 @@
 # 王凡
 
+[English Version](https://iwfan.site/en/resume)
+
 [Github](https://github.com/iwfan) | [Telegram](https://t.me/iwfan) | [Email](iwfan@duck.com)
 
 **高级前端开发工程师**
@@ -119,7 +121,7 @@
 
 ## 教育经历
 
-太原大学 | 计算机工程系 | 应用电子技术 | 2013 年 9 月 ~ 2016 年 6 月
+[太原大学](https://www.tyu.edu.cn/index.htm) | 计算机工程系 | 应用电子技术 | 2013 年 9 月 ~ 2016 年 6 月
 
 ## 联系方式
 
