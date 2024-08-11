@@ -1,0 +1,13 @@
+---
+import { getEntry } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+
+const entry = await getEntry("docs", "resume_zh-cn")
+const { Content } = await entry.render()
+---
+
+<Layout title="王凡的个人简历" desc="王凡的个人简历" classes={["container px-4 font-sans"]}>
+  <article class="prose prose-invert w-full max-w-screen-md flex-none mx-auto">
+    <Content />
+  </article>
+</Layout>
