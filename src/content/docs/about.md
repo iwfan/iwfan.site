@@ -6,7 +6,7 @@ I'm looking for new remote job opportunities and a company that I can grow with.
 
 I have 8+ years of full-time software development experience. I'm familiar with modern web application development And I solid understanding of performance implications and scalability of code.
 
-Here is some frameworks or tools that I familiar with:
+Here are some frameworks or tools that I am familiar with:
 
 - Next.js / React / Redux / GraphQL / React-Query / Nuxt / Vue / Pinia
 
