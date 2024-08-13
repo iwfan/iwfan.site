@@ -6,7 +6,10 @@ const entry = await getEntry("docs", "resume")
 const { Content } = await entry.render()
 ---
 
-<Layout title="Resume" desc="iwfan's personal resume." classes={["container px-4 font-sans"]}>
+<Layout
+  title="Resume"
+  desc="iwfan's personal resume."
+  classes={["container mx-auto xl:max-w-screen-xl px-4 font-sans"]}>
   <article class="prose prose-invert w-full max-w-screen-md flex-none mx-auto">
     <Content />
   </article>

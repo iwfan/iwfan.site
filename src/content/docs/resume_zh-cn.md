@@ -1,6 +1,6 @@
 # 王凡
 
-[English Version](https://iwfan.site/en/resume)
+[PDF 文件](/resume/front-end-engineer_fan-wang.pdf) | [English Version](/en/resume)
 
 [Github](https://github.com/iwfan) | [Telegram](https://t.me/iwfan) | [Email](iwfan@duck.com)
 

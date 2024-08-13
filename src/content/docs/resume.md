@@ -1,6 +1,6 @@
 # Fan Wang(Ivan)
 
-[Chinese Version](https://iwfan.site/zh/resume)
+[PDF Version](/resume/front-end-engineer_ivan-wang.pdf) | [Chinese Version](/zh/resume)
 
 [Github](https://github.com/iwfan) | [Telegram](https://t.me/iwfan) | [Email](iwfan@duck.com)
 
