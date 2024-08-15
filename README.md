@@ -1,4 +1,3 @@
 # iwfan.site
 
-[x] placeholder-social.jpg
-[x] sitemap
+Hi there, this is my personal website repo. It's build with [Astro](https://astro.build).
