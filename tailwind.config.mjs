@@ -1,3 +1,4 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
 import typography from "@tailwindcss/typography"
 import aspectRatio from "@tailwindcss/aspect-ratio"
 
@@ -7,7 +8,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        jost: "Jost",
+        jost: ["Fredoka", "Adjusted Arial Fallback", ...defaultTheme.fontFamily.sans],
       },
       colors: {
         glow10: "#B0FBBC",
