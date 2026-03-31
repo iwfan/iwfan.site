@@ -26,6 +26,8 @@ export default {
         cyan10: "#1DA1F2",
         red10: "#D9534D",
         red20: "#EA4C89",
+        gold: "#c9a84c",
+        gold_light: "#e8c97a",
         border_light: "rgba(124, 201, 255, 0.41)",
         light: "rgba(130, 249, 161, 0.07)",
       },
