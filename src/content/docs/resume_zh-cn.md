@@ -27,7 +27,7 @@
 
 #### 前端开发工程师 / Flutter 工程师 | 2024 年 9 月 ~ 至今
 
-- Flutter App
+- Dex Wallet App
 
   项目简述：面向多链交易场景的移动端 Dex 应用，聚合多个合约平台的交易能力，为用户提供统一的链上交易入口。
 
@@ -39,7 +39,7 @@
 
   技术栈：Flutter / Dart / Go Router / rivepod / dio
 
-- Telegram 钱包应用
+- Telegram Wallet Mini App
 
   项目简述：面向 Telegram 生态用户的钱包应用，围绕链上资产管理与 Dex 交易场景提供轻量、流畅的移动端 Web 使用体验。
 
