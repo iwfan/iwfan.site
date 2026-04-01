@@ -1,12 +1,10 @@
-# 王凡
+# Ivan
 
-[PDF 文件](/resume/front-end-engineer_fan-wang.pdf) | [English Version](/en/resume)
+Telegram: @nat9527 | Email: iwfan@duck.com
 
-[Github](https://github.com/iwfan) | [Telegram](https://t.me/iwfan) | [Email](iwfan@duck.com)
+**Flutter 工程师 ｜ 前端开发工程师**
 
-**高级前端开发工程师**
-
-拥有多年前端开发经验，熟悉现代 Web 前端应用开发。对 JavaScript 生态系统和主流开源 Web 框架有深入理解，能够快速适应新技术栈。具备强大的问题解决能力和出色地跨团队协作经验，擅长架构设计和性能优化。
+拥有多年前端开发经验，熟悉现代 Web 前端应用开发，并具备 Flutter 移动端应用开发经验。对 JavaScript 生态系统、主流 Web 前端框架以及跨端应用开发有深入理解，能够快速适应不同技术栈与业务场景。具备强大的问题解决能力和出色的跨团队协作经验，擅长架构设计、性能优化与复杂功能落地。
 
 - 深入理解代码性能影响和可扩展性，能够设计并实现高效、稳定、可扩展的解决方案
 - 具备卓越的技术好奇心和自驱力，善于探索和学习新技术
@@ -15,7 +13,7 @@
 
 ## 技术技能
 
-![Dev Skills](https://skillicons.dev/icons?i=ts,react,nextjs,redux,astro,angular,vue,tailwind,html,css,apollo,graphql,neovim,bash,vscode,git,github,bun,cypress,docker,cloudflare,sentry,supabase,jenkins&perline=12)
+![Dev Skills](https://skillicons.dev/icons?i=flutter,ts,react,nextjs,redux,astro,vue,tailwind,html,css,apollo,graphql,neovim,bash,vscode,git,github,bun,cypress,docker,cloudflare,sentry,supabase,jenkins&perline=12)
 
 - 框架：Next.js / React / Astro / Hono / Vue / Vite / Vitest / Redux / React Query
 - 测试：Jest, Vitest, Cypress, React Testing Library
@@ -25,7 +23,7 @@
 
 ### 某交易所
 
-#### 前端开发工程师 / Flutter 工程师 | 2024 年 9 月 ~ 至今
+#### Flutter 工程师 | 2024 年 9 月 ~ 至今
 
 - Dex Wallet App
 
