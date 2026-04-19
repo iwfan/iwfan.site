@@ -62,17 +62,13 @@ body.resume-pdf-body {
 .resume-pdf-content h1 {
   font-size: 23pt;
   line-height: 1.1;
-  margin-bottom: 7px;
+  margin-bottom: 34px;
   letter-spacing: 0.02em;
 }
 
 .resume-pdf-content h1 + p {
-  display: none;
-}
-
-.resume-pdf-content h1 + p + p {
   font-size: 10pt;
-  color: var(--resume-muted);
+  /* color: var(--resume-muted); */
   margin-bottom: 8px;
 }
 
