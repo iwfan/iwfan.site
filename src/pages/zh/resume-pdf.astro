@@ -1,9 +1,9 @@
 ---
-import { getEntry } from "astro:content"
+import { getEntry, render } from "astro:content"
 import ResumePdfLayout from "../../layouts/ResumePdfLayout.astro"
 
 const entry = await getEntry("docs", "resume_zh-cn")
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <ResumePdfLayout title="王凡的个人简历" desc="王凡的个人简历 PDF 版本">

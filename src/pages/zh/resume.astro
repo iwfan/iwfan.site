@@ -1,9 +1,9 @@
 ---
-import { getEntry } from "astro:content"
+import { getEntry, render } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 
 const entry = await getEntry("docs", "resume_zh-cn")
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <Layout title="王凡的个人简历" desc="王凡的个人简历" classes={["container mx-auto xl:max-w-screen-xl px-4 font-sans"]}>

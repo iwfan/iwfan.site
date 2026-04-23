@@ -1,9 +1,9 @@
 ---
-import { getEntry } from "astro:content"
+import { getEntry, render } from "astro:content"
 import Layout from "../layouts/Layout.astro"
 
 const entry = await getEntry("docs", "uses")
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <Layout title="Uses" desc="List of things I use on a daily basis." classes={["container px-4 font-sans"]}>

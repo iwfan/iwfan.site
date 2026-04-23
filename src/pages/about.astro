@@ -1,9 +1,9 @@
 ---
-import { getEntry } from "astro:content"
+import { getEntry, render } from "astro:content"
 import Layout from "../layouts/Layout.astro"
 
 const entry = await getEntry("docs", "about")
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 
 <Layout title="About" desc="Things about me and this site." classes={["container mx-auto xl:max-w-screen-xl px-4"]}>

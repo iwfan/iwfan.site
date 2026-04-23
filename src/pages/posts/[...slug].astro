@@ -1,14 +1,14 @@
 ---
-import { getCollection, getEntry } from "astro:content"
+import { getCollection, getEntry, render } from "astro:content"
 import Layout from "../../layouts/Layout.astro"
 import FormattedDate from "../../components/FormattedDate.astro"
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts")
 
-  return posts.map(({ slug, data }) => {
+  return posts.map(({ id, data }) => {
     return {
-      params: { slug },
+      params: { slug: id },
       props: data,
     }
   })
@@ -18,7 +18,7 @@ const { slug } = Astro.params
 const { title, created_at, original } = Astro.props
 
 const entry = await getEntry("posts", slug)
-const { Content, headings } = await entry.render()
+const { Content, headings } = await render(entry)
 ---
 
 <Layout title={title} classes={["flex justify-between container mx-auto xl:max-w-screen-xl px-4"]}>

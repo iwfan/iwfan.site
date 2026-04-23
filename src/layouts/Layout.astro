@@ -20,7 +20,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
   <Head title={title} description={desc} />
   <body>
     <header>
-      <nav class="flex items-center justify-between container mx-auto px-4 py-8">
+      <div class="flex items-center justify-between container mx-auto px-4 py-8">
         <a href="/" title={site_title}>
           <img src="/favicon.svg" alt={site_title} width="36" height="36" />
         </a>
@@ -29,7 +29,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
             href="/posts"
             class:list={[
               "inline-block transition hover:text-glow20 u-underline",
-              { "text-glow20 u-underline-active": isActive("/blog") },
+              { "text-glow20 u-underline-active": isActive("/posts") },
             ]}>
             Blog
           </a>
@@ -42,7 +42,7 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
             About
           </a>
         </nav>
-      </nav>
+      </div>
     </header>
 
     <main style="min-height: calc(100vh - 200px);" class:list={classes}>
