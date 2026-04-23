@@ -35,7 +35,7 @@ const { Content, headings } = await render(entry)
         {title}
       </h1>
       <div class="flex items-center gap-3 text-sm text-text40">
-        <FormattedDate date={created_at} locale={"zh-cn"} class="font-jost" />
+        <FormattedDate date={created_at} locale={"zh-cn"} />
         {original && (
           <>
             <span class="opacity-30">·</span>
