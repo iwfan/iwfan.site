@@ -19,6 +19,7 @@
   --color-text10: #ecf8ff;
   --color-text20: #c9e2f0;
   --color-text30: #bbc6cc;
+  --color-text40: #8fa8b5;
   --color-blue10: #111a20;
   --color-blue15: #19252e;
   --color-blue20: #1c2c35;
@@ -30,10 +31,15 @@
   --color-red20: #ea4c89;
   --color-gold: #c9a84c;
   --color-gold_light: #e8c97a;
-  --color-border_light: rgba(124, 201, 255, 0.41);
-  --color-light: rgba(130, 249, 161, 0.07);
+  --color-border_light: rgba(124, 201, 255, 0.15);
+  --color-border_glow: rgba(130, 249, 161, 0.2);
+  --color-light: rgba(130, 249, 161, 0.05);
+  --color-surface: rgba(22, 34, 43, 0.8);
 
   --shadow-emanate: 3px 0 22px rgb(14 255 77 / 50%);
+  --shadow-glow-sm: 0 0 12px rgba(130, 249, 161, 0.15);
+  --shadow-glow-md: 0 0 30px rgba(130, 249, 161, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 html {
@@ -41,19 +47,31 @@ html {
   color-scheme: dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--color-text10);
 }
 
+/* ── Magic Pattern Background ── */
+/* https://www.magicpattern.design/tools/grid-background-pattern-generator */
+.magicpattern {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: repeat;
+  background-image: url("/magic-pattern.svg");
+}
+
 ::selection {
-  background: var(--color-blue50);
-  color: var(--color-text10);
+  background: rgba(130, 249, 161, 0.25);
+  color: var(--color-glow10);
 }
 
 a {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover {
@@ -64,6 +82,7 @@ a:active {
   color: var(--color-glow30);
 }
 
+/* ── Layout Grid ── */
 .layout-grid {
   --xl-size: 8rem;
   --lg-size: 8rem;
@@ -88,26 +107,13 @@ a:active {
   grid-column: md;
 }
 
-.layout-grid > .content-sm {
-  grid-column: sm;
-}
+.layout-grid > .content-sm { grid-column: sm; }
+.layout-grid > .content-md { grid-column: md; }
+.layout-grid > .content-lg { grid-column: lg; }
+.layout-grid > .content-xl { grid-column: xl; }
+.layout-grid > .content-full { grid-column: full; }
 
-.layout-grid > .content-md {
-  grid-column: md;
-}
-
-.layout-grid > .content-lg {
-  grid-column: lg;
-}
-
-.layout-grid > .content-xl {
-  grid-column: xl;
-}
-
-.layout-grid > .content-full {
-  grid-column: full;
-}
-
+/* ── Underline Effect ── */
 .u-underline::after {
   display: block;
   content: "";
@@ -125,6 +131,7 @@ a:active {
   width: 100%;
 }
 
+/* ── Highlight Effect ── */
 .u-highlight {
   margin: 0 -0.4em;
   padding: 0 0.4em;
@@ -139,4 +146,47 @@ a:active {
   text-shadow: 0 0 1em rgba(188, 251, 195, 0.3);
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+
+/* ── Glass Effect ── */
+.glass {
+  background: rgba(17, 26, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(124, 201, 255, 0.08);
+}
+
+/* ── Noise Texture Overlay ── */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section Divider ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(124, 201, 255, 0.15), transparent);
+}
+
+/* ── Glow Border ── */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(130, 249, 161, 0.2), transparent, rgba(94, 140, 167, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }

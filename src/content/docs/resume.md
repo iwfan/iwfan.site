@@ -8,7 +8,7 @@
 
 I'm looking for new remote job opportunities and a company that I can grow with. My last job was great, I built some great relationships and enjoyed it. Unfortunately there wasn't really room to grow and I've been lucky enough to take a bit of time off to explore my options.
 
-I have 8+ years of full-time software development experience. I'm familiar with modern web application development, able to quickly adapt to new technology stacks. Strong problem solving skills and excellent cross-team collaboration experience, good at architecture design and performance optimization.
+I have 10+ years of full-time software development experience. I'm familiar with modern web application development, able to quickly adapt to new technology stacks. Strong problem solving skills and excellent cross-team collaboration experience, good at architecture design and performance optimization.
 
 - Deep understanding of code performance impact and scalability, ability to design and implement efficient, stable, and scalable solutions.
 - Excellent technical curiosity and self-drive, good at exploring and learning new technologies

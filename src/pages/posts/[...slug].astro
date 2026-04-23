@@ -21,39 +21,59 @@ const entry = await getEntry("posts", slug)
 const { Content, headings } = await render(entry)
 ---
 
-<Layout title={title} classes={["flex justify-between container mx-auto xl:max-w-screen-xl px-4"]}>
+<Layout title={title} classes={["flex justify-between container mx-auto xl:max-w-screen-xl px-6 gap-12"]}>
   <article class="prose prose-invert w-full max-w-screen-md flex-none mx-auto">
-    <h1 class="py-6 my-4">{title}</h1>
-    <p class="text-blue50">
-      ℹ️ 本文发布于<FormattedDate date={created_at} locale={"zh-cn"} />请注意文中内容的时效性。{
-        original && (
+
+    <!-- Article Header -->
+    <header class="not-prose mb-12 pt-8">
+      <div class="flex items-center gap-2 text-xs font-mono text-text40 tracking-wider mb-5">
+        <a href="/posts" class="hover:text-glow20 transition-colors">Writing</a>
+        <span class="opacity-30">/</span>
+        <span class="opacity-60 truncate max-w-xs">{title}</span>
+      </div>
+      <h1 class="font-bold text-text10 leading-tight mb-5 text-2xl md:text-3xl lg:text-4xl">
+        {title}
+      </h1>
+      <div class="flex items-center gap-3 text-sm text-text40">
+        <FormattedDate date={created_at} locale={"zh-cn"} class="font-mono" />
+        {original && (
           <>
-            本文译自：
-            <a class="text-text30" href={original}>
-              原文链接
+            <span class="opacity-30">·</span>
+            <span>译自</span>
+            <a class="text-glow20/70 hover:text-glow20 transition-colors" href={original}>
+              原文 ↗
             </a>
           </>
-        )
-      }
-    </p>
+        )}
+      </div>
+      <div class="mt-6 h-px bg-gradient-to-r from-glow30/20 via-transparent to-transparent" />
+    </header>
+
     <Content />
   </article>
+
   {
     headings.length > 0 && (
-      <aside class="hidden lg:block w-[320px] flex-none relative pt-10">
-        <ul class="fixed">
-          {headings
-            .filter(item => item.depth < 3)
-            .map(item => {
-              return (
-                <li class:list={[{ "indent-4": item.depth === 2 }]}>
-                  <a class="text-text30 text-sm" href={`#${item.slug}`}>
+      <aside class="hidden lg:block w-[260px] flex-none relative pt-24">
+        <div class="sticky top-24">
+          <p class="text-[10px] font-mono tracking-[0.2em] uppercase text-text40 mb-4">Contents</p>
+          <ul class="space-y-1">
+            {headings
+              .filter(item => item.depth < 3)
+              .map(item => (
+                <li>
+                  <a
+                    class:list={[
+                      "block text-xs leading-relaxed py-1 transition-colors duration-150 hover:text-glow20",
+                      item.depth === 1 ? "text-text40" : "text-text40/60 pl-3 border-l border-white/[0.05]",
+                    ]}
+                    href={`#${item.slug}`}>
                     {item.text}
                   </a>
                 </li>
-              )
-            })}
-        </ul>
+              ))}
+          </ul>
+        </div>
       </aside>
     )
   }

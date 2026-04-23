@@ -4,7 +4,7 @@ I'm Ivan(iwfan), I'm from Xi'an Shaaxi, China and a passionate software engineer
 
 I'm looking for new remote job opportunities and a company that I can grow with. My last job was great, I built some great relationships and enjoyed it. Unfortunately there wasn't really room to grow and I've been lucky enough to take a bit of time off to explore my options.
 
-I have 8+ years of full-time software development experience. I'm familiar with modern web application development And I solid understanding of performance implications and scalability of code.
+I have 10+ years of full-time software development experience. I'm familiar with modern web application development And I solid understanding of performance implications and scalability of code.
 
 Here are some frameworks or tools that I am familiar with:
 

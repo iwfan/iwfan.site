@@ -49,27 +49,30 @@ const isActive = (href: string) => href === pathname || href === pathname.replac
       <slot />
     </main>
 
-    <footer class="font-jost text-text30 mt-32">
-      <div class="container mx-auto px-4 py-10">
-        <p class="text-sm flex items-center justify-center space-x-2">
-          <a href="/" title={site_title}>
-            <img src="/flames/colored-flame.svg" alt={site_title} width="13" height="13" />
-          </a>
-          <span>
-            Copyright © <time>{new Date().getFullYear()}</time>
-            <a class="hover:text-glow20" href={`mailto:${author_email}`}>
-              <strong>iwfan</strong>.
+    <footer class="mt-32 border-t border-white/[0.04]">
+      <div class="container mx-auto px-6 py-10">
+        <div class="flex items-center justify-center gap-4">
+          <div class="section-divider flex-1 max-w-24" />
+          <p class="text-xs flex items-center gap-2 text-text40 font-mono tracking-wider">
+            <a href="/" title={site_title} class="hover:text-glow20 transition-colors">
+              <img src="/flames/colored-flame.svg" alt={site_title} width="12" height="12" class="inline" />
             </a>
-          </span>
-          <a
-            class="hover:text-glow20"
-            target="_blank"
-            title="Attribution 4.0 International"
-            href="https://creativecommons.org/licenses/by/4.0/"
-            rel="noreferrer">
-            <em>CC BY 4.0</em>
-          </a>
-        </p>
+            <span>©<time>{new Date().getFullYear()}</time></span>
+            <a class="hover:text-glow20 transition-colors" href={`mailto:${author_email}`}>
+              iwfan
+            </a>
+            <span class="opacity-30">·</span>
+            <a
+              class="hover:text-glow20 transition-colors opacity-60 hover:opacity-100"
+              target="_blank"
+              title="Attribution 4.0 International"
+              href="https://creativecommons.org/licenses/by/4.0/"
+              rel="noreferrer">
+              CC BY 4.0
+            </a>
+          </p>
+          <div class="section-divider flex-1 max-w-24" />
+        </div>
       </div>
     </footer>
   </body>
