@@ -9,9 +9,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
-    "astro": "^6.1.9"
+    "@astrojs/cloudflare": "^13.2.0",
+    "astro": "^6.1.9",
+    "wrangler": "^4.84.1"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }
