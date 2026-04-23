@@ -74,27 +74,21 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; accent: st
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
       {
-        LATEST_WORKS.map((work, i) => (
+        LATEST_WORKS.map(work => (
           <a
             href={work.link}
             target={work.link.startsWith("http") ? "_blank" : undefined}
             rel={work.link.startsWith("http") ? "noreferrer" : undefined}
-            class="group relative flex items-start gap-4 p-5 rounded-xl bg-blue20 border border-white/[0.04] hover:border-white/[0.08] transition-colors hover:bg-blue30 overflow-hidden"
+            class="group relative flex items-start gap-4 p-5 rounded-xl bg-blue20 border border-white/[0.04] hover:border-white/[0.08] transition-colors hover:bg-blue30 overflow-hidden">
 
-            <!-- Accent glow on hover -->
+            <!-- Left accent bar -->
             <div
-              class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={`background: radial-gradient(ellipse 60% 60% at 0% 0%, ${work.accent}08, transparent)`}
-            />
-
-            <!-- Left accent dot -->
-            <div
-              class="absolute top-5 left-0 w-[3px] h-8 rounded-r-full transition-all duration-300 group-hover:h-12 group-hover:opacity-100 opacity-50"
+              class="absolute top-5 left-0 w-[3px] h-8 rounded-r-full opacity-50 group-hover:opacity-100 transition-opacity"
               style={`background: ${work.accent};`}
             />
 
             <!-- Icon -->
-            <div class="flex-none w-10 h-10 rounded-lg flex items-center justify-center bg-blue35/80 border border-white/[0.06] overflow-hidden">
+            <div class="flex-none w-10 h-10 rounded-lg flex items-center justify-center bg-blue30 border border-white/[0.06] overflow-hidden">
               <img src={work.icon} alt={work.name} width="24" height="24" class="object-contain" />
             </div>
 
@@ -104,7 +98,7 @@ const LATEST_WORKS: Array<{ name: string; link: string; desc: string; accent: st
                 <h3 class="font-medium text-text10 text-sm group-hover:text-white transition-colors duration-200">
                   {work.name}
                 </h3>
-                <span class="text-text40 opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5 text-xs">↗</span>
+                <span class="text-text40 opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span>
               </div>
               <p class="text-text40 text-xs leading-relaxed line-clamp-2">{work.desc}</p>
             </div>

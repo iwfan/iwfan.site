@@ -25,7 +25,7 @@ paritalPosts = paritalPosts.filter(filter)
             <div class="absolute left-0 top-3 bottom-3 w-[2px] bg-glow30/0 group-hover:bg-glow30/60 rounded-full" />
 
             <!-- Number / Emoji -->
-            <span class="flex-none text-sm w-7 text-center text-text40 group-hover:text-glow20 font-mono">
+            <span class="flex-none text-sm w-7 text-center text-text40 group-hover:text-glow20 font-jost">
               {post.data.emoji ?? <span class="opacity-30">{String(i + 1).padStart(2, "0")}</span>}
             </span>
 
@@ -35,7 +35,7 @@ paritalPosts = paritalPosts.filter(filter)
             </span>
 
             <!-- Date -->
-            <FormattedDate date={post.data.created_at} class="flex-none text-text40 text-xs font-mono" />
+            <FormattedDate date={post.data.created_at} class="flex-none text-text40 text-xs font-jost" />
           </a>
         </li>
       )
